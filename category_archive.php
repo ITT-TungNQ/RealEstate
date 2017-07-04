@@ -7,14 +7,11 @@
     <body>
         <div class="container">
             <div class="box_wrapper">
-                <div id="preloader">
-                    <div id="status">&nbsp;</div>
-                </div>
                 <?php include("include/menu.php"); ?>
                 <?php include("include/home_slider.php"); ?>
                 <section id="contentbody">
                     <div class="row">
-                        <?php include("include/home_content.php"); ?>
+                        <?php include("include/category_content.php"); ?>
                     </div>
                 </section>
                 <?php include("include/footer.php"); ?>

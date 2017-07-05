@@ -201,7 +201,7 @@ if (isset($change_info_msg)) {
                                                                     </div>        
                                                                 </div>';
                                     }
-                                    echo '          </div>
+                                    echo '                  </div>
                                                         </div>
                                                         <div class="modal-footer">
                                                             <input type="hidden" name="userID" value="' . $user->getUserID() . '">

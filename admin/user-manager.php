@@ -166,9 +166,10 @@ if (isset($change_info_msg)) {
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                </div>
-                                                                
-                                                                <div class="widget-box">
+                                                                </div>';
+                                                               
+                                    if (in_array(Constants::DISTRIBUTION_USER_RIGHTS, $_SESSION['user_role'])) {
+                                        echo '                  <div class="widget-box">
                                                                     <div class="widget-title">
                                                                         <span class="icon">
                                                                             <i class="icon-wrench"></i>
@@ -198,8 +199,9 @@ if (isset($change_info_msg)) {
                                                                             </div>
                                                                         </div>
                                                                     </div>        
-                                                                </div>
-                                                            </div>
+                                                                </div>';
+                                    }
+                                    echo '          </div>
                                                         </div>
                                                         <div class="modal-footer">
                                                             <input type="hidden" name="userID" value="' . $user->getUserID() . '">

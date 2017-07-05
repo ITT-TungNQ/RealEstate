@@ -12,6 +12,7 @@ class Constants {
     const CHANGE_USER_STATE = 8;
     const ONLINE_SUPPORT = 9;
     const CHANGE_USER_PWD = 10;
+    const MANAGER_ADV = 11;
     const SUPER_ADMIN = 1;
 
 }

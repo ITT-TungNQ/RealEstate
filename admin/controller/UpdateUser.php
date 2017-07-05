@@ -177,17 +177,39 @@ if (isset($inputChangeInfo)) {
     $inputUserID = filter_input(INPUT_POST, 'userID');
     $inputUserLevel = filter_input(INPUT_POST, 'user_level' . $inputUserID);
     
+    // Có tham số cập nhật quyền --> check xem user được dùng không
+    if(isset($inputUserLevel)) {
+        checkRole(Constants::DISTRIBUTION_USER_RIGHTS);
+    }
+    
     if (isset($inputPwd1) && !empty($inputPwd1) && $inputPwd1 != $inputPwd2) {
         setcookie("change_info_msg", "Xác nhận mật khẩu không trùng khớp", time() + 3600, '/RealEstate/admin/user-manager.php');
         header("location: http://192.168.1.220:8080/RealEstate/admin/user-manager.php");
     } else {
         $conn = getConnection();
         $sql = "UPDATE User "
-                . "SET UserLevelID = '$inputUserLevel' ";
+                . "SET ";
+        
+        if (isset($inputUserLevel)) {
+            $sql .= "UserLevelID = '$inputUserLevel' "; 
+        } else {
+            if (!isset($inputPwd1) || empty($inputPwd1)) {
+                // Về trang quản lý:
+                setcookie("change_info_msg", "Không có gì thay đổi", time() + 3600, "/RealEstate/admin/user-manager.php");
+                setcookie("user_modal", "editAlert".$inputUserID, time() + 3600, "/RealEstate/admin/user-manager.php");
+            
+                closeConnect($conn);
+                header("location: http://192.168.1.220:8080/RealEstate/admin/user-manager.php");
+                exit();
+            }
+        }
         
         if (isset($inputPwd1) && !empty($inputPwd1)) {
             $inputPwd1 = mysqli_real_escape_string($conn, $inputPwd1);
-            $sql .= ", Password = '" . sha1($inputPwd1) . "' ";
+            if ($inputUserLevel) {
+                $sql .= ",";
+            }
+            $sql .= " Password = '" . sha1($inputPwd1) . "' ";
         }
         
         $sql .= "WHERE UserID = '$inputUserID';";

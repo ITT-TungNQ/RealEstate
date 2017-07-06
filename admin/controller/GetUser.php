@@ -31,7 +31,7 @@ function getAllUser() {
 }
 
 function getUserByID($userID) {
-    $conn = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
+    $conn = getConnection();
     $user;
     $sql = "SELECT UserID, user.UserLevelID as UserLevelID, Username, FirstName, LastName, MiddleName, Email, ProfileImageURL, Enable, OnLine, LastLogin, DATE_FORMAT(DOB, '%d/%m/%Y') as DOB, UserLevelName 
             FROM user, user_level  

@@ -1,7 +1,7 @@
 <?php
 // ========== start - CHECK LOGIN AND ROLE ==========
-require_once('./util/Constant.php');
-require ('./include/check-role.php');
+require_once (__DIR__) . '/util/Constant.php';
+require_once (__DIR__) . '/include/check-role.php';
 checkRole(Constants::CREATE_NEWS);
 // ========== end - CHECK LOGIN AND ROLE ==========
 

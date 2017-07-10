@@ -3,31 +3,31 @@
         2017 &copy; ITT Team Admin. Brought to you by <a href="https://facebook.com/100001696925710">TùngNQ</a> </div>
 </div>
 
-<script src="js/excanvas.min.js"></script> 
-<script src="js/jquery.min.js"></script> 
-<script src="js/jquery.ui.custom.js"></script> 
-<script src="js/bootstrap.min.js"></script> 
-<script src="js/jquery.flot.min.js"></script> 
-<script src="js/jquery.flot.resize.min.js"></script> 
-<script src="js/jquery.peity.min.js"></script> 
-<script src="js/matrix.js"></script> 
-<script src="js/fullcalendar.min.js"></script> 
-<script src="js/matrix.calendar.js"></script> 
-<script src="js/matrix.chat.js"></script> 
-<script src="js/jquery.validate.js"></script> 
-<script src="js/matrix.form_validation.js"></script> 
-<script src="js/jquery.wizard.js"></script> 
-<script src="js/jquery.uniform.js"></script> 
-<script src="js/select2.min.js"></script> 
-<script src="js/matrix.popover.js"></script> 
-<script src="js/jquery.dataTables.min.js"></script> 
-<script src="js/matrix.tables.js"></script>
+<script src="http://192.168.1.220:8080/RealEstate/admin/js/excanvas.min.js"></script> 
+<script src="http://192.168.1.220:8080/RealEstate/admin/js/jquery.min.js"></script> 
+<script src="http://192.168.1.220:8080/RealEstate/admin/js/jquery.ui.custom.js"></script> 
+<script src="http://192.168.1.220:8080/RealEstate/admin/js/bootstrap.min.js"></script> 
+<script src="http://192.168.1.220:8080/RealEstate/admin/js/jquery.flot.min.js"></script> 
+<script src="http://192.168.1.220:8080/RealEstate/admin/js/jquery.flot.resize.min.js"></script> 
+<script src="http://192.168.1.220:8080/RealEstate/admin/js/jquery.peity.min.js"></script> 
+<script src="http://192.168.1.220:8080/RealEstate/admin/js/matrix.js"></script> 
+<script src="http://192.168.1.220:8080/RealEstate/admin/js/fullcalendar.min.js"></script> 
+<script src="http://192.168.1.220:8080/RealEstate/admin/js/matrix.calendar.js"></script> 
+<script src="http://192.168.1.220:8080/RealEstate/admin/js/matrix.chat.js"></script> 
+<script src="http://192.168.1.220:8080/RealEstate/admin/js/jquery.validate.js"></script> 
+<script src="http://192.168.1.220:8080/RealEstate/admin/js/matrix.form_validation.js"></script> 
+<script src="http://192.168.1.220:8080/RealEstate/admin/js/jquery.wizard.js"></script> 
+<script src="http://192.168.1.220:8080/RealEstate/admin/js/jquery.uniform.js"></script> 
+<script src="http://192.168.1.220:8080/RealEstate/admin/js/select2.min.js"></script> 
+<script src="http://192.168.1.220:8080/RealEstate/admin/js/matrix.popover.js"></script> 
+<script src="http://192.168.1.220:8080/RealEstate/admin/js/jquery.dataTables.min.js"></script> 
+<script src="http://192.168.1.220:8080/RealEstate/admin/js/matrix.tables.js"></script>
 
 <!-- START: FORM DATEPICKER -->
-<script src="js/bootstrap-colorpicker.js"></script>
-<script src="js/bootstrap-datepicker.js"></script>
-<script src="js/masked.js"></script>  
-<script src="js/matrix.form_common.js"></script>
+<script src="http://192.168.1.220:8080/RealEstate/admin/js/bootstrap-colorpicker.js"></script>
+<script src="http://192.168.1.220:8080/RealEstate/admin/js/bootstrap-datepicker.js"></script>
+<script src="http://192.168.1.220:8080/RealEstate/admin/js/masked.js"></script>  
+<script src="http://192.168.1.220:8080/RealEstate/admin/js/matrix.form_common.js"></script>
 <!-- END: FORM DATEPICKER -->
 <script type="text/javascript">
     // This function is called from the pop-up menus to transfer to

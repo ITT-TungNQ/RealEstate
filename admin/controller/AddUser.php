@@ -1,15 +1,13 @@
 <?php
 
-include("../util/AccessDatabase.php");
-include("../util/Constant.php");
-include("../util/Utils.php");
+require_once (__DIR__) . '/../util/AccessDatabase.php';
+require_once (__DIR__) . '/../util/Utils.php';
 
 // ========== start - CHECK LOGIN AND ROLE ==========
-require_once('../util/Constant.php');
-require ('../include/check-role.php');
+require_once (__DIR__) . '/../util/Constant.php';
+require_once (__DIR__) . '/../include/check-role.php';
 checkRole(Constants::CREATE_NEWS);
 // ========== end - CHECK LOGIN AND ROLE ==========
-
 // GET NEW USER DATA FROM CLIENT:
 if (isset($_POST['new-user'])) {
     $conn = getConnection();
@@ -33,8 +31,8 @@ if (isset($_POST['new-user'])) {
     $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
     $count = mysqli_num_rows($result);
     if ($count >= 1) {
-        // username exist
-        // CHECK DADA IF FAILED
+// username exist
+// CHECK DADA IF FAILED
         setcookie('username', $my_username, time() + 36000, '/RealEstate/admin');
         setcookie('username_err', "Tài khoản đã tồn tại trong hệ thống", time() + 36000, '/RealEstate/admin');
         setcookie('last_name', $last_name, time() + 36000, '/RealEstate/admin');
@@ -59,7 +57,7 @@ if (isset($_POST['new-user'])) {
         $temporary = explode(".", $_FILES["profile_picture"]["name"]);
         $file_extension = end($temporary);
 
-        // We need to check for image format and size again, because client-side code can be altered
+// We need to check for image format and size again, because client-side code can be altered
         if ((($_FILES["profile_picture"]["type"] == "image/png") ||
                 ($_FILES["profile_picture"]["type"] == "image/jpg") ||
                 ($_FILES["profile_picture"]["type"] == "image/jpeg") ) && in_array($file_extension, $validextensions)) {
@@ -94,10 +92,10 @@ if (isset($_POST['new-user'])) {
   				VALUES ($user_level, 
   				'$my_username', '$my_password', '$first_name', '$middle_name', '$last_name', STR_TO_DATE('$user_dob', '%d/%m/%Y'), '$user_email','$profile_picture', $enable)";
     if (mysqli_query($conn, $sql)) {
-        // echo "Records inserted successfully.";
+//        echo "Records inserted successfully.";
         header("location: http://192.168.1.220:8080/RealEstate/admin/user-manager.php");
     } else {
-        // echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+//        echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
         setcookie('insert_err', 'SQL ERROR: Đã xảy ra lỗi khi thêm tài khoản mới.', time() + 36000, '/RealEstate/admin');
         header("Location: http://192.168.1.220:8080/RealEstate/admin/add-new-user.php");
     }

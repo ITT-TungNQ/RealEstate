@@ -13,8 +13,20 @@ class Constants {
     const ONLINE_SUPPORT = 9;
     const CHANGE_USER_PWD = 10;
     const MANAGER_ADV = 11;
+
+    /* === USER SUPER ADMIN === */
     const SUPER_ADMIN = 1;
 
+    /* === NEWS LOG TYPE === */
+    const LOG_CREATING  = 1;
+    const LOG_UPDATING = 2;
+    const LOG_CHANGE_STATE = 3;
+    
+    /* === NEWS STATE ===*/
+    const PENDDING = 0;
+    const ENABLE = 1;
+    const DISABLE = 2;
+    const DETELED = 3;
 }
 
 ?>

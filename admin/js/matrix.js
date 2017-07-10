@@ -5,6 +5,7 @@ $(document).ready(function () {
         return false;
     });
 
+    // === Sidebar navigation === //
     $('.submenu > a').click(function (e)
     {
         e.preventDefault();

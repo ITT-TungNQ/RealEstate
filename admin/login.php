@@ -5,11 +5,13 @@ session_start();
 $msg = '&nbsp;';
 if (isset($_SESSION['login_user']['FirstName'])) {
     header("location: http://192.168.1.220:8080/RealEstate/admin/index.php");
+    exit();
 } else {
     $my_username = filter_input(INPUT_COOKIE, 'logged_username');
     $my_password = filter_input(INPUT_COOKIE, 'logged_pwd');
     if (isset($my_username) && isset($my_password)) {
         doLoggin($my_username, $my_password);
+        exit();
     }
 }
 
@@ -90,7 +92,7 @@ $isRecoverPwd = false;
 if (isset($btnRecoverPwd) && !empty($inputUsername) && !empty($inputEmail)) {
     require './util/Utils.php';
     $new_pwd = (new Utils())->pwdGenerate();
-    
+
     $isRecoverPwd = true;
     $conn = getConnection();
     $my_username = mysqli_real_escape_string($conn, $inputUsername);

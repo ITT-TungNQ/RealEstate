@@ -1,11 +1,11 @@
 <?php
 
-include("../util/AccessDatabase.php");
-include("../util/Constant.php");
-include("../util/Utils.php");
+require_once (__DIR__) . '/../util/AccessDatabase.php';
+require_once (__DIR__) . '/../util/Constant.php';
+require_once (__DIR__) . '/../util/Utils.php';
 
 // ========== start - CHECK LOGIN AND ROLE ==========
-require ('../include/check-role.php');
+require_once (__DIR__) . '/../include/check-role.php';
 // ========== end - CHECK LOGIN AND ROLE ==========
 
 /* ========== Deactivate user ========== */
@@ -27,7 +27,7 @@ if (isset($_POST['deactivate-user'])) {
         closeConnect($conn);
         header("location: http://192.168.1.220:8080/RealEstate/admin/user-manager.php");
     } else {
-        header("location: http://192.168.1.220:8080/RealEstate/admin/");
+        header("location: http://192.168.1.220:8080/RealEstate/admin/page.php");
     }
 
     exit();
@@ -176,12 +176,12 @@ if (isset($inputChangeInfo)) {
     $inputPwd2 = filter_input(INPUT_POST, 'pwd2');
     $inputUserID = filter_input(INPUT_POST, 'userID');
     $inputUserLevel = filter_input(INPUT_POST, 'user_level' . $inputUserID);
-    
+
     // Có tham số cập nhật quyền --> check xem user được dùng không
-    if(isset($inputUserLevel)) {
+    if (isset($inputUserLevel)) {
         checkRole(Constants::DISTRIBUTION_USER_RIGHTS);
     }
-    
+
     if (isset($inputPwd1) && !empty($inputPwd1) && $inputPwd1 != $inputPwd2) {
         setcookie("change_info_msg", "Xác nhận mật khẩu không trùng khớp", time() + 3600, '/RealEstate/admin/user-manager.php');
         header("location: http://192.168.1.220:8080/RealEstate/admin/user-manager.php");
@@ -189,21 +189,21 @@ if (isset($inputChangeInfo)) {
         $conn = getConnection();
         $sql = "UPDATE User "
                 . "SET ";
-        
+
         if (isset($inputUserLevel)) {
-            $sql .= "UserLevelID = '$inputUserLevel' "; 
+            $sql .= "UserLevelID = '$inputUserLevel' ";
         } else {
             if (!isset($inputPwd1) || empty($inputPwd1)) {
                 // Về trang quản lý:
                 setcookie("change_info_msg", "Không có gì thay đổi", time() + 3600, "/RealEstate/admin/user-manager.php");
-                setcookie("user_modal", "editAlert".$inputUserID, time() + 3600, "/RealEstate/admin/user-manager.php");
-            
+                setcookie("user_modal", "editAlert" . $inputUserID, time() + 3600, "/RealEstate/admin/user-manager.php");
+
                 closeConnect($conn);
                 header("location: http://192.168.1.220:8080/RealEstate/admin/user-manager.php");
                 exit();
             }
         }
-        
+
         if (isset($inputPwd1) && !empty($inputPwd1)) {
             $inputPwd1 = mysqli_real_escape_string($conn, $inputPwd1);
             if ($inputUserLevel) {
@@ -211,22 +211,22 @@ if (isset($inputChangeInfo)) {
             }
             $sql .= " Password = '" . sha1($inputPwd1) . "' ";
         }
-        
+
         $sql .= "WHERE UserID = '$inputUserID';";
         if (mysqli_query($conn, $sql)) {
             if (mysqli_affected_rows($conn) == 1) {
                 setcookie("change_info_msg", "Cập nhật thành công", time() + 3600, "/RealEstate/admin/user-manager.php");
-                setcookie("user_modal", "editAlert".$inputUserID, time() + 3600, "/RealEstate/admin/user-manager.php");
+                setcookie("user_modal", "editAlert" . $inputUserID, time() + 3600, "/RealEstate/admin/user-manager.php");
             } else {
                 setcookie("change_info_msg", "Không có gì thay đổi", time() + 3600, "/RealEstate/admin/user-manager.php");
-                setcookie("user_modal", "editAlert".$inputUserID, time() + 3600, "/RealEstate/admin/user-manager.php");
+                setcookie("user_modal", "editAlert" . $inputUserID, time() + 3600, "/RealEstate/admin/user-manager.php");
             }
         } else {
             setcookie("change_info_msg", "ERROR: Could not able to execute $sql.", time() + 3600, "/RealEstate/admin/user-manager.php");
-            setcookie("user_modal", "editAlert".$inputUserID, time() + 3600, "/RealEstate/admin/user-manager.php");
+            setcookie("user_modal", "editAlert" . $inputUserID, time() + 3600, "/RealEstate/admin/user-manager.php");
             echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
         }
-        
+
         closeConnect($conn);
         header("location: http://192.168.1.220:8080/RealEstate/admin/user-manager.php");
         exit();

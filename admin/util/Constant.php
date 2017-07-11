@@ -27,6 +27,9 @@ class Constants {
     const ENABLE = 1;
     const DISABLE = 2;
     const DETELED = 3;
+    
+    /* === DIRECTION === */
+    public static $DIRECTION = array('Liên hệ', "Đông", "Tây", "Nam", "Bắc", "Đông-Bắc", "Tây-Bắc", "Đông-Nam", "Tây-Nam");
 }
 
 ?>

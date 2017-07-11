@@ -5,7 +5,7 @@ require_once ('./include/check-role.php');
 checkRole(Constants::CHANGE_NEWS_STATE);
 // ========== end - CHECK LOGIN AND ROLE ==========
 
-
+require_once './util/Utils.php';
 require_once './controller/dao/NewsDAO.php';
 $listNews = getNewsBySate(Constants::PENDDING);
 
@@ -61,7 +61,30 @@ if (isset($cookieModal)) {
                             </thead>
                             <tbody>
                                 <?php
+                                $utils = new Utils();
+                                $tmpDirection = Constants::$DIRECTION;
                                 foreach ($listNews as $news) {
+                                    $objContact = json_decode($news->getContact());
+                                    $ownerName = $objContact->{'owner_name'};
+                                    $phoneNumber = $objContact->{'phone_number'};
+                                    if (isset($objContact->{'email'})) {
+                                        $email = $objContact->{'email'};
+                                    } else {
+                                        $email = '';
+                                    }
+                                    
+                                    $hireOrSell = '';
+                                    if ($news->getHire()) {
+                                        $hireOrSell = 'Tin cho thuê';
+                                    } else {
+                                        $hireOrSell = 'Tin đăng bán';
+                                    }
+                                    
+                                    $rooms = 'Liên hệ';
+                                    if ($news->getRooms() > 0) {
+                                        $rooms = $news->getRooms();
+                                    }
+                                    
                                     echo '<tr>';
                                     echo '<td>' . $news->getTitle() . '</td>';
 
@@ -79,13 +102,94 @@ if (isset($cookieModal)) {
                                                     <i class="icon-eye-open"></i>
                                                 </a>
                                             </div>';
-                                    echo '  <div id="viewAlert' . $news->getNewsId() . '" class="modal hide">
+                                    echo '  <div id="viewAlert' . $news->getNewsId() . '" class="modal info hide">
                                                 <div class="modal-header">
                                                     <button data-dismiss="modal" class="close" type="button">×</button>
-                                                    <h3 style="font-size: 20px;">CHI TIẾT BẢN TIN</h3>
+                                                    <h3>CHI TIẾT BẢN TIN</h3>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <p style="font-size: 14px;">HIỆN CHI TIẾT bản tin <b>' . $news->getDescription() . '</b> được đưa lên trang chủ</p>
+                                                <p><b>' . $news->getTitle() . '</b></p>
+                                                    <div class="row-fluid">
+                                                        <div class="span6 news-details-image" style="background-image: url(\'' . $news->getIllustrationURL() . '\')">
+                                                        </div>
+
+                                                        <div class="span6">
+                                                            <div>
+                                                                <label class="span4 news-details-label">Loại tin: </label>
+                                                                <label class="span8">'. $hireOrSell . '</label>
+                                                            </div>
+                                                            <div>
+                                                                <label class="span4 news-details-label">Loại nhà đất: </label>
+                                                                <label class="span8">'. $news->getNewTypeName(). '</label>
+                                                            </div>
+                                                            <div>
+                                                                <label class="span4 news-details-label">Khu vực: </label>
+                                                                <label class="span8">'. $news->getLocationName(). '</label>
+                                                            </div>
+                                                            <div>
+                                                                <label class="span4 news-details-label">Diện tích: </label>
+                                                                <label class="span8">'. $news->getAcreage(). ' m<sup>2</sup></label>
+                                                            </div>
+                                                            <div>
+                                                                <label class="span4 news-details-label">Giá bán: </label>
+                                                                <label class="span8">'. $utils->toStringMoney($news->getPrice()) . '</label>
+                                                            </div>
+                                                            <div>
+                                                                <label class="span4 news-details-label">Cập nhật: </label>
+                                                                <label class="span8">'. $news->getLastUpdated() . '</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row-fluid">
+                                                        <div class="span12">
+                                                            <p class="news-details-des">' . $news->getDescription() . '</p>
+                                                            <p class="news-details">' . $news->getDetails() . '</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row-fluid">
+                                                        <div class="span6">
+                                                            <div class="widget-box">
+                                                                <div class="widget-title"> <span class="icon"> <i class="icon-list"></i> </span>
+                                                                  <h5>Liên hệ</code></h5>
+                                                                </div>
+                                                                <div class="widget-content">
+                                                                    <div class="form-horizontal">
+                                                                        <div class="control-group">
+                                                                            <label class="span4 news-details-label">Người bán: </label>
+                                                                            <label class="span8">'. $ownerName . '</label>
+                                                                        </div>
+                                                                        <div class="control-group">
+                                                                            <label class="span4 news-details-label">Điện thoại: </label>
+                                                                            <label class="span8">'. $phoneNumber . '</label>
+                                                                        </div>
+                                                                        <div class="control-group">
+                                                                            <label class="span4 news-details-label">Email: </label>
+                                                                            <label class="span8">'. $email . '</label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="span6">
+                                                            <div class="widget-box">
+                                                                <div class="widget-title"> <span class="icon"> <i class="icon-list"></i> </span>
+                                                                  <h5>Thông tin khác</code></h5>
+                                                                </div>
+                                                                <div class="widget-content">
+                                                                    <div class="form-horizontal">
+                                                                        <div class="control-group">
+                                                                            <label class="span4 news-details-label">Số phòng: </label>
+                                                                            <label class="span8">'. $rooms . '</label>
+                                                                        </div>
+                                                                        <div class="control-group">
+                                                                            <label class="span4 news-details-label">Hướng nhà: </label>
+                                                                            <label class="span8">'. $tmpDirection[$news->getDirection()] . '</label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <div class="modal-footer"> 
                                                     <a data-dismiss="modal" class="btn btn-info" href="">Đóng</a>
@@ -98,13 +202,44 @@ if (isset($cookieModal)) {
                                                 </a>
                                             </div>';
                                     echo '
-                                            <div id="approvalAlert' . $news->getNewsId() . '" class="modal hide">
+                                            <div id="approvalAlert' . $news->getNewsId() . '" class="modal info hide">
                                                 <div class="modal-header">
                                                     <button data-dismiss="modal" class="close" type="button">×</button>
-                                                    <h3 style="font-size: 20px;">PHÊ DUYỆT BẢN TIN</h3>
+                                                    <h3>PHÊ DUYỆT BẢN TIN</h3>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <p style="font-size: 14px;">Phê duyệt cho bản tin <b>' . $news->getDescription() . '</b> được đưa lên trang chủ</p>
+                                                    <p>Phê duyệt cho bản tin <b>' . $news->getTitle() . '</b> được đưa lên trang chủ</p>
+                                                    <div class="row-fluid">
+                                                        <div class="span6 news-details-image" style="background-image: url(\'' . $news->getIllustrationURL() . '\')">
+                                                        </div>
+
+                                                        <div class="span6">
+                                                            <div>
+                                                                <label class="span4 news-details-label">Loại tin: </label>
+                                                                <label class="span8">'. $hireOrSell . '</label>
+                                                            </div>
+                                                            <div>
+                                                                <label class="span4 news-details-label">Loại nhà đất: </label>
+                                                                <label class="span8">'. $news->getNewTypeName(). '</label>
+                                                            </div>
+                                                            <div>
+                                                                <label class="span4 news-details-label">Khu vực: </label>
+                                                                <label class="span8">'. $news->getLocationName(). '</label>
+                                                            </div>
+                                                            <div>
+                                                                <label class="span4 news-details-label">Diện tích: </label>
+                                                                <label class="span8">'. $news->getAcreage(). ' m<sup>2</sup></label>
+                                                            </div>
+                                                            <div>
+                                                                <label class="span4 news-details-label">Giá bán: </label>
+                                                                <label class="span8">'. $utils->toStringMoney($news->getPrice()) . '</label>
+                                                            </div>
+                                                            <div>
+                                                                <label class="span4 news-details-label">Cập nhật: </label>
+                                                                <label class="span8">'. $news->getLastUpdated() . '</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <div class="modal-footer"> 
                                                     <form action="http://192.168.1.220:8080/RealEstate/admin/controller/UpdateNews.php" method="post">
@@ -128,7 +263,7 @@ if (isset($cookieModal)) {
                         <div id="approval_status" class="modal hide">
                             <div class="modal-header">
                                 <button data-dismiss="modal" class="close" type="button">×</button>
-                                <h3 style="font-size: 20px;">PHÊ DUYỆT BÀI ĐĂNG</h3>
+                                <h3>PHÊ DUYỆT BÀI ĐĂNG</h3>
                             </div>
                             <div class="modal-body">
                                 <?php

@@ -25,20 +25,20 @@ function getNewsBySate($state) {
         while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
             $news = new News();
             $news->setNewsId($row['NewsID']);
-            $news->setNewType($row['NewsTypeID']);
+            $news->setNewsTypeID($row['NewsTypeID']);
             $news->setLineage($row['Lineage']);
             $news->setTitle($row['Title']);
             $news->setDescription($row['Description']);
             $news->setIllustrationURL($row['IllustrationURL']);
-            $news->setDetails($row['Details']);
+            $news->setDetail($row['Details']);
             $news->setLastUpdated($row['LastUpdated']);
             $news->setViewNumber($row['ViewNumber']);
             $news->setAcreage($row['Acreage']);
             $news->setPrice($row['Price']);
             $news->setContact($row['Contact']);
             $news->setDirection($row['Direction']);
-            $news->setRooms($row['Rooms']);
-            $news->setHire($row['IsHire']);
+            $news->setRoom($row['Rooms']);
+            $news->setIsHire($row['IsHire']);
             $news->setState($state);
             $news->setNewTypeName($row['TypeName']);
 
@@ -141,20 +141,20 @@ function getNewsByID($newsID) {
         if ($count == 1) {
             $news = new News();
             $news->setNewsId($row['NewsID']);
-            $news->setNewType($row['NewsTypeID']);
+            $news->setNewsTypeID($row['NewsTypeID']);
             $news->setLineage($row['Lineage']);
             $news->setTitle($row['Title']);
             $news->setDescription($row['Description']);
             $news->setIllustrationURL($row['IllustrationURL']);
-            $news->setDetails($row['Details']);
+            $news->setDetail($row['Details']);
             $news->setLastUpdated($row['LastUpdated']);
             $news->setViewNumber($row['ViewNumber']);
             $news->setAcreage($row['Acreage']);
             $news->setPrice($row['Price']);
             $news->setContact($row['Contact']);
             $news->setDirection($row['Direction']);
-            $news->setRooms($row['Rooms']);
-            $news->setHire($row['IsHire']);
+            $news->setRoom($row['Rooms']);
+            $news->setIsHire($row['IsHire']);
             $news->setState($row['State']);
             $news->setNewTypeName($row['TypeName']);
 

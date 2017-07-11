@@ -58,7 +58,7 @@ $listNewsLog = getAllLogs();
                                 <?php
                                 foreach ($listNewsLog as $log) {
                                     $hireOrSell = '';
-                                    if ($log->getNews()->getHire()) {
+                                    if ($log->getNews()->getIsHire()) {
                                         $hireOrSell = 'Tin cho thuê';
                                     } else {
                                         $hireOrSell = 'Tin đăng bán';

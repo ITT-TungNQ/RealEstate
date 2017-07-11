@@ -74,21 +74,21 @@ if (isset($cookieModal)) {
                                     }
                                     
                                     $hireOrSell = '';
-                                    if ($news->getHire()) {
+                                    if ($news->getIsHire()) {
                                         $hireOrSell = 'Tin cho thuê';
                                     } else {
                                         $hireOrSell = 'Tin đăng bán';
                                     }
                                     
                                     $rooms = 'Liên hệ';
-                                    if ($news->getRooms() > 0) {
-                                        $rooms = $news->getRooms();
+                                    if ($news->getRoom() > 0) {
+                                        $rooms = $news->getRoom();
                                     }
                                     
                                     echo '<tr>';
                                     echo '<td>' . $news->getTitle() . '</td>';
 
-                                    if ($news->getHire()) {
+                                    if ($news->getIsHire()) {
                                         echo '<td> Tin cho thuê</td>';
                                     } else {
                                         echo '<td> Tin băng bán</td>';
@@ -143,7 +143,7 @@ if (isset($cookieModal)) {
                                                     <div class="row-fluid">
                                                         <div class="span12">
                                                             <p class="news-details-des">' . $news->getDescription() . '</p>
-                                                            <p class="news-details">' . $news->getDetails() . '</p>
+                                                            <p class="news-details">' . $news->getDetail() . '</p>
                                                         </div>
                                                     </div>
                                                     <div class="row-fluid">

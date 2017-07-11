@@ -3,11 +3,11 @@
 class News {
 
     private $newsId;
-    private $newType;
+    private $newsTypeID;
     private $lineage;
     private $title;
     private $description;
-    private $details;
+    private $detail;
     private $lastUpdated;
     private $viewNumber;
     private $illustrationURL;
@@ -15,8 +15,8 @@ class News {
     private $acreage;
     private $contact;
     private $direction;
-    private $rooms;
-    private $hire;
+    private $room;
+    private $isHire;
     private $state;
     private $newTypeName;
     private $locationName;
@@ -53,20 +53,20 @@ class News {
         $this->newTypeName = $newTypeName;
     }
 
-    function getDetails() {
-        return $this->details;
+    function getDetail() {
+        return $this->detail;
     }
 
-    function setDetails($details) {
-        $this->details = $details;
+    function setDetail($details) {
+        $this->detail = $details;
     }
 
     function getNewsId() {
         return $this->newsId;
     }
 
-    function getNewType() {
-        return $this->newType;
+    function getNewsTypeID() {
+        return $this->newsTypeID;
     }
 
     function getLineage() {
@@ -101,12 +101,12 @@ class News {
         return $this->direction;
     }
 
-    function getRooms() {
-        return $this->rooms;
+    function getRoom() {
+        return $this->room;
     }
 
-    function getHire() {
-        return $this->hire;
+    function getIsHire() {
+        return $this->isHire;
     }
 
     function getState() {
@@ -117,8 +117,8 @@ class News {
         $this->newsId = $newsId;
     }
 
-    function setNewType($newType) {
-        $this->newType = $newType;
+    function setNewsTypeID($newType) {
+        $this->newsTypeID = $newType;
     }
 
     function setLineage($lineage) {
@@ -153,12 +153,12 @@ class News {
         $this->direction = $direction;
     }
 
-    function setRooms($rooms) {
-        $this->rooms = $rooms;
+    function setRoom($rooms) {
+        $this->room = $rooms;
     }
 
-    function setHire($hire) {
-        $this->hire = $hire;
+    function setIsHire($hire) {
+        $this->isHire = $hire;
     }
 
     function setState($state) {

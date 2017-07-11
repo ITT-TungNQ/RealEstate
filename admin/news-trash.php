@@ -109,15 +109,15 @@ if (isset($cookieModal)) {
                                     }
                                     
                                     $hireOrSell = '';
-                                    if ($news->getHire()) {
+                                    if ($news->getIsHire()) {
                                         $hireOrSell = 'Tin cho thuê';
                                     } else {
                                         $hireOrSell = 'Tin đăng bán';
                                     }
                                     
                                     $rooms = 'Liên hệ';
-                                    if ($news->getRooms() > 0) {
-                                        $rooms = $news->getRooms();
+                                    if ($news->getRoom() > 0) {
+                                        $rooms = $news->getRoom();
                                     }
                                     
                                     echo '<tr>';
@@ -173,7 +173,7 @@ if (isset($cookieModal)) {
                                                     <div class="row-fluid">
                                                         <div class="span12">
                                                             <p class="news-details-des">' . $news->getDescription() . '</p>
-                                                            <p class="news-details">' . $news->getDetails() . '</p>
+                                                            <p class="news-details">' . $news->getDetail() . '</p>
                                                         </div>
                                                     </div>
                                                     <div class="row-fluid">

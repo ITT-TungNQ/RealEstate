@@ -21,7 +21,11 @@ class Constants {
     const LOG_CREATING  = 1;
     const LOG_UPDATING = 2;
     const LOG_CHANGE_STATE = 3;
-    
+    const LOG_APPROVAL = 4;
+    const LOG_RECOVER = 5;
+    const LOG_DELETE = 6;
+
+
     /* === NEWS STATE ===*/
     const PENDDING = 0;
     const ENABLE = 1;

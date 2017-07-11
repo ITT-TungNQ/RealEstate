@@ -42,7 +42,7 @@ if (isset($_POST['deactivate-news'])) {
 /* ========= THÙNG RÁC ========= */
 if (isset($_POST['recover-news'])) {
     if (in_array(Constants::CHANGE_NEWS_STATE, $_SESSION['user_role'])) {
-        $isSuccess = changeNewsSate(filter_input(INPUT_POST, 'newsID'), Constants::ENABLE);
+        $isSuccess = changeNewsSate(filter_input(INPUT_POST, 'newsID'), Constants::ENABLE, true);
 
         setcookie('change_to', Constants::ENABLE, time() + 36000, '/RealEstate/admin/news-trash.php');
         if ($isSuccess) {

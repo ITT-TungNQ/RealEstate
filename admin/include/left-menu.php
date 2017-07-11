@@ -43,7 +43,7 @@ $is_allow_manager_adv = in_array(Constants::MANAGER_ADV, $_SESSION['user_role'])
                             <li><a href="http://192.168.1.220:8080/RealEstate/admin/"><i class="icon icon-plus"></i> Thêm bản tin mới</a></li>
                             <li><a href="http://192.168.1.220:8080/RealEstate/admin/"><i class="icon icon-file"></i> Danh sách bản tin</a></li>';
             if ($is_allow_view_news_log) {
-                echo '      <li><a href="http://192.168.1.220:8080/RealEstate/admin/"><i class="icon icon-calendar"></i> Nhật ký đăng tin</a></li>';
+                echo '      <li><a href="http://192.168.1.220:8080/RealEstate/admin/news-log.php"><i class="icon icon-calendar"></i> Nhật ký đăng tin</a></li>';
             }
             if ($is_allow_change_news_state) {
                 echo '      <li><a href="http://192.168.1.220:8080/RealEstate/admin/approval-news-page.php"><i class="icon icon-upload"></i> Phê duyệt bản tin</a></li>

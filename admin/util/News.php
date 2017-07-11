@@ -5,12 +5,14 @@ class News {
     private $newsId;
     private $newType;
     private $lineage;
+    private $title;
     private $description;
     private $details;
     private $lastUpdated;
     private $viewNumber;
     private $illustrationURL;
     private $price;
+    private $acreage;
     private $contact;
     private $direction;
     private $rooms;
@@ -18,6 +20,22 @@ class News {
     private $state;
     private $newTypeName;
     private $locationName;
+
+    function getTitle() {
+        return $this->title;
+    }
+
+    function getAcreage() {
+        return $this->acreage;
+    }
+
+    function setTitle($title) {
+        $this->title = $title;
+    }
+
+    function setAcreage($acreage) {
+        $this->acreage = $acreage;
+    }
 
     function getLocationName() {
         return $this->locationName;

@@ -13,14 +13,16 @@ $(document).ready(function () {
             "sInfoFiltered": "(được lọc từ _MAX_ mục)",
             "sInfoPostFix": "",
             "sSearch": "Tìm:",
-            "sUrl": "",
-            "oPaginate": {
-                "sFirst": "Đầu",
-                "sPrevious": "Trước",
-                "sNext": "Tiếp",
-                "sLast": "Cuối"
-            }
-        }
+            "sUrl": ""
+        },
+        "aoColumns": [
+            {"sWidth": "20%"},
+            {"sWidth": "7%"},
+            {"sWidth": "10%"},
+            {"sWidth": "14%"},
+            {"sWidth": "14%"},
+            {"sWidth": "10%"}
+        ]
     });
 
     $("span.icon input:checkbox, th input:checkbox").click(function () {

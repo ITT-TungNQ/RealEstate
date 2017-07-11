@@ -1,7 +1,7 @@
 <?php
 
 class Utils {
-    
+
     function gen_uuid() {
         return sprintf('%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
                 // 32 bits for "time_low"
@@ -26,16 +26,34 @@ class Utils {
         $randstring = '';
         $lenght = rand(8, 16);
         for ($i = 0; $i < $lenght; $i++) {
-            $randstring = $randstring . $characters[rand(0, strlen($characters)-1)];
+            $randstring = $randstring . $characters[rand(0, strlen($characters) - 1)];
         }
-        
+
         $lenght = rand(2, 4);
         for ($i = 0; $i < $lenght; $i++) {
             $index = rand(0, strlen($randstring));
-            $randstring = substr_replace($randstring, $specChar[rand(0, strlen($specChar)-1)],$index, 1);
+            $randstring = substr_replace($randstring, $specChar[rand(0, strlen($specChar) - 1)], $index, 1);
         }
         return $randstring;
     }
+
+    function toStringMoney($value) {
+        $strMoney = "Thỏa thuận";
+        if (is_numeric($value)) {
+            if ($value > 999999999) {
+                $value = $value/1000000000;
+                $strMoney = number_format((float) $value, 1, ".", ",");
+                $strMoney .= " tỷ";
+            } else {
+                $value = $value/1000000;
+                $strMoney = number_format((float) $value, 1, ".", ",");
+                $strMoney .= " triệu";
+            }
+        }
+        
+        return $strMoney;
+    }
+
 }
 
 ?>

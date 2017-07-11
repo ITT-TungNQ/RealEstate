@@ -1354,9 +1354,41 @@ div.dataTables_wrapper .ui-widget-header {
     padding: 8px 15px 5px;
 }
 .modal-header h3 {
-    font-size: 12px;
+    font-size: 20px;
     text-shadow: 0 1px 0 #ffffff;
 }
+
+.modal.info {
+    width: 720px;
+    left: 44%;
+}
+
+.modal-body {
+    font-size: 14px;
+}
+
+.modal.info div.news-details-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    border: 1px solid #000;
+}
+
+.modal.info .news-details-label {
+    padding-right: 10px;
+    text-align: right;
+}
+
+.modal.info .news-details-des {
+    margin-top: 10px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.modal.info .news-details {
+    margin-top: 10px;
+}
+
 .notify-ui ul {
     list-style: none;
     margin: 0;

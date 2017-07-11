@@ -10,7 +10,9 @@ function getConnection() {
 }
 
 function closeConnect($conn) {
-    mysqli_close($conn);
+    if (isset($conn) && $conn != null) {
+        mysqli_close($conn);
+    }
 }
 
 ?>

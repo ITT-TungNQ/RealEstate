@@ -63,7 +63,7 @@ if (isset($cookieModal)) {
                                 <?php
                                 foreach ($listNews as $news) {
                                     echo '<tr>';
-                                    echo '<td>' . $news->getDescription() . '</td>';
+                                    echo '<td>' . $news->getTitle() . '</td>';
 
                                     if ($news->getHire()) {
                                         echo '<td> Tin cho thuê</td>';

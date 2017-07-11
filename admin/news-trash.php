@@ -5,6 +5,8 @@ require_once ('./include/check-role.php');
 checkRole(Constants::CHANGE_NEWS_STATE);
 // ========== end - CHECK LOGIN AND ROLE ==========
 
+require_once './util/Utils.php';
+require_once './util/News.php';
 require_once './controller/dao/NewsDAO.php';
 $listNews = getNewsBySate(Constants::DISABLE);
 
@@ -25,22 +27,22 @@ if (isset($cookieModal)) {
                 case Constants::ENABLE:
                     $modalTitle = 'KHÔI PHỤC ĐĂNG';
                     if ($cookieModal == 'true') {
-                        $modalDetails = '<p style="font-size: 14px;">Khôi phục bài đăng thành công</p>'
-                                . '<p style="font-size: 14px;">Bài đăng đã được khôi phục và hiển thị trên trang thông tin</p>';
+                        $modalDetails = '<p>Khôi phục bài đăng thành công</p>'
+                                . '<p>Bài đăng đã được khôi phục và hiển thị trên trang thông tin</p>';
                     } else {
-                        $modalDetails = '<p style="font-size: 14px;">Khôi phục bài đăng không thành công</p> '
-                                . '<p style="font-size: 14px;">Bài đăng trong trạng thái <b>Ẩn</b></p>';
+                        $modalDetails = '<p>Khôi phục bài đăng không thành công</p> '
+                                . '<p>Bài đăng trong trạng thái <b>Ẩn</b></p>';
                     }
 
                     break;
                 case Constants::DETELED:
                     $modalTitle = 'XÓA BÀI ĐĂNG';
                     if ($cookieModal == 'true') {
-                        $modalDetails = '<p style="font-size: 14px;">Xóa bài đăng thành công</p>'
-                                . '<p style="font-size: 14px;">Bài đăng đã được xóa và không thể khôi phục để hiển thị trên trang thông tin</p>';
+                        $modalDetails = '<p>Xóa bài đăng thành công</p>'
+                                . '<p>Bài đăng đã được xóa và không thể khôi phục để hiển thị trên trang thông tin</p>';
                     } else {
-                        $modalDetails = '<p style="font-size: 14px;">Xóa bài đăng không thành công</p> '
-                                . '<p style="font-size: 14px;">Bài đăng trong trạng thái <b>Ẩn</b></p>';
+                        $modalDetails = '<p>Xóa bài đăng không thành công</p> '
+                                . '<p>Bài đăng trong trạng thái <b>Ẩn</b></p>';
                     }
                     break;
             }
@@ -93,15 +95,19 @@ if (isset($cookieModal)) {
                             </thead>
                             <tbody>
                                 <?php
+                                $utils = new Utils();
+                                
                                 foreach ($listNews as $news) {
-                                    echo '<tr>';
-                                    echo '<td>' . $news->getDescription() . '</td>';
-
+                                    $hireOrSell = '';
                                     if ($news->getHire()) {
-                                        echo '<td> Tin cho thuê</td>';
+                                        $hireOrSell = 'Tin cho thuê';
                                     } else {
-                                        echo '<td> Tin băng bán</td>';
+                                        $hireOrSell = 'Tin đăng bán';
                                     }
+                                    
+                                    echo '<tr>';
+                                    echo '<td>' . $news->getTitle() . '</td>';
+                                    echo '<td>' .  $hireOrSell . '</td>';
                                     echo '<td>' . $news->getNewTypeName() . '</td>';
                                     echo '<td>' . $news->getLastUpdated() . '</td>';
                                     echo '<td>' . $news->getLocationName() . '</td>';
@@ -111,13 +117,52 @@ if (isset($cookieModal)) {
                                                     <i class="icon-eye-open"></i>
                                                 </a>
                                             </div>';
-                                    echo '  <div id="viewAlert' . $news->getNewsId() . '" class="modal hide">
+                                    echo '  <div id="viewAlert' . $news->getNewsId() . '" class="modal info hide">
                                                 <div class="modal-header">
                                                     <button data-dismiss="modal" class="close" type="button">×</button>
-                                                    <h3 style="font-size: 20px;">CHI TIẾT BẢN TIN</h3>
+                                                    <h3>CHI TIẾT BẢN TIN</h3>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <p style="font-size: 14px;">HIỆN CHI TIẾT bản tin <b>' . $news->getDescription() . '</b> được đưa lên trang chủ</p>
+                                                    <p><b>' . $news->getTitle() . '</b></p>
+                                                    <div class="container-fluid">
+                                                        <div class="row-fluid">
+                                                            <div class="span6 news-details-image" style="background-image: url(\'' . $news->getIllustrationURL() . '\')">
+                                                            </div>
+                                                            
+                                                            <div class="span6">
+                                                                <div>
+                                                                    <label class="span4 news-details-label">Loại tin: </label>
+                                                                    <label class="span8">'. $hireOrSell . '</label>
+                                                                </div>
+                                                                <div>
+                                                                    <label class="span4 news-details-label">Loại nhà đất: </label>
+                                                                    <label class="span8">'. $news->getNewTypeName(). '</label>
+                                                                </div>
+                                                                <div>
+                                                                    <label class="span4 news-details-label">Khu vực: </label>
+                                                                    <label class="span8">'. $news->getLocationName(). '</label>
+                                                                </div>
+                                                                <div>
+                                                                    <label class="span4 news-details-label">Diện tích: </label>
+                                                                    <label class="span8">'. $news->getAcreage(). ' m<sup>2</sup></label>
+                                                                </div>
+                                                                <div>
+                                                                    <label class="span4 news-details-label">Giá bán: </label>
+                                                                    <label class="span8">'. $utils->toStringMoney($news->getPrice()) . '</label>
+                                                                </div>
+                                                                <div>
+                                                                    <label class="span4 news-details-label">Cập nhật: </label>
+                                                                    <label class="span8">'. $news->getLastUpdated() . '</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row-fluid">
+                                                            <div class="span12">
+                                                                <p class="news-details-des">' . $news->getDescription() . '</p>
+                                                                <p class="news-details">' . $news->getDetails() . '</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                                 <div class="modal-footer"> 
                                                     <a data-dismiss="modal" class="btn btn-info" href="">Đóng</a>
@@ -133,11 +178,11 @@ if (isset($cookieModal)) {
                                             <div id="recocerAlert' . $news->getNewsId() . '" class="modal hide">
                                                 <div class="modal-header">
                                                     <button data-dismiss="modal" class="close" type="button">×</button>
-                                                    <h3 style="font-size: 20px;">KHÔI PHỤC BẢN TIN</h3>
+                                                    <h3>KHÔI PHỤC BẢN TIN</h3>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <p style="font-size: 14px;">Khôi phục lại bản tin <b>' . $news->getDescription() . '</b> được đưa lên trang chủ</p>
-                                                    <p style="font-size: 14px;">Bản tin sẽ được tiếp tục hiển thị trên trang chủ</p>
+                                                    <p>Khôi phục lại bản tin: <b>' . $news->getTitle() . '</b></p>
+                                                    <p>Bản tin sẽ được tiếp tục hiển thị trên trang chủ</p>
                                                 </div>
                                                 <div class="modal-footer"> 
                                                     <form action="http://192.168.1.220:8080/RealEstate/admin/controller/UpdateNews.php" method="post">
@@ -160,11 +205,11 @@ if (isset($cookieModal)) {
                                             <div id="deleteAlert' . $news->getNewsId() . '" class="modal hide">
                                                 <div class="modal-header">
                                                     <button data-dismiss="modal" class="close" type="button">×</button>
-                                                    <h3 style="font-size: 20px;">XÓA BẢN TIN</h3>
+                                                    <h3>XÓA BẢN TIN</h3>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <p style="font-size: 14px;">Xóa bản tin <b>' . $news->getDescription() . '</b></p>
-                                                    <p style="font-size: 14px;">Tin này sẽ được xóa và không thể phục hồi</p>
+                                                    <p>Xóa bản tin <b>' . $news->getTitle() . '</b></p>
+                                                    <p>Tin này sẽ được xóa và không thể phục hồi</p>
                                                 </div>
                                                 <div class="modal-footer"> 
                                                     <form action="http://192.168.1.220:8080/RealEstate/admin/controller/UpdateNews.php" method="post">
@@ -188,7 +233,7 @@ if (isset($cookieModal)) {
                         <div id="change_news_alert" class="modal hide">
                             <div class="modal-header">
                                 <button data-dismiss="modal" class="close" type="button">×</button>
-                                <h3 style="font-size: 20px;"><?php echo $modalTitle ?></h3>
+                                <h3><?php echo $modalTitle ?></h3>
                             </div>
                             <div class="modal-body">
                                 <?php echo $modalDetails ?>

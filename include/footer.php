@@ -1,4 +1,4 @@
-<footer id="footer">
+<footer id="footer" style="clear: left">
     <div class="footer_top">
         <div class="col-lg-6 col-md-6 col-sm-12">
             <div class="single_footer_top wow fadeInLeft">

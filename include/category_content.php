@@ -104,4 +104,4 @@
     </div>	
 </div>
 
-<?php include("include/filter_banner.php"); ?>
+<?php  include("include/filter_banner.php"); ?>

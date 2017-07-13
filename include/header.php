@@ -10,11 +10,12 @@
 <link rel="stylesheet" type="text/css" href="http://192.168.1.220:8080/RealEstate/css/slick.css">
 <link rel="stylesheet" type="text/css" href="http://192.168.1.220:8080/RealEstate/css/theme.css">
 <link rel="stylesheet" type="text/css" href="http://192.168.1.220:8080/RealEstate/css/style.css">
-<link rel="stylesheet" type="text/css" href="http://192.168.1.220:8080/RealEstate/css/bootstrap-toggle.css"/>
+<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+
 <script src="http://192.168.1.220:8080/RealEstate/script/jquery.min.js"></script>
 <script src="http://192.168.1.220:8080/RealEstate/script/wow.min.js"></script>
 <script src="http://192.168.1.220:8080/RealEstate/script/bootstrap.min.js"></script>
 <script src="http://192.168.1.220:8080/RealEstate/script/slick.min.js"></script>
 <script src="http://192.168.1.220:8080/RealEstate/script/jquery.li-scroller.1.0.js"></script>
 <script src="http://192.168.1.220:8080/RealEstate/script/custom.js"></script>
-<script src="http://192.168.1.220:8080/RealEstate/script/bootstrap-toggle.js"></script>
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>

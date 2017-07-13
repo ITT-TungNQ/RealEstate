@@ -1,3 +1,8 @@
+<?php
+require_once ("data/truyvan.php");
+$con = connect();
+    $tinNoiBat=TinNoiBat($con);
+?>
 <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="float: right;">
     <div class="row">
         <div class="right_bar">
@@ -5,86 +10,20 @@
                 <h2><span>Tin phổ biến</span></h2>
                 <div class="singleleft_inner">
                     <ul class="catg3_snav ppost_nav wow fadeInDown">
+                        
+                        <?php
+                        foreach ($tinNoiBat as $a){
+                        ?>
                         <li>
                             <div class="media">
-                                <a href="http://192.168.1.220:8080/RealEstate/details.php" class="media-left"><img alt="" src="http://192.168.1.220:8080/RealEstate/images/70x70.jpg"></a>
+                                <a href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>" class="media-left"><img alt="" src="http://192.168.1.220:8080/RealEstate/images/<?php echo ($a['IllustrationURL']); ?>"></a>
                                 <div class="media-body">
-                                    <a href="http://192.168.1.220:8080/RealEstate/details.php" class="catg_title">Tiêu đề giới thiệu tin phổ biến 1</a>
+                                    <a href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>" class="catg_title"><?php echo ($a['Title']); ?> </a>
                                 </div>
                             </div>
                         </li>
-                        <li>
-                            <div class="media">
-                                <a href="http://192.168.1.220:8080/RealEstate/details.php" class="media-left"><img alt="" src="http://192.168.1.220:8080/RealEstate/images/70x70.jpg"></a>
-                                <div class="media-body">
-                                    <a href="http://192.168.1.220:8080/RealEstate/details.php" class="catg_title">Tiêu đề giới thiệu tin phổ biến 2</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="media">
-                                <a href="http://192.168.1.220:8080/RealEstate/details.php" class="media-left"><img alt="" src="http://192.168.1.220:8080/RealEstate/images/70x70.jpg"></a>
-                                <div class="media-body">
-                                    <a href="http://192.168.1.220:8080/RealEstate/details.php" class="catg_title">Tiêu đề giới thiệu tin phổ biến 3</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="media">
-                                <a href="http://192.168.1.220:8080/RealEstate/details.php" class="media-left"><img alt="" src="http://192.168.1.220:8080/RealEstate/images/70x70.jpg"></a>
-                                <div class="media-body">
-                                    <a href="http://192.168.1.220:8080/RealEstate/details.php" class="catg_title">Tiêu đề giới thiệu tin phổ biến 4</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="media">
-                                <a href="http://192.168.1.220:8080/RealEstate/details.php" class="media-left"><img alt="" src="http://192.168.1.220:8080/RealEstate/images/70x70.jpg"></a>
-                                <div class="media-body">
-                                    <a href="http://192.168.1.220:8080/RealEstate/details.php" class="catg_title">Tiêu đề giới thiệu tin phổ biến 5</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="media">
-                                <a href="http://192.168.1.220:8080/RealEstate/details.php" class="media-left"><img alt="" src="http://192.168.1.220:8080/RealEstate/images/70x70.jpg"></a>
-                                <div class="media-body">
-                                    <a href="http://192.168.1.220:8080/RealEstate/details.php" class="catg_title">Tiêu đề giới thiệu tin phổ biến 6</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="media">
-                                <a href="http://192.168.1.220:8080/RealEstate/details.php" class="media-left"><img alt="" src="http://192.168.1.220:8080/RealEstate/images/70x70.jpg"></a>
-                                <div class="media-body">
-                                    <a href="http://192.168.1.220:8080/RealEstate/details.php" class="catg_title">Tiêu đề giới thiệu tin phổ biến 7</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="media">
-                                <a href="http://192.168.1.220:8080/RealEstate/details.php" class="media-left"><img alt="" src="http://192.168.1.220:8080/RealEstate/images/70x70.jpg"></a>
-                                <div class="media-body">
-                                    <a href="http://192.168.1.220:8080/RealEstate/details.php" class="catg_title">Tiêu đề giới thiệu tin phổ biến 8</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="media">
-                                <a href="http://192.168.1.220:8080/RealEstate/details.php" class="media-left"><img alt="" src="http://192.168.1.220:8080/RealEstate/images/70x70.jpg"></a>
-                                <div class="media-body">
-                                    <a href="http://192.168.1.220:8080/RealEstate/details.php" class="catg_title">Tiêu đề giới thiệu tin phổ biến 9</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="media">
-                                <a href="http://192.168.1.220:8080/RealEstate/details.php" class="media-left"><img alt="" src="http://192.168.1.220:8080/RealEstate/images/70x70.jpg"></a>
-                                <div class="media-body">
-                                    <a href="http://192.168.1.220:8080/RealEstate/details.php" class="catg_title">Tiêu đề giới thiệu tin phổ biến 10</a>
-                                </div>
-                            </div>
-                        </li>
+                        <?php } ?>
+                        
                     </ul>
                 </div>
             </div>

@@ -4,6 +4,7 @@
             <div class="featured_sliderarea">
                 <div id="myCarousel" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
+
                         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                         <li data-target="#myCarousel" data-slide-to="1"></li>
                         <li data-target="#myCarousel" data-slide-to="2"></li>
@@ -11,32 +12,37 @@
                         <li data-target="#myCarousel" data-slide-to="4"></li>
                     </ol>
                     <div class="carousel-inner" role="listbox">
-                        <div class="item active"> 
-                            <img src="http://192.168.1.220:8080/RealEstate/images/tin_noi_bat_000.jpg" alt="">
-                            <div class="carousel-caption">
-                                <h1><a href="#">Tiêu đề tin tức nổi bật 1</a></h1>
-                            </div>
-                        </div>
-                        <div class="item"> <img src="http://192.168.1.220:8080/RealEstate/images/tin_noi_bat_004.jpg" alt="">
-                            <div class="carousel-caption">
-                                <h1><a href="#">Tiêu đề tin tức nổi bật 2</a></h1>
-                            </div>
-                        </div>
-                        <div class="item"> <img src="http://192.168.1.220:8080/RealEstate/images/tin_noi_bat_000.jpg" alt="">
-                            <div class="carousel-caption">
-                                <h1><a href="#">Tiêu đề tin tức nổi bật 3</a></h1>
-                            </div>
-                        </div>
-                        <div class="item"> <img src="http://192.168.1.220:8080/RealEstate/images/tin_noi_bat_003.jpg" alt="">
-                            <div class="carousel-caption">
-                                <h1><a href="#">Tiêu đề tin tức nổi bật 4</a></h1>
-                            </div>
-                        </div>
-                        <div class="item"> <img src="http://192.168.1.220:8080/RealEstate/images/tin_noi_bat_002.jpg" alt="">
-                            <div class="carousel-caption">
-                                <h1><a href="#">Tiêu đề tin tức nổi bật 5</a></h1>
-                            </div>
-                        </div>
+                        <?php
+                        $item = 0;
+                        $tinMoiNhat = TinMoi($con);
+                        foreach ($tinMoiNhat as $tin) {
+                            ?>
+                            <?php
+                            if ($item == 0) {
+                                ?>
+                                <div class="item active"> 
+                                    <img src="http://192.168.1.220:8080/RealEstate/images/<?php echo ($tin['IllustrationURL']); ?>" alt="">
+                                    <div class="carousel-caption">
+                                        <h1><a href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>"><?php echo ($tin['Title']); ?></a></h1>
+                                    </div>
+                                </div>
+                                <?php
+                                $item++;
+                            } else {
+                                ?>
+                                <div class="item"> 
+                                    <img src="http://192.168.1.220:8080/RealEstate/images/<?php echo ($tin['IllustrationURL']); ?>" alt="">
+                                    <div class="carousel-caption">
+                                        <h1><a href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>"><?php echo ($tin['Title']); ?></a></h1>
+                                    </div>
+                                </div>
+
+                            <?php } ?><?php } ?>
+
+
+
+
+
                     </div>
                     <a class="left left_slide" href="#myCarousel" role="button" data-slide="prev">
                         <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> 
@@ -51,80 +57,51 @@
                 <div class="category_title"> <a href="http://192.168.1.220:8080/RealEstate/category_archive.php">NHÀ ĐẤT NỔI BẬT</a></div>
                 <div class="single_category_inner">
                     <ul class="catg_nav">
-                        <li>
-                            <div class="catgimg_container"> <a class="catg1_img" href="http://192.168.1.220:8080/RealEstate/details.php">
-                                    <img src="http://192.168.1.220:8080/RealEstate/images/310x150_001.jpg" alt=""> </a>
-                            </div>
-                            <a class="catg_title" href="http://192.168.1.220:8080/RealEstate/details.php">Tiêu đề nhà đất nổi bật 1</a>
-                            <div class="sing_commentbox">
-                                <p><i class="fa fa-calendar"></i>19 Nov 2017</p>
-                                <a href="#"><i class="fa fa-eye"></i>2000 Views</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="catgimg_container"> <a class="catg1_img" href="http://192.168.1.220:8080/RealEstate/details.php">
-                                    <img src="http://192.168.1.220:8080/RealEstate/images/310x150_002.jpg" alt=""> </a>
-                            </div>
-                            <a class="catg_title" href="http://192.168.1.220:8080/RealEstate/details.php">Tiêu đề nhà đất nổi bật 1</a>
-                            <div class="sing_commentbox">
-                                <p><i class="fa fa-calendar"></i>19 Nov 2017</p>
-                                <a href="#"><i class="fa fa-eye"></i>2000 Views</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="catgimg_container"> <a class="catg1_img" href="http://192.168.1.220:8080/RealEstate/details.php">
-                                    <img src="http://192.168.1.220:8080/RealEstate/images/310x150_003.jpg" alt=""> </a>
-                            </div>
-                            <a class="catg_title" href="http://192.168.1.220:8080/RealEstate/details.php">Tiêu đề nhà đất nổi bật 1</a>
-                            <div class="sing_commentbox">
-                                <p><i class="fa fa-calendar"></i>19 Nov 2017</p>
-                                <a href="#"><i class="fa fa-eye"></i>2000 Views</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="catgimg_container"> <a class="catg1_img" href="http://192.168.1.220:8080/RealEstate/details.php">
-                                    <img src="http://192.168.1.220:8080/RealEstate/images/310x150_004.jpg" alt=""> </a>
-                            </div>
-                            <a class="catg_title" href="http://192.168.1.220:8080/RealEstate/details.php">Tiêu đề nhà đất nổi bật 1</a>
-                            <div class="sing_commentbox">
-                                <p><i class="fa fa-calendar"></i>19 Nov 2017</p>
-                                <a href="#"><i class="fa fa-eye"></i>2000 Views</a>
-                            </div>
-                        </li>
+
+                        <?php
+                        $nhadat = NhaDatNoiBat($con);
+                        foreach ($nhadat as $a) {
+                            ?>
+                            <li>
+                                <div class="catgimg_container"> <a class="catg1_img" href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>">
+                                        <img src="http://192.168.1.220:8080/RealEstate/images/<?php echo($a['IllustrationURL']); ?>" alt=""> </a>
+                                </div>
+                                <a class="catg_title" href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>"><?php echo($a['Title']); ?></a>
+                                <div class="sing_commentbox">
+                                    <p><i class="fa fa-calendar"></i><?php echo date('d-m-Y', strtotime($a['LastUpdated'])); ?></p>
+                                    <a href="#"><i class="fa fa-eye"></i><?php echo($a['ViewNumber']); ?> Views</a>
+                                </div>
+                            </li>
+                        <?php } ?>
                     </ul>
                 </div>
             </div>
 
             <div class="single_category  wow fadeInDown">
-                <div class="category_title"> <a href="http://192.168.1.220:8080/RealEstate/category_archive.php">DỰ ÁN MỚI</a></div>
+                <div class="category_title"> <a href="http://192.168.1.220:8080/RealEstate/index.php?page=theloa&type=duanmoi">DỰ ÁN MỚI</a></div>
                 <div class="single_category_inner">
                     <ul class="catg_nav catg_nav2">
-                        <li>
-                            <div class="catgimg_container"> <a class="catg1_img" href="#">
-                                    <img src="http://192.168.1.220:8080/RealEstate/images/310x300_001.jpg" alt=""></a>
-                            </div>
-                            <a class="catg_title" href="#">Masteri An Phú – Xứng tầm đẳng cấp</a>
-                            <div class="sing_commentbox">
-                                <p><i class="fa fa-calendar"></i>19 Nov 2016</p>
-                                <a href="#"><i class="fa fa-eye"></i>20170 Views</a>
-                            </div>
-                            <p class="post-summary">
-                                Khu căn hộ Masteri An Phú hiện đang được đánh giá là dự án căn hộ có quỹ đất xây dựng lớn nhất khu vực Quận 2. Dự án được đánh giá sẽ giải quyết được một lượng nhu cầu lớn cho thị trường về căn hộ và nhà ở.
-                            </p>
-                        </li>
-                        <li>
-                            <div class="catgimg_container"> <a class="catg1_img" href="#">
-                                    <img src="http://192.168.1.220:8080/RealEstate/images/310x300_002.jpg" alt=""></a>
-                            </div>
-                            <a class="catg_title" href="#">Golden filed Mỹ Đình - Cơ hội sinh lợi tuyệt vời</a>
-                            <div class="sing_commentbox">
-                                <p><i class="fa fa-calendar"></i>19 Nov 2016</p>
-                                <a href="#"><i class="fa fa-eye"></i>20170 Views</a>
-                            </div>
-                            <p class="post-summary">
-                                Chung cư Golden filed Mỹ Đình thời điểm mở bán chỉ từ 27 – 30 triệu/m2 nhưng đến tại thời điểm hiện tại theo tiến độ của chủ đầu tư giá gốc là 33 triệu/m2.
-                            </p>
-                        </li>
+                        <?php
+                        $idType = "NewsTypeID=7 or NewsTypeID=8 or NewsTypeID=9 or NewsTypeID=10";
+                        $duanmoi = TheLoai_PhanTrang($con, $idType, 0, 2);
+                        foreach ($duanmoi as $a) {
+                            ?>
+                            <li>
+                                <div class="catgimg_container"> <a class="catg1_img" href="#">
+                                        <img src="http://192.168.1.220:8080/RealEstate/images/<?php echo($a['IllustrationURL']); ?>" alt=""></a>
+                                </div>
+                                <a class="catg_title" href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>"><?php echo($a['Title']); ?></a>
+                                <div class="sing_commentbox">
+                                    <p><i class="fa fa-calendar"></i><?php echo date('d-m-Y', strtotime($a['LastUpdated'])); ?></p>
+                                    <a href="#"><i class="fa fa-eye"></i><?php echo($a['ViewNumber']); ?> Views</a>
+                                </div>
+                                <p class="post-summary">
+                                    <?php echo($a['Description']); ?>
+                                </p>
+                            </li>
+
+                        <?php } ?>
+
                     </ul>
                 </div>
             </div>
@@ -133,90 +110,61 @@
                 <div class="category_three">
                     <div class="single_category">
                         <div class="category_title">
-                            <a href="http://192.168.1.220:8080/RealEstate/details.php">NHÀ BÁN</a>
+                            <a href="http://192.168.1.220:8080/RealEstate/index.php?page=theloai&type=canho">NHÀ BÁN</a>
                         </div>
                         <div class="single_category_inner">
                             <ul class="catg_nav catg_nav3">
-                                <li>
-                                    <div class="catgimg_container"> 
-                                        <a class="catg1_img" href="http://192.168.1.220:8080/RealEstate/details.php"> 
-                                            <img src="http://192.168.1.220:8080/RealEstate/images/292x150_001.jpg" alt=""> 
+                                <?php
+                                $idType = "NewsTypeID=1 or NewsTypeID=2 or NewsTypeID=3 or NewsTypeID=4";
+                                $nhaban = TheLoai_PhanTrang($con, $idType, 0, 1);
+                                $nhaban2 = TheLoai_PhanTrang($con, $idType, 1, 4);
+                                foreach ($nhaban as $a) {
+                                    ?>
+                                    <li>
+                                        <div class="catgimg_container"> 
+                                            <a class="catg1_img" href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>"> 
+                                                <img src="http://192.168.1.220:8080/RealEstate/images/<?php echo($a['IllustrationURL']); ?>" alt=""> 
+                                            </a>
+                                        </div>
+                                        <a class="catg_title" href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>">
+                                            <?php echo ($a['Title']); ?>
                                         </a>
-                                    </div>
-                                    <a class="catg_title" href="#">
-                                        Bán nhà Đường 80 Thạch Lam, Phường Phú Thạnh, Tân Phú.
-                                    </a>
-                                    <div class="sing_commentbox">
-                                        <p><i class="fa fa-calendar"></i>19 Nov 2016</p>
-                                        <a href="#"><i class="fa fa-comments"></i>200 Views</a></div>
-                                    <p class="post-summary">
-                                        Vị trí: Bán nhà Đường 80 Thạch Lam, Phường Phú Thạnh, Tân Phú. <br/>
-                                        Diện tích: 144.8 m2. DTSD 157.5 m2.
-                                    </p>
-                                </li>
+                                        <div class="sing_commentbox">
+                                            <p><i class="fa fa-calendar"></i><?php echo date('d-m-Y', strtotime($a['LastUpdated'])); ?></p>
+                                            <a href="#"><i class="fa fa-eye"></i><?php echo($a['ViewNumber']); ?> Views</a>
+                                            <p class="post-summary">
+                                                Vị trí: <?php
+                                                $diachi = ViTri($con, $a['Lineage']);
+                                                echo($diachi);
+                                                ?> <br/>
+                                                Diện tích: <span class="post_highlight"><?php echo($a['Acreage']); ?>m<sup>2</sup></span>
+                                            </p>
+                                    </li>
+                                <?php } ?>
                             </ul>
                             <div class="catg3_bottompost wow fadeInDown">
                                 <ul class="catg3_snav">
-                                    <li>
-                                        <div class="media">
-                                            <a class="media-left" href="http://192.168.1.220:8080/RealEstate/details.php">
-                                                <img src="http://192.168.1.220:8080/RealEstate/images/70x70.jpg" alt=""></a>
-                                            <div class="media-body">
-                                                <a class="catg_title" href="http://192.168.1.220:8080/RealEstate/details.php"> 
-                                                    Tiêu đề nhà bán
-                                                </a>
-                                                <div class="sing_commentbox">
-                                                    <p><i class="fa fa-calendar"></i>19 Nov 2016</p>
-                                                    <a href="#"><i class="fa fa-comments"></i>200 Views</a>
+
+                                    <?php foreach ($nhaban2 as $a) {
+                                        ?>
+                                        <li>
+                                            <div class="media">
+                                                <a class="media-left" href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>">
+                                                    <img src="http://192.168.1.220:8080/RealEstate/images/<?php echo($a['IllustrationURL']); ?>" alt=""></a>
+                                                <div class="media-body">
+                                                    <a class="catg_title" href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>"> 
+                                                        <?php echo ($a['Title']); ?>
+                                                    </a>
+                                                    <div class="sing_commentbox">
+                                                        <p><i class="fa fa-calendar"></i><?php echo date('d-m-Y', strtotime($a['LastUpdated'])); ?></p>
+                                                        <a href="#"><i class="fa fa-eye"></i><?php echo($a['ViewNumber']); ?> Views</a>
+
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="media">
-                                            <a class="media-left" href="http://192.168.1.220:8080/RealEstate/details.php">
-                                                <img src="http://192.168.1.220:8080/RealEstate/images/70x70.jpg" alt=""></a>
-                                            <div class="media-body">
-                                                <a class="catg_title" href="http://192.168.1.220:8080/RealEstate/details.php"> 
-                                                    Tiêu đề nhà bán
-                                                </a>
-                                                <div class="sing_commentbox">
-                                                    <p><i class="fa fa-calendar"></i>19 Nov 2016</p>
-                                                    <a href="#"><i class="fa fa-comments"></i>200 Views</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="media">
-                                            <a class="media-left" href="http://192.168.1.220:8080/RealEstate/details.php">
-                                                <img src="http://192.168.1.220:8080/RealEstate/images/70x70_01.jpg" alt=""></a>
-                                            <div class="media-body">
-                                                <a class="catg_title" href="http://192.168.1.220:8080/RealEstate/details.php"> 
-                                                    Tiêu đề nhà bán
-                                                </a>
-                                                <div class="sing_commentbox">
-                                                    <p><i class="fa fa-calendar"></i>19 Nov 2016</p>
-                                                    <a href="#"><i class="fa fa-comments"></i>200 Views</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="media">
-                                            <a class="media-left" href="http://192.168.1.220:8080/RealEstate/details.php">
-                                                <img src="http://192.168.1.220:8080/RealEstate/images/70x70_01.jpg" alt=""></a>
-                                            <div class="media-body">
-                                                <a class="catg_title" href="http://192.168.1.220:8080/RealEstate/details.php"> 
-                                                    Tiêu đề nhà bán
-                                                </a>
-                                                <div class="sing_commentbox">
-                                                    <p><i class="fa fa-calendar"></i>19 Nov 2016</p>
-                                                    <a href="#"><i class="fa fa-comments"></i>200 Views</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
+                                        </li>
+                                    <?php } ?>
+
                                 </ul>
                             </div>
                         </div>
@@ -225,93 +173,60 @@
 
                 <div class="category_four wow fadeInDown">
                     <div class="single_category">
-                        <div class="category_title"><a href="#">BIỆT THỰ</a></div>
+                        <div class="category_title"><a href="http://192.168.1.220:8080/RealEstate/index.php?page=theloai&type=bietthu">BIỆT THỰ</a></div>
                         <div class="single_category_inner">
                             <ul class="catg_nav catg_nav3">
-                                <li>
-                                    <div class="catgimg_container">
-                                        <a class="catg1_img" href="http://192.168.1.220:8080/RealEstate/details.php">
-                                            <img src="http://192.168.1.220:8080/RealEstate/images/292x150_002.jpg" alt="">
+                                <?php
+                                $idType = "NewsTypeID=5 or NewsTypeID=6";
+                                $bietthu = TheLoai_PhanTrang($con, $idType, 0, 1);
+                                $bietthu2 = TheLoai_PhanTrang($con, $idType, 1, 4);
+                                foreach ($bietthu as $a) {
+                                    ?>
+                                    <li>
+                                        <div class="catgimg_container"> 
+                                            <a class="catg1_img" href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>"> 
+                                                <img src="http://192.168.1.220:8080/RealEstate/images/<?php echo($a['IllustrationURL']); ?>" alt=""> 
+                                            </a>
+                                        </div>
+                                        <a class="catg_title" href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>">
+                                            <?php echo ($a['Title']); ?>
                                         </a>
-                                    </div>
-                                    <a class="catg_title" href="http://192.168.1.220:8080/RealEstate/details.php"> 
-                                        Bán biệt thự khu Him Lam, Quận 7, TP.HCM.
-                                    </a>
-                                    <div class="sing_commentbox">
-                                        <p><i class="fa fa-calendar"></i>19 Nov 2016</p>
-                                        <a href="#"><i class="fa fa-comments"></i>215 Views</a></div>
-                                    <p class="post-summary">
-                                        Bán biệt thự căn góc 2 mặt tiền khu Him Lam, Phường Tân Hưng, Quận 7, TP.HCM.<br/>
-                                        Diện tích: 10x20m.
-                                    </p>
-                                </li>
+                                        <div class="sing_commentbox">
+                                            <p><i class="fa fa-calendar"></i><?php echo date('d-m-Y', strtotime($a['LastUpdated'])); ?></p>
+                                            <a href="#"><i class="fa fa-eye"></i><?php echo($a['ViewNumber']); ?> Views</a>
+                                            <p class="post-summary">
+                                                Vị trí: <?php
+                                                $diachi = ViTri($con, $a['Lineage']);
+                                                echo($diachi);
+                                                ?> <br/>
+                                                Diện tích: <span class="post_highlight"><?php echo($a['Acreage']); ?>m<sup>2</sup></span>
+                                            </p>
+                                    </li>
+                                <?php } ?>
                             </ul>
                             <div class="catg3_bottompost wow fadeInDown">
                                 <ul class="catg3_snav">
-                                    <li>
-                                        <div class="media">
-                                            <a class="media-left" href="http://192.168.1.220:8080/RealEstate/details.php">
-                                                <img src="http://192.168.1.220:8080/RealEstate/images/70x70.jpg" alt="">
-                                            </a>
-                                            <div class="media-body">
-                                                <a class="catg_title" href="#">
-                                                    Bán biệt thự
-                                                </a>
-                                                <div class="sing_commentbox">
-                                                    <p><i class="fa fa-calendar"></i>19 Nov 2016</p>
-                                                    <a href="#"><i class="fa fa-comments"></i>200 Views</a>
+
+                                    <?php foreach ($bietthu2 as $a) {
+                                        ?>
+                                        <li>
+                                            <div class="media">
+                                                <a class="media-left" href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>">
+                                                    <img src="http://192.168.1.220:8080/RealEstate/images/<?php echo($a['IllustrationURL']); ?>" alt=""></a>
+                                                <div class="media-body">
+                                                    <a class="catg_title" href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>"> 
+                                                        <?php echo ($a['Title']); ?>
+                                                    </a>
+                                                    <div class="sing_commentbox">
+                                                        <p><i class="fa fa-calendar"></i><?php echo date('d-m-Y', strtotime($a['LastUpdated'])); ?></p>
+                                                        <a href="#"><i class="fa fa-eye"></i><?php echo($a['ViewNumber']); ?> Views</a>
+
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="media">
-                                            <a class="media-left" href="http://192.168.1.220:8080/RealEstate/details.php">
-                                                <img src="http://192.168.1.220:8080/RealEstate/images/70x70.jpg" alt="">
-                                            </a>
-                                            <div class="media-body">
-                                                <a class="catg_title" href="#">
-                                                    Bán biệt thự
-                                                </a>
-                                                <div class="sing_commentbox">
-                                                    <p><i class="fa fa-calendar"></i>19 Nov 2016</p>
-                                                    <a href="#"><i class="fa fa-comments"></i>200 Views</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="media">
-                                            <a class="media-left" href="http://192.168.1.220:8080/RealEstate/details.php">
-                                                <img src="http://192.168.1.220:8080/RealEstate/images/70x70.jpg" alt="">
-                                            </a>
-                                            <div class="media-body">
-                                                <a class="catg_title" href="#">
-                                                    Bán biệt thự
-                                                </a>
-                                                <div class="sing_commentbox">
-                                                    <p><i class="fa fa-calendar"></i>19 Nov 2016</p>
-                                                    <a href="#"><i class="fa fa-comments"></i>200 Views</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="media">
-                                            <a class="media-left" href="http://192.168.1.220:8080/RealEstate/details.php">
-                                                <img src="http://192.168.1.220:8080/RealEstate/images/70x70.jpg" alt="">
-                                            </a>
-                                            <div class="media-body">
-                                                <a class="catg_title" href="#">
-                                                    Bán biệt thự
-                                                </a>
-                                                <div class="sing_commentbox">
-                                                    <p><i class="fa fa-calendar"></i>19 Nov 2016</p>
-                                                    <a href="#"><i class="fa fa-comments"></i>200 Views</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
+                                        </li>
+                                    <?php } ?>
+
                                 </ul>
                             </div>
                         </div>
@@ -319,94 +234,34 @@
                 </div>
             </div>
 
+
+
             <div class="single_category wow fadeInDown">
-                <div class="category_title"> <a href="#">ĐẤT NỀN</a></div>
+                <div class="category_title"> <a href="http://192.168.1.220:8080/RealEstate/index.php?page=theloai&type=datnen">ĐẤT NỀN</a></div>
                 <div class="single_category_inner">
                     <ul class="catg3_snav catg5_nav">
+                        <?php
+                        $idType = "NewsTypeID=11 or NewsTypeID=12";
+                        $datnen = TheLoai_PhanTrang($con, $idType, 0, 6);
+                        foreach ($datnen as $a) {
+                           
+                        ?>
                         <li>
                             <div class="media"> 
-                                <a href="#" class="media-left">
-                                    <img alt="" src="http://192.168.1.220:8080/RealEstate/images/70x70.jpg">
+                                <a href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>" class="media-left">
+                                    <img alt="" src="http://192.168.1.220:8080/RealEstate/images/<?php echo($a['IllustrationURL']); ?>">
                                 </a>
                                 <div class="media-body"> 
-                                    <a href="#" class="catg_title">Tiêu đề bán đất nền</a>
+                                    <a href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>" class="catg_title"><?php echo($a['Title']);?></a>
                                     <div class="sing_commentbox">
-                                        <p><i class="fa fa-calendar"></i>19 Nov 2045</p>
-                                        <a href="#"><i class="fa fa-comments"></i>200 Views</a>
-                                    </div>
+                                         <p><i class="fa fa-calendar"></i><?php echo date('d-m-Y', strtotime($a['LastUpdated'])); ?></p>
+                                                        <a href="#"><i class="fa fa-eye"></i><?php echo($a['ViewNumber']); ?> Views</a>
+  </div>
                                 </div>
                             </div>
                         </li>
-                        <li>
-                            <div class="media"> 
-                                <a href="#" class="media-left">
-                                    <img alt="" src="http://192.168.1.220:8080/RealEstate/images/70x70_02.jpg">
-                                </a>
-                                <div class="media-body"> 
-                                    <a href="#" class="catg_title">Tiêu đề bán đất nền</a>
-                                    <div class="sing_commentbox">
-                                        <p><i class="fa fa-calendar"></i>19 Nov 2045</p>
-                                        <a href="#"><i class="fa fa-comments"></i>200 Views</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="media"> 
-                                <a href="#" class="media-left">
-                                    <img alt="" src="http://192.168.1.220:8080/RealEstate/images/70x70_03.jpg">
-                                </a>
-                                <div class="media-body"> 
-                                    <a href="#" class="catg_title">Tiêu đề bán đất nền</a>
-                                    <div class="sing_commentbox">
-                                        <p><i class="fa fa-calendar"></i>19 Nov 2045</p>
-                                        <a href="#"><i class="fa fa-comments"></i>200 Views</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="media"> 
-                                <a href="#" class="media-left">
-                                    <img alt="" src="http://192.168.1.220:8080/RealEstate/images/70x70_03.jpg">
-                                </a>
-                                <div class="media-body"> 
-                                    <a href="#" class="catg_title">Tiêu đề bán đất nền</a>
-                                    <div class="sing_commentbox">
-                                        <p><i class="fa fa-calendar"></i>19 Nov 2045</p>
-                                        <a href="#"><i class="fa fa-comments"></i>200 Views</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="media"> 
-                                <a href="#" class="media-left">
-                                    <img alt="" src="http://192.168.1.220:8080/RealEstate/images/70x70_02.jpg">
-                                </a>
-                                <div class="media-body"> 
-                                    <a href="#" class="catg_title">Tiêu đề bán đất nền</a>
-                                    <div class="sing_commentbox">
-                                        <p><i class="fa fa-calendar"></i>19 Nov 2045</p>
-                                        <a href="#"><i class="fa fa-comments"></i>200 Views</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="media"> 
-                                <a href="#" class="media-left">
-                                    <img alt="" src="http://192.168.1.220:8080/RealEstate/images/70x70_01.jpg">
-                                </a>
-                                <div class="media-body"> 
-                                    <a href="#" class="catg_title">Tiêu đề bán đất nền</a>
-                                    <div class="sing_commentbox">
-                                        <p><i class="fa fa-calendar"></i>19 Nov 2045</p>
-                                        <a href="#"><i class="fa fa-comments"></i>200 Views</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
+                        <?php }?>
+
                     </ul>
                 </div>
             </div>

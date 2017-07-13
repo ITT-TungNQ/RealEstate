@@ -1,3 +1,10 @@
+<?php
+session_start();
+require_once ("data/truyvan.php");
+$con = connect();
+?>
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -5,20 +12,62 @@
         <?php include("include/header.php"); ?>
     </head>
     <body>
+
         <div class="container">
             <div class="box_wrapper">
                 <div id="preloader">
                     <div id="status">&nbsp;</div>
                 </div>
-                <?php include("include/menu.php"); ?>
-                <?php include("include/home_slider.php"); ?>
+                <?php require_once("include/menu.php"); ?>
+                <?php require_once("include/home_slider.php"); ?>
+
                 <section id="contentbody">
-                    <div class="row">
-                        <?php include("include/home_content.php"); ?>
+                    <div class="row" id="datasearch">
+                        <?php require_once ("include/left_banner.php"); ?>
+                        <?php
+                        $page = "";
+                        if (isset($_GET["page"])) {
+                            $page = $_GET["page"];
+
+                            switch ($page) {
+                                case "home":
+                                    require_once("index.php");
+                                    break;
+                                case "details":
+                                    require_once("details.php");
+                                    break;
+                                case "category_content":
+                                    require_once ("category_archive.php");
+                                    break;
+                                case "timkiem":
+                                    require_once ("include/search.php");
+                                    break;
+                                case "theloai":
+                                    require_once ("include/theloai.php");
+                                    break;
+                            }
+                        } else {
+                            require_once("include/center_content.php");
+                        }
+                        ?>
+                        <!--cái này là tìm kiếm là cái phần có mmaasy combobox tìm kiếm đứng ko?phải ok vậy trang kết quả sau tìm kiếm của c -->
+                        <?php require_once ("include/filter_banner2.php"); ?>
                     </div>
+
                 </section>
-                <?php include("include/footer.php"); ?>
+
             </div>
+
+
         </div>
-    </body>
+
+
+        <?php include("include/footer.php");
+      
+ 
+        ?>
+        
+    </div>
+</div>
+</body>
 </html>

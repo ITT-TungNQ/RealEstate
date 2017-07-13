@@ -1,136 +1,159 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Trang thông tin bất động sản</title>
-        <?php include("include/header.php"); ?>
-    </head>
-    <body>
-        <div class="container">
-            <div class="box_wrapper">
-                <?php include("include/menu.php"); ?>
-                <?php include("include/home_slider.php"); ?>
-                <section id="contentbody">
-                    <div class="row">
-                        <?php include("include/left_banner.php"); ?>
 
-                        <div class="col-lg-7 col-md-7 col-sm-8 col-xs-12">
-                            <div class="row">
-                                <div class="middle_bar">
-                                    <div class="single_post_area">
-                                        <ol class="breadcrumb">
-                                            <li>
-                                                <a href="#">
-                                                    <i class="fa fa-home"></i>Trang chủ<i class="fa fa-angle-right"></i>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="http://192.168.1.220:8080/RealEstate/category_archive.php">Biệt thự
-                                                    <i class="fa fa-angle-right"></i>
-                                                </a>
-                                            </li>
-                                            <li class="active">Bán biệt thự có hồ bơi</li>
-                                        </ol>
-                                        <h2 class="post_title wow ">Bán biệt thự siêu vip Phú Mỹ Hưng</h2>
-                                        <a href="#" class="author_name"><i class="fa fa-user"></i>TùngNQ</a>
-                                        <a class="post_date"><i class="fa fa-clock-o"></i>Thứ ba, 27/07/2017</a>
-                                        <a class="post_views"><i class="fa fa-eye"></i>2501 Views</a>
-                                        <div class="post_contact">
-                                            <ul class="post_contact_pager">
-                                                <li class="col-lg-6 col-md-12 col-sm-12 post_contact_left">
-                                                    Khu vực: Phú Mỹ Hưng, quận 7, thành phố Hồ Chí Minh.<br/>
-                                                    Giá bán: <span class="post_highlight">13 tỷ</span><br/>
-                                                    Diện tích: <span class="post_highlight">66m<sup>2</sup></span>
-                                                </li>
-                                                <li class="col-lg-6 col-md-12 col-sm-12 post_contact_right">
-                                                    <i class="fa fa-user"></i> &nbsp;Nguyễn Quang Tùng<br/>
-                                                    <a href="tel:+841643720393"><i class="fa fa-phone"></i> &nbsp;0164 3720 393<br/></a>
-                                                    <a href="mailTo:master@gmail.com"><i class="fa fa-envelope"></i> &nbsp;tunnq@ittsolution.com.vn</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="single_post_content">
-                                            <p>
-                                                Quản lý 100% biệt thự Phú Mỹ Hưng, quận 7.<br/>
-                                                Biệt thự song lập Phú Mỹ Hưng, DT 8.2m x 19m, 01 trệt, 02 lầu, 04 phòng ngủ. Đường trước nhà 10.5m, hướng Nam, hành lang đậu xe hơi. Gần trung tâm siêu thị, chợ Tân Mỹ, trường học quốc tế... Giá bán 11 tỷ (sổ hồng).<br/>
-                                                Bán biệt thự liền kề Phú Mỹ Hưng giá 10 - 15 tỷ.<br/>
-                                                Khu biệt thự Phú Mỹ Hưng nằm ngay tại vị trí trung tâm, gần các ngân hàng, trường học, bệnh viện, siêu thị.<br/>
-                                                Biệt thự song lập 10x20m, thiết kế 1 trệt, 2 lầu, 4 phòng ngủ, 4 toilet, sổ hồng. Giá tốt nhất: 13 tỷ.
-                                            </p>
-                                            <img class="img-center" src="images/650x310.jpg" alt="">
-                                            <p>
-                                                Bán biệt thự Phú Mỹ Hưng, Quận 7 giá tốt.<br/>
-                                                Lưu ý: Miễn tiếp trung gian.<br/>
-                                                Thông tin biệt thự:<br/>
-                                            <ul>
-                                                <li>DT: 16.75 x 18.5m.</li>
-                                                <li>Biệt thự bao gồm 1 trệt, 2 lầu.</li>
-                                                <li>
-                                                    Lầu 1 có 3 phòng ngủ trong đó có 1 phòng Master, 3 toilet. Lầu 2 có 4 phòng ngủ, 1 toilet và sân thượng.
-                                                </li>
-                                                <li>
-                                                    Nội thất trong nhà đầy đủ tiện nghi được thiết kế theo phong cách cổ điển, Châu Âu
-                                                </li>
-                                                <li>
-                                                    Ngoài ra còn có sân vườn, hồ bơi, gara xe có thể để được 2 chiếc.
-                                                </li>
-                                                <li>
-                                                    Khu vực an ninh, yên tĩnh, xung quanh hàng xóm là những người có địa vị xã hội, gần siêu thị, trường học, bệnh viện, rất tiện lợi trong việc đi lại giữa các quận trong thành phố.
-                                                </li>
-                                                <li>Giấy tờ, sổ hồng đầy đủ, có thể dọn vào ở ngay.e</li>
-                                            </ul>
-                                            </p>
-                                            <blockquote>
-                                                Bán biệt thự trung tâm Phú Mỹ Hưng Q7, giá 14,5 tỷ.<br/>
-                                                DT 8x18m, trệt + 2 lầu, nội thất tuyệt đẹp, sổ hồng, vị trí thuận tiện ngay trung tâm Phú Mỹ Hưng, chỉ 15 phút lái xe tới trung tâm Q1, an ninh 24/24. Bán 14,5 tỷ còn TL. Quý khách xem nhà.
-                                            </blockquote>
-                                            <p>
-                                                Gia đình đi nước ngoài cần bán gấp biệt thự đơn lập góc 2 mặt tiền khu Cảnh Đồi, Phú Mỹ Hưng Q7. Diện tích 366m2, nhà có 5 phòng ngủ, nội thất đẹp, sân vườn lớn, khu dân cư với nhiều tiện ích cây xanh nhiều gần khu Hồ Bán Nguyệt, khu trung tâm mua sắm, trường học quốc tế. Giá bán 36 tỷ còn thương lượng.
-                                            </p>
-                                            <p>
-                                                Bán biệt thự đơn lập khu trung tâm Cảnh Đồi Phú Mỹ Hưng, quận 7.<br/>
-                                                Diện tích đất 308m2, DTSD 400m2, giá bán 24,5 tỷ, sổ hồng, nằm ngay vị trí đẹp ngay trung tâm Phú Mỹ Hưng với nhiều tiện ích trong cuộc sống. Cấu trúc nhà 1 trệt 2 lầu 1 áp mái, với 5 phòng ngủ, 6WC, nhà rộng thoáng mát, phòng khách rộng rãi, phòng ăn, bếp.
-                                            </p>
-                                            <p>
-                                                Bán biệt thự góc 2 mặt tiền Phú Mỹ Hưng, Q7. Diện tích 375m2, nhà đẹp có 4 phòng ngủ thiết kế theo phong cách Châu Âu, sân vườn rộng, nhiều cây xanh. Giá bán 33 tỷ còn thương lượng.<br/>
-                                                Bán biệt thự khu Nam Thiên khu Cảnh Đồi diện tích 570m2 có 6 phòng ngủ 6 toilet, nhà mới đẹp nội thất Châu Âu có hồ bơi sân vườn rộng bán giá 70 tỷ, ngân hàng hỗ trợ vay 70% trong năm.<br/>
-                                                Bán biệt thự đơn lập căn góc khu Cảnh Đồi có hồ bơi sân vườn rộng nhà mới nội thất Châu Âu diện tích 588m2 sổ hồng vĩnh viễn căn góc 2 mặt tiền bán giá 58 tỷ.
-                                            </p>
-                                        </div>
-                                        <div class="related_post">
-                                            <h2 class="wow fadeInLeftBig">Related Posts you may like
-                                                <i class="fa fa-thumbs-o-up"></i>
-                                            </h2>
-                                            <ul class="recentpost_nav relatedpost_nav wow fadeInDown animated">
-                                                <li>
-                                                    <a href="#"><img alt="" src="images/150x80_001.jpg"></a>
-                                                    <a href="#" class="recent_title">
-                                                        Bài đăng có liên quan
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"><img alt="" src="images/150x80_002.jpg"></a>
-                                                    <a href="#" class="recent_title">
-                                                        Bài đăng có liên quan
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#"><img alt="" src="images/150x80_003.jpg"></a>
-                                                    <a href="#" class="recent_title">
-                                                        Bài đăng có liên quan
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+<?php
 
-                        <?php include("include/right_banner.php"); ?>
+
+function toStringMoney($value) {
+    $strMoney = "Thỏa thuận";
+    if (is_numeric($value)) {
+        if ($value > 999999999) {
+            $value = $value / 1000000000;
+            $strMoney = number_format((float) $value, 1, ".", ",");
+            $strMoney .= " tỷ";
+        } else {
+            $value = $value / 1000000;
+            $strMoney = number_format((float) $value, 1, ".", ",");
+            $strMoney .= " triệu";
+        }
+    }
+
+    return $strMoney;
+}
+?>
+
+<?php
+$DIRECTION = array('Liên hệ', "Đông", "Tây", "Nam", "Bắc", "Đông-Bắc", "Tây-Bắc", "Đông-Nam", "Tây-Nam");
+$loaiTin = array("Cho Thuê", "Bán");
+if (isset($_GET["id"])) {
+    $id = $_GET["id"];
+    settype($id, "int");
+    CapNhatView($con, $id);
+
+    $row = ChiTietTin($con, $id);
+    foreach ($row as $a) {
+        $objContact = json_decode($a['Contact']);
+        $ownerName = $objContact->{'owner_name'};
+        $phoneNumber = $objContact->{'phone_number'};
+        if (isset($objContact->{'email'})) {
+            $email = $objContact->{'email'};
+        } else {
+            $email = '';
+        }
+
+        $diachi = ViTri($con, $a['Lineage']);
+    }
+    ?>
+    <div class="col-lg-7 col-md-7 col-sm-8 col-xs-12" >
+        <div class="row">
+            <div class="middle_bar">
+                <div class="single_post_area">
+                    <ol class="breadcrumb">
+                        <li>
+                            <a href="http://192.168.1.220:8080/RealEstate/index.php">
+                                <i class="fa fa-home"></i>Trang chủ<i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <?php
+                            $loai = "";
+                            $link = "";
+                            $type = Type($con, $id);
+                            foreach ($type as $xx) {
+                                $x = $xx['NewsTypeID'];
+                            }
+                            settype($x, "int");
+                            switch ($x) {
+                                case 1:
+                                case 2:
+                                case 3:
+                                case 4:
+                                    $idType = "NewsTypeID=1 or NewsTypeID=2 or NewsTypeID=3 or NewsTypeID=4";
+                                    $link = " http://192.168.1.220:8080/RealEstate/index.php?page=theloai&type=canho";
+                                    $loai = "Căn Hộ";
+                                    break;
+                                case 5:
+                                case 6:
+                                    $idType = "NewsTypeID=5 or NewsTypeID=6";
+                                    $link = " http://192.168.1.220:8080/RealEstate/index.php?page=theloai&type=bietthu";
+                                    $loai = "Biệt Thự";
+                                    break;
+                                case 7:
+                                case 8:
+                                case 9:
+                                case 10:
+                                    $idType = "NewsTypeID=7 or NewsTypeID=8 or NewsTypeID=9 or NewsTypeID=10";
+                                    $link = " http://192.168.1.220:8080/RealEstate/index.php?page=theloai&type=duanmoi";
+                                    $loai = "Dự Án Mới";
+                                    break;
+                                case 11:
+                                case 12:
+                                    $idType = "NewsTypeID=11 or NewsTypeID=12";
+                                    $link = " http://192.168.1.220:8080/RealEstate/index.php?page=theloai&type=datnen";
+                                    $loai = "Đất Nền ";
+                                    break;
+                            }
+                            ?>
+                            <a href="<?php echo($link); ?>"><?php echo ($loai); ?>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                        <li class="active"><?php echo($a['Title']); ?></li>
+                    </ol>
+                    <h2 class="post_title wow "><?php echo($a['Title']); ?></h2>
+
+                    <a class="post_date"><i class="fa fa-clock-o"></i><?php echo date('d-m-Y', strtotime($a['LastUpdated'])); ?></a>
+                    <a class="post_views"><i class="fa fa-eye"></i><?php echo($a['ViewNumber']); ?> Views</a>
+                    <div class="post_contact">
+                        <ul class="post_contact_pager">
+                            <li class="col-lg-6 col-md-12 col-sm-12 post_contact_left">
+                                Khu vực: <?php echo($diachi); ?>.<br/>
+                                Giá bán: <span class="post_highlight"><?php echo(toStringMoney($a['Price'])); ?></span><br/>
+                                Diện tích: <span class="post_highlight"><?php echo($a['Acreage']); ?>m<sup>2</sup></span>
+                            </li>
+                            <li class="col-lg-6 col-md-12 col-sm-12 post_contact_right">
+                                <i class="fa fa-user"></i> &nbsp;<?php echo ($ownerName); ?><br/>
+                                <a href="tel:+841643720393"><i class="fa fa-phone"></i> &nbsp;<?php echo ($phoneNumber); ?><br/></a>
+                                <a href="mailTo:master@gmail.com"><i class="fa fa-envelope"></i> &nbsp;<?php echo ($email); ?></a>
+                            </li>
+                        </ul>
                     </div>
-                </section>
-                <?php include("include/footer.php"); ?>
+                    <div class="single_post_content">
+                        <p><?php echo($a['Details']) ?></p>
+                        <blockquote style="font-size: 15px">
+                            <p>Thông Tin Khác:</p>
+                            <p style="padding-left: 50px;">Hướng nhà:<?php echo ($DIRECTION[$a['Direction']]); ?> </p>
+                            <p style="padding-left: 50px;">Số Phòng:
+                                <?php
+                                if ($a['Rooms'] == 0) {
+                                    echo "Liên hệ";
+                                } else {
+                                    echo ($a['Rooms']);
+                                }
+                                ?> </p>
+                            <p style="padding-left: 50px;">Loại Tin Rao: <?php echo ($loaiTin[$a['IsHire']]); ?></p>
+                        </blockquote>
+
+                    </div>
+                    <div class="related_post">
+                        <h2 class="wow fadeInLeftBig">Related Posts you may like
+                            <i class="fa fa-thumbs-o-up"></i>
+                        </h2>
+                        <ul class="recentpost_nav relatedpost_nav wow fadeInDown animated">
+                            <?php
+                            $lienquan = TheLoai_PhanTrang($con, $idType, 0, 3);
+                            foreach ($lienquan as $a) {
+                                ?>
+                                <li>
+                                    <a href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>"><img src="http://192.168.1.220:8080/RealEstate/images/<?php echo($a['IllustrationURL']); ?>" alt=""></a>
+                                    <a href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>" class="recent_title">
+                                       <?php echo($a['Title']); ?>
+                                    </a>
+                                </li>
+                            <?php } ?>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
-    </body>
-</html>
+    </div>
+<?php } ?>
+

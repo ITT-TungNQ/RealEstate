@@ -1,3 +1,11 @@
+
+<?php
+require_once ("data/truyvan.php");
+$con = connect();
+ 
+$tinmoi = TinMoi($con);
+?>
+
 <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
 <header id="header">
     <div class="header_top">
@@ -9,12 +17,12 @@
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav custom_nav">
                         <li><a href="http://192.168.1.220:8080/RealEstate/">Trang chủ</a></li>
-                        <li><a href="http://192.168.1.220:8080/RealEstate/category_archive.php">Dự án mới</a></li>
-                        <li><a href="#">Đất nền</a></li>
-                        <li><a href="#">Căn hộ</a></li>
-                        <li><a href="#">Biệt thự</a></li>
-                        <li><a href="#">Tin mới</a></li>
-                        <li><a href="#">Liên hệ</a></li>
+                        <li><a href="http://192.168.1.220:8080/RealEstate/index.php?page=theloai&type=duanmoi">Dự án mới</a></li>
+                        <li><a href="http://192.168.1.220:8080/RealEstate/index.php?page=theloai&type=datnen">Đất nền</a></li>
+                        <li><a href="http://192.168.1.220:8080/RealEstate/index.php?page=theloai&type=canho">Căn hộ</a></li>
+                        <li><a href="http://192.168.1.220:8080/RealEstate/index.php?page=theloai&type=bietthu">Biệt thự</a></li>
+                        <li><a href="http://192.168.1.220:8080/RealEstate/index.php?page=theloai&type=tinmoi">Tin mới</a></li>
+                        <li><a href="http://192.168.1.220:8080/RealEstate/index.php?">Liên hệ</a></li>
                     </ul>
                 </div>
             </div>
@@ -38,15 +46,11 @@
 </header>
 <div class="latest_newsarea"> <span>Tin mới nhất</span>
     <ul id="ticker01" class="news_sticker">
-        <li><a href="#">Bản tin mới 1</a></li>
-        <li><a href="#">Bản tin mới 2</a></li>
-        <li><a href="#">Bản tin mới 3</a></li>
-        <li><a href="#">Bản tin mới 4</a></li>
-        <li><a href="#">Bản tin mới 5</a></li>
-        <li><a href="#">Bản tin mới 6</a></li>
-        <li><a href="#">Bản tin mới 7</a></li>
-        <li><a href="#">Bản tin mới 8</a></li>
-        <li><a href="#">Bản tin mới 9</a></li>
-        <li><a href="#">Bản tin mới 10</a></li>
+        <?php
+        foreach ($tinmoi as $a) {
+            ?>
+            <li><a href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>"><?php echo ($a['Title']); ?></a></li>
+        <?php } ?>
+
     </ul>
 </div>

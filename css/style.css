@@ -51,6 +51,11 @@ a.logo b{color:#09c}
 .top_addarea a > img{width:100%}
 .scrollToTop{bottom:6%; display:none; font-size:32px; font-weight:bold; height:50px; position:fixed; right:5.4%; text-align:center; text-decoration:none; width:50px; z-index:9999; -webkit-transition:all 0.5s; -moz-transition:all 0.5s; -ms-transition:all 0.5s; -o-transition:all 0.5s; transition:all 0.5s}
 .scrollToTop:hover, .scrollToTop:focus{text-decoration:none; outline:none}
+.make-a-call{background: none repeat scroll 0 0 #09c;
+    border: 1px solid #FFF;
+    color: #FFF;
+    border-radius: 50px; bottom:6%; font-size:32px; font-weight:bold; line-height:50px; position:fixed; left:5.4%; text-align:center; text-decoration:none; width:50px; z-index:9999; -webkit-transition:all 0.5s; -moz-transition:all 0.5s; -ms-transition:all 0.5s; -o-transition:all 0.5s; transition:all 0.5s}
+.make-a-call:hover, .make-a-call:focus{text-decoration:none; outline:none; background-color: #fff; color: #09c; border-color: #09c;}
 .latest_newsarea{display:inline; float:left; width:100%; background-color:#1b1a1a}
 .news_sticker li a{display:inline-block; color:#eee; margin-right:40px}
 .latest_newsarea span{display:block; float:left; font-size:16px; padding:5px 25px; position:absolute; z-index:20}

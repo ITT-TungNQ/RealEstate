@@ -50,7 +50,7 @@ $contact_mail = '';
                     <a>
                         <i class="icon-file"></i> Quản lý bản tin
                     </a>
-                    <a href="http://192.168.1.220:8080/RealEstate/admin/add-new-news.php" class="current">
+                    <a href="http://192.168.1.220:8080/RealEstate/admin/them-bai-dang-moi" class="current">
                         <i class="icon-plus-sign-alt"></i> Thêm bản tin mới
                     </a>
                 </div>

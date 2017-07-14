@@ -14,10 +14,21 @@ $lstType = getAllType();
 /* ========== GET NEWS FROM DB ========== */
 require_once("util/News.php");
 require_once("controller/dao/NewsDAO.php");
+require_once './util/Utils.php';
 
 if (isset($_GET['newsID'])) {
     $newsID = $_GET['newsID'];
     $news = getNewsByID($newsID);
+
+    if (!class_exists('Utils')) {
+        header("location: http://192.168.1.220:8080/RealEstate/admin/unexpected-error");
+        exit();
+    }
+    $input_title = filter_input(INPUT_GET, 'title');
+    if ((new Utils ())->makeURL($news->getTitle()) != $input_title) {
+        header("location: http://192.168.1.220:8080/RealEstate/admin/page-not-found");
+        exit();
+    }
 }
 ?>
 

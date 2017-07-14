@@ -17,10 +17,10 @@ $cookieModal = filter_input(INPUT_COOKIE, 'user_modal');
 $change_info_msg = filter_input(INPUT_COOKIE, 'change_info_msg');
 
 if (isset($cookieModal)) {
-    setcookie("user_modal", "", time()-3600, "/RealEstate/admin/user-manager.php");
+    setcookie("user_modal", "", time()-3600, "/RealEstate/admin/danh-sach-tai-khoan-quan-ly");
 }
 if (isset($change_info_msg)) {
-    setcookie("change_info_msg", "", time()-3600,"/RealEstate/admin/user-manager.php");
+    setcookie("change_info_msg", "", time()-3600,"/RealEstate/admin/danh-sach-tai-khoan-quan-ly");
 } else {
     $change_info_msg = ' ';
 }
@@ -42,7 +42,7 @@ if (isset($change_info_msg)) {
                     <a href="http://192.168.1.220:8080/RealEstate/admin/" title="Tới trang chủ" class="tip-bottom">
                         <i class="icon-home"></i> Trang chủ
                     </a>
-                    <a href="http://192.168.1.220:8080/RealEstate/admin/user-manager.php" class="current">
+                    <a href="http://192.168.1.220:8080/RealEstate/admin/danh-sach-tai-khoan-quan-ly" class="current">
                         <i class="icon-user"></i> Quản lý tài khoản
                     </a>
                 </div>
@@ -53,7 +53,7 @@ if (isset($change_info_msg)) {
                 <div class="widget-box">
                     <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
                         <h5>Danh sách tài khoản quản lý</h5>
-                        <a href="http://192.168.1.220:8080/RealEstate/admin/add-new-user.php" class="label label-danger" style="padding: 5px; margin-top: 6px;"><i class="icon-plus"></i> Thêm mới tài khoản</a>
+                        <a href="http://192.168.1.220:8080/RealEstate/admin/them-tai-khoan-quan-ly" class="label label-danger" style="padding: 5px; margin-top: 6px;"><i class="icon-plus"></i> Thêm mới tài khoản</a>
                     </div>
                     <div class="widget-content nopadding">
                         <table id="list-user" class="table table-bordered table-striped">

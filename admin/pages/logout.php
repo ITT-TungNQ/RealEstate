@@ -15,8 +15,8 @@ if (mysqli_query($conn, $sql)) {
 
 unset($_SESSION["login_user"]);
 unset($_SESSION["timeout"]);
-setcookie('logged_username', '', time() - 36000, '/RealEstate/admin/login.php');
-setcookie('logged_pwd', '', time() - 36000, '/RealEstate/admin/login.php');
+setcookie('logged_username', '', time() - 36000, '/RealEstate/admin/dang-nhap');
+setcookie('logged_pwd', '', time() - 36000, '/RealEstate/admin/dang-nhap');
 // If it's desired to kill the session, also delete the session cookie.
 // Note: This will destroy the session, and not just the session data!
 if (ini_get("session.use_cookies")) {
@@ -27,6 +27,6 @@ if (ini_get("session.use_cookies")) {
 
 // Finally, destroy the session.
 session_destroy();
-header("Location: http://192.168.1.220:8080/RealEstate/admin/index.php");
+header("Location: http://192.168.1.220:8080/RealEstate/admin/trang-chu");
 exit();
 ?>

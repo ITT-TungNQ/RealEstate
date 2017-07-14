@@ -41,7 +41,7 @@ try {
 
     checkRole(Constants::VIEW_NEWS_LOG);
 } catch (Exception $e) {
-    header("location: http://192.168.1.220:8080/RealEstate/admin/pages/404.php");
+    header("location: http://192.168.1.220:8080/RealEstate/admin/404-file-not-found");
     exit();
 }
 
@@ -101,7 +101,7 @@ function getAllLogs() {
             array_push($lstLogs, $log);
         }
     } catch (Exception $ex) {
-        header("location: http://192.168.1.220:8080/RealEstate/admin/pages/500.php");
+        header("location: http://192.168.1.220:8080/RealEstate/admin/unexpected-error");
         exit();
     } finally {
         closeConnect($conn);

@@ -78,7 +78,7 @@ if (isset($insert_err)) {
                     <a href="http://192.168.1.220:8080/RealEstate/admin/" title="Tới trang chủ" class="tip-bottom">
                         <i class="icon-home"></i> Trang chủ
                     </a>
-                    <a href="http://192.168.1.220:8080/RealEstate/admin/add-new-user.php" class="current">
+                    <a href="http://192.168.1.220:8080/RealEstate/admin/them-tai-khoan-quan-ly" class="current">
                         <i class="icon-user"></i> Thêm tài khoản mới
                     </a>
                 </div>

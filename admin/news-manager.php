@@ -15,7 +15,7 @@ $lstNews = getAllNews();
 
 $cookieModal = filter_input(INPUT_COOKIE, 'change_news_state');
 if (isset($cookieModal)) {
-    setcookie("change_news_state", "", time() - 3600, "/RealEstate/admin/news-manager.php");
+    setcookie("change_news_state", "", time() - 3600, "/RealEstate/admin/quan-ly-bai-dang");
 }
 ?>
 
@@ -39,7 +39,7 @@ if (isset($cookieModal)) {
                     <a>
                         <i class="icon-file"></i> Quản lý bản tin
                     </a>
-                    <a href="http://192.168.1.220:8080/RealEstate/admin/news-manager.php" class="current">
+                    <a href="http://192.168.1.220:8080/RealEstate/admin/quan-ly-bai-dang" class="current">
                         <i class="icon-copy"></i> Danh sách bản tin
                     </a>
                 </div>
@@ -50,7 +50,7 @@ if (isset($cookieModal)) {
                 <div class="widget-box">
                     <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
                         <h5>Danh sách bài đăng</h5>
-                        <a href="http://192.168.1.220:8080/RealEstate/admin/add-new-news.php" class="label label-danger" style="padding: 5px; margin-top: 6px;"><i class="icon-plus"></i> Thêm mới bản tin</a>
+                        <a href="http://192.168.1.220:8080/RealEstate/admin/them-bai-dang-moi" class="label label-danger" style="padding: 5px; margin-top: 6px;"><i class="icon-plus"></i> Thêm mới bản tin</a>
                     </div>
                     <div class="widget-content nopadding">
                         <table id="list-user" class="table table-bordered data-table">
@@ -210,7 +210,7 @@ if (isset($cookieModal)) {
                                             $btnClass = 'warning';
                                         }
                                         echo '  <div style="float: left;">
-                                                    <a href="http://192.168.1.220:8080/RealEstate/admin/news-details.php?newsID= ' . $news->getNewsID() . '" class="btn btn-' . $btnClass . ' tip-top" data-original-title="Cập nhật">
+                                                    <a href="http://192.168.1.220:8080/RealEstate/admin/cap-nhat-bai-dang/' . $utils->makeURL($news->getTitle()) . '-' . $news->getNewsID() . '" class="btn btn-' . $btnClass . ' tip-top" data-original-title="Cập nhật">
                                                         <i class="icon-refresh"></i>
                                                     </a>
                                                 </div>';

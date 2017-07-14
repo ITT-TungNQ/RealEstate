@@ -63,7 +63,7 @@ function getNewsBySate($state) {
             array_push($lstNewsByState, $news);
         }
     } catch (Exception $ex) {
-        header("location: http://192.168.1.220:8080/RealEstate/admin/pages/500.php");
+        header("location: http://192.168.1.220:8080/RealEstate/admin/unexpected-error");
     } finally {
         closeConnect($conn);
     }
@@ -100,9 +100,11 @@ function changeNewsSate($newsID, $state, $isUndo = false) {
                 return true;
             }
         } else {
-//            echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
-//            setcookie('change_news_state_err', 'SQL ERROR: Đã xảy ra lỗi khi cập nhật trạng thái bản tin.', time()+36000, '/RealEstate/admin/approval-news-page.php');
+//            Có thể không có gì thay đổi
         }
+    } else {
+        header("location: http://192.168.1.220:8080/RealEstate/admin/unexpected-error");
+        exit();
     }
 
     closeConnect($conn);
@@ -162,7 +164,7 @@ function getNewsByID($newsID) {
                 (select LocationName from location where LocationID = substring_index(substring_index('" . $news->getLineage() . "', '/', -3), '/', 1)) as LocMiddle,
                 (select LocationName from location where LocationID = substring_index(substring_index('" . $news->getLineage() . "', '/', -2), '/', 1)) as LocLast";
             $result1 = mysqli_query($conn, $sql);
-            if (!$result) {
+            if (!$result || mysqli_num_fields($result) == 0) {
                 throw new Exception(mysqli_error($conn));
             }
 
@@ -176,9 +178,12 @@ function getNewsByID($newsID) {
                 }
                 $news->setLocationName($strLocation);
             }
+        } else {
+            header("location: http://192.168.1.220:8080/RealEstate/admin/page-not-found");
+            exit();
         }
     } catch (Exception $ex) {
-        header("location: http://192.168.1.220:8080/RealEstate/admin/pages/500.php");
+        header("location: http://192.168.1.220:8080/RealEstate/admin/unexpected-error");
         exit();
     } finally {
         closeConnect($conn);
@@ -240,7 +245,7 @@ function getAllNews() {
             array_push($lstNews, $news);
         }
     } catch (Exception $ex) {
-//        header("location: http://192.168.1.220:8080/RealEstate/admin/pages/500.php");
+//        header("location: http://192.168.1.220:8080/RealEstate/admin/unexpected-error");
     } finally {
         closeConnect($conn);
     }

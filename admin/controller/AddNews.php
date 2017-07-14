@@ -92,19 +92,19 @@ if (isset($_POST['new-news'])) {
                 closeConnect($conn);
                 
                 echo "Records inserted successfully.";
-                header("location: http://192.168.1.220:8080/RealEstate/admin/news-manager.php");
+                header("location: http://192.168.1.220:8080/RealEstate/admin/quan-ly-bai-dang");
             }
         }
     } else {
         echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
-        header("Location: http://192.168.1.220:8080/RealEstate/admin/pages/500.php");
+        header("Location: http://192.168.1.220:8080/RealEstate/admin/unexpected-error");
     }
 
     mysqli_close($conn);
     exit();
 } else {
     mysqli_close($conn);
-    header("location: http://192.168.1.220:8080/RealEstate/admin/add-new-news.php");
+    header("location: http://192.168.1.220:8080/RealEstate/admin/them-bai-dang-moi");
 }
 
 function insertNewsLog($newsID, $type, $conn) {

@@ -16,11 +16,11 @@ $modalDetails = '';
 
 $cookieModal = filter_input(INPUT_COOKIE, 'change_news_state');
 if (isset($cookieModal)) {
-    setcookie("change_news_state", "", time() - 3600, "/RealEstate/admin/news-trash.php");
+    setcookie("change_news_state", "", time() - 3600, "/RealEstate/admin/thung-rac");
 
     $changeTo = filter_input(INPUT_COOKIE, 'change_to');
     if (isset($changeTo)) {
-        setcookie("change_to", "", time() - 3600, "/RealEstate/admin/news-trash.php");
+        setcookie("change_to", "", time() - 3600, "/RealEstate/admin/thung-rac");
 
         if (isset($changeTo)) {
             switch ($changeTo) {
@@ -69,7 +69,7 @@ if (isset($cookieModal)) {
                     <a>
                         <i class="icon-file"></i> Quản lý bản tin
                     </a>
-                    <a href="http://192.168.1.220:8080/RealEstate/admin/news-trash.php" class="current">
+                    <a href="http://192.168.1.220:8080/RealEstate/admin/thung-rac" class="current">
                         <i class="icon-trash"></i> Thùng rác
                     </a>
                 </div>

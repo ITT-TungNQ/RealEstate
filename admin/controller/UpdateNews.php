@@ -10,14 +10,14 @@ if (isset($_POST['activate-news'])) {
         $isSuccess = changeNewsSate(filter_input(INPUT_POST, 'newsID'), Constants::ENABLE);
 
         if ($isSuccess) {
-            setcookie('change_news_state', 'true', time() + 36000, '/RealEstate/admin/approval-news-page.php');
+            setcookie('change_news_state', 'true', time() + 36000, '/RealEstate/admin/phe-duyet-bai-dang');
         } else {
-            setcookie('change_news_state', 'false', time() + 36000, '/RealEstate/admin/approval-news-page.php');
+            setcookie('change_news_state', 'false', time() + 36000, '/RealEstate/admin/phe-duyet-bai-dang');
         }
 
-        header("location: http://192.168.1.220:8080/RealEstate/admin/approval-news-page.php");
+        header("location: http://192.168.1.220:8080/RealEstate/admin/phe-duyet-bai-dang");
     } else {
-        header("location: http://192.168.1.220:8080/RealEstate/admin/pages/404.php");
+        header("location: http://192.168.1.220:8080/RealEstate/admin/page-not-found");
     }
 
     exit();
@@ -28,13 +28,13 @@ if (isset($_POST['deactivate-news'])) {
         $isSuccess = changeNewsSate(filter_input(INPUT_POST, 'newsID'), Constants::DISABLE);
 
         if ($isSuccess) {
-            setcookie('change_news_state', 'true', time() + 36000, '/RealEstate/admin/approval-news-page.php');
+            setcookie('change_news_state', 'true', time() + 36000, '/RealEstate/admin/phe-duyet-bai-dang');
         } else {
-            setcookie('change_news_state', 'false', time() + 36000, '/RealEstate/admin/approval-news-page.php');
+            setcookie('change_news_state', 'false', time() + 36000, '/RealEstate/admin/phe-duyet-bai-dang');
         }
-        header("location: http://192.168.1.220:8080/RealEstate/admin/approval-news-page.php");
+        header("location: http://192.168.1.220:8080/RealEstate/admin/phe-duyet-bai-dang");
     } else {
-        header("location: http://192.168.1.220:8080/RealEstate/admin/pages/404.php");
+        header("location: http://192.168.1.220:8080/RealEstate/admin/page-not-found");
     }
 
     exit();
@@ -45,16 +45,16 @@ if (isset($_POST['recover-news'])) {
     if (in_array(Constants::CHANGE_NEWS_STATE, $_SESSION['user_role'])) {
         $isSuccess = changeNewsSate(filter_input(INPUT_POST, 'newsID'), Constants::ENABLE, true);
 
-        setcookie('change_to', Constants::ENABLE, time() + 36000, '/RealEstate/admin/news-trash.php');
+        setcookie('change_to', Constants::ENABLE, time() + 36000, '/RealEstate/admin/thung-rac');
         if ($isSuccess) {
-            setcookie('change_news_state', 'true', time() + 36000, '/RealEstate/admin/news-trash.php');
+            setcookie('change_news_state', 'true', time() + 36000, '/RealEstate/admin/thung-rac');
         } else {
-            setcookie('change_news_state', 'false', time() + 36000, '/RealEstate/admin/news-trash.php');
+            setcookie('change_news_state', 'false', time() + 36000, '/RealEstate/admin/thung-rac');
         }
 
-        header("location: http://192.168.1.220:8080/RealEstate/admin/news-trash.php");
+        header("location: http://192.168.1.220:8080/RealEstate/admin/thung-rac");
     } else {
-        header("location: http://192.168.1.220:8080/RealEstate/admin/pages/404.php");
+        header("location: http://192.168.1.220:8080/RealEstate/admin/page-not-found");
     }
 
     exit();
@@ -65,16 +65,16 @@ if (isset($_POST['delete-news'])) {
     if (in_array(Constants::CHANGE_NEWS_STATE, $_SESSION['user_role'])) {
         $isSuccess = changeNewsSate(filter_input(INPUT_POST, 'newsID'), Constants::DETELED);
 
-        setcookie('change_to', Constants::DETELED, time() + 36000, '/RealEstate/admin/news-trash.php');
+        setcookie('change_to', Constants::DETELED, time() + 36000, '/RealEstate/admin/thung-rac');
         if ($isSuccess) {
-            setcookie('change_news_state', 'true', time() + 36000, '/RealEstate/admin/news-trash.php');
+            setcookie('change_news_state', 'true', time() + 36000, '/RealEstate/admin/thung-rac');
         } else {
-            setcookie('change_news_state', 'false', time() + 36000, '/RealEstate/admin/news-trash.php');
+            setcookie('change_news_state', 'false', time() + 36000, '/RealEstate/admin/thung-rac');
         }
 
-        header("location: http://192.168.1.220:8080/RealEstate/admin/news-trash.php");
+        header("location: http://192.168.1.220:8080/RealEstate/admin/thung-rac");
     } else {
-        header("location: http://192.168.1.220:8080/RealEstate/admin/pages/404.php");
+        header("location: http://192.168.1.220:8080/RealEstate/admin/page-not-found");
     }
 
     exit();
@@ -86,14 +86,14 @@ if (isset($_POST['move-news-to-trash'])) {
         $isSuccess = changeNewsSate(filter_input(INPUT_POST, 'newsID'), Constants::DISABLE);
 
         if ($isSuccess) {
-            setcookie('change_news_state', 'true', time() + 36000, '/RealEstate/admin/news-manager.php');
+            setcookie('change_news_state', 'true', time() + 36000, '/RealEstate/admin/quan-ly-bai-dang');
         } else {
-            setcookie('change_news_state', 'false', time() + 36000, '/RealEstate/admin/news-manager.php');
+            setcookie('change_news_state', 'false', time() + 36000, '/RealEstate/admin/quan-ly-bai-dang');
         }
 
-        header("location: http://192.168.1.220:8080/RealEstate/admin/news-manager.php");
+        header("location: http://192.168.1.220:8080/RealEstate/admin/quan-ly-bai-dang");
     } else {
-        header("location: http://192.168.1.220:8080/RealEstate/admin/pages/404.php");
+        header("location: http://192.168.1.220:8080/RealEstate/admin/page-not-found");
     }
 
     exit();
@@ -185,7 +185,7 @@ if (isset($_POST['update-news'])) {
                 closeConnect($conn);
 
                 echo "Records inserted successfully.";
-                header("location: http://192.168.1.220:8080/RealEstate/admin/news-manager.php");
+                header("location: http://192.168.1.220:8080/RealEstate/admin/quan-ly-bai-dang");
             }
         }
     } else {

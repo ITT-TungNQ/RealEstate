@@ -4,7 +4,7 @@ session_start();
 
 $msg = '&nbsp;';
 if (isset($_SESSION['login_user']['FirstName'])) {
-    header("location: http://192.168.1.220:8080/RealEstate/admin/index.php");
+    header("location: http://192.168.1.220:8080/RealEstate/admin/trang-chu");
     exit();
 } else {
     $my_username = filter_input(INPUT_COOKIE, 'logged_username');
@@ -67,15 +67,15 @@ function doLoggin($my_username, $my_password) {
             $isRemember = filter_input(INPUT_POST, 'remember_login');
             if (isset($isRemember)) {
                 if ($isRemember) {
-                    setcookie('logged_username', $my_username, time() + 604800, '/RealEstate/admin/login.php');
-                    setcookie('logged_pwd', $my_password, time() + 604800, '/RealEstate/admin/login.php');
+                    setcookie('logged_username', $my_username, time() + 604800, '/RealEstate/admin/dang-nhap');
+                    setcookie('logged_pwd', $my_password, time() + 604800, '/RealEstate/admin/dang-nhap');
                 } else {
-                    setcookie('logged_username', '', time() - 36000, '/RealEstate/admin/login.php');
-                    setcookie('logged_pwd', '', time() - 36000, '/RealEstate/admin/login.php');
+                    setcookie('logged_username', '', time() - 36000, '/RealEstate/admin/dang-nhap');
+                    setcookie('logged_pwd', '', time() - 36000, '/RealEstate/admin/dang-nhap');
                 }
             }
             closeConnect($conn);
-            header("location: http://192.168.1.220:8080/RealEstate/admin/index.php");
+            header("location: http://192.168.1.220:8080/RealEstate/admin/trang-chu");
         }
     } else {
         $GLOBALS['msg'] = 'Sai tài khoản hoặc mật khẩu!';
@@ -134,6 +134,7 @@ $selectedBg = "$bg[$i]";
         <title>ITT Team Admin</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <base href="http://192.168.1.220:8080/RealEstate/admin/" />
         <link rel="stylesheet" href="css/bootstrap.min.css" />
         <link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
         <link rel="stylesheet" href="css/matrix-login.css" />

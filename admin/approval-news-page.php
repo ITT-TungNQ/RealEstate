@@ -12,7 +12,7 @@ $listNews = getNewsBySate(Constants::PENDDING);
 /* ========= AFTER UPDATE ========== */
 $cookieModal = filter_input(INPUT_COOKIE, 'change_news_state');
 if (isset($cookieModal)) {
-    setcookie("change_news_state", "", time() - 3600, "/RealEstate/admin/approval-news-page.php");
+    setcookie("change_news_state", "", time() - 3600, "/RealEstate/admin/phe-duyet-bai-dang");
 }
 ?>
 
@@ -35,7 +35,7 @@ if (isset($cookieModal)) {
                     <a>
                         <i class="icon-file-alt"></i> Quản lý bản tin
                     </a>
-                    <a href="http://192.168.1.220:8080/RealEstate/admin/approval-news-page.php" class="current">
+                    <a href="http://192.168.1.220:8080/RealEstate/admin/phe-duyet-bai-dang" class="current">
                         <i class="icon-upload"></i> Phê duyệt bản tin
                     </a>
                 </div>

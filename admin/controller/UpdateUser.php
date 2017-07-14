@@ -25,7 +25,7 @@ if (isset($_POST['deactivate-user'])) {
         }
 
         closeConnect($conn);
-        header("location: http://192.168.1.220:8080/RealEstate/admin/user-manager.php");
+        header("location: http://192.168.1.220:8080/RealEstate/admin/danh-sach-tai-khoan-quan-ly");
     } else {
         header("location: http://192.168.1.220:8080/RealEstate/admin/page.php");
     }
@@ -50,7 +50,7 @@ if (isset($_POST['activate-user'])) {
         }
 
         closeConnect($conn);
-        header("location: http://192.168.1.220:8080/RealEstate/admin/user-manager.php");
+        header("location: http://192.168.1.220:8080/RealEstate/admin/danh-sach-tai-khoan-quan-ly");
     } else {
         header("location: http://192.168.1.220:8080/RealEstate/admin/");
     }
@@ -183,8 +183,8 @@ if (isset($inputChangeInfo)) {
     }
 
     if (isset($inputPwd1) && !empty($inputPwd1) && $inputPwd1 != $inputPwd2) {
-        setcookie("change_info_msg", "Xác nhận mật khẩu không trùng khớp", time() + 3600, '/RealEstate/admin/user-manager.php');
-        header("location: http://192.168.1.220:8080/RealEstate/admin/user-manager.php");
+        setcookie("change_info_msg", "Xác nhận mật khẩu không trùng khớp", time() + 3600, '/RealEstate/admin/danh-sach-tai-khoan-quan-ly');
+        header("location: http://192.168.1.220:8080/RealEstate/admin/danh-sach-tai-khoan-quan-ly");
     } else {
         $conn = getConnection();
         $sql = "UPDATE User "
@@ -195,11 +195,11 @@ if (isset($inputChangeInfo)) {
         } else {
             if (!isset($inputPwd1) || empty($inputPwd1)) {
                 // Về trang quản lý:
-                setcookie("change_info_msg", "Không có gì thay đổi", time() + 3600, "/RealEstate/admin/user-manager.php");
-                setcookie("user_modal", "editAlert" . $inputUserID, time() + 3600, "/RealEstate/admin/user-manager.php");
+                setcookie("change_info_msg", "Không có gì thay đổi", time() + 3600, "/RealEstate/admin/danh-sach-tai-khoan-quan-ly");
+                setcookie("user_modal", "editAlert" . $inputUserID, time() + 3600, "/RealEstate/admin/danh-sach-tai-khoan-quan-ly");
 
                 closeConnect($conn);
-                header("location: http://192.168.1.220:8080/RealEstate/admin/user-manager.php");
+                header("location: http://192.168.1.220:8080/RealEstate/admin/danh-sach-tai-khoan-quan-ly");
                 exit();
             }
         }
@@ -215,20 +215,20 @@ if (isset($inputChangeInfo)) {
         $sql .= "WHERE UserID = '$inputUserID';";
         if (mysqli_query($conn, $sql)) {
             if (mysqli_affected_rows($conn) == 1) {
-                setcookie("change_info_msg", "Cập nhật thành công", time() + 3600, "/RealEstate/admin/user-manager.php");
-                setcookie("user_modal", "editAlert" . $inputUserID, time() + 3600, "/RealEstate/admin/user-manager.php");
+                setcookie("change_info_msg", "Cập nhật thành công", time() + 3600, "/RealEstate/admin/danh-sach-tai-khoan-quan-ly");
+                setcookie("user_modal", "editAlert" . $inputUserID, time() + 3600, "/RealEstate/admin/danh-sach-tai-khoan-quan-ly");
             } else {
-                setcookie("change_info_msg", "Không có gì thay đổi", time() + 3600, "/RealEstate/admin/user-manager.php");
-                setcookie("user_modal", "editAlert" . $inputUserID, time() + 3600, "/RealEstate/admin/user-manager.php");
+                setcookie("change_info_msg", "Không có gì thay đổi", time() + 3600, "/RealEstate/admin/danh-sach-tai-khoan-quan-ly");
+                setcookie("user_modal", "editAlert" . $inputUserID, time() + 3600, "/RealEstate/admin/danh-sach-tai-khoan-quan-ly");
             }
         } else {
-            setcookie("change_info_msg", "ERROR: Could not able to execute $sql.", time() + 3600, "/RealEstate/admin/user-manager.php");
-            setcookie("user_modal", "editAlert" . $inputUserID, time() + 3600, "/RealEstate/admin/user-manager.php");
+            setcookie("change_info_msg", "ERROR: Could not able to execute $sql.", time() + 3600, "/RealEstate/admin/danh-sach-tai-khoan-quan-ly");
+            setcookie("user_modal", "editAlert" . $inputUserID, time() + 3600, "/RealEstate/admin/danh-sach-tai-khoan-quan-ly");
             echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
         }
 
         closeConnect($conn);
-        header("location: http://192.168.1.220:8080/RealEstate/admin/user-manager.php");
+        header("location: http://192.168.1.220:8080/RealEstate/admin/danh-sach-tai-khoan-quan-ly");
         exit();
     }
 }

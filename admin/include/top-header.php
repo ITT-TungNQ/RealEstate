@@ -17,7 +17,7 @@
                 <li class="divider"></li>
                 <!--<li><a href="#"><i class="icon-check"></i> Công việc của tôi</a></li>-->
                 <li class="divider"></li>
-                <li><a href="http://192.168.1.220:8080/RealEstate/admin/pages/logout.php"><i class="icon-key"></i> Đăng xuất</a></li>
+                <li><a href="http://192.168.1.220:8080/RealEstate/admin/dang-xuat"><i class="icon-key"></i> Đăng xuất</a></li>
             </ul>
         </li>
         <li class="dropdown" id="menu-messages">
@@ -47,7 +47,7 @@
             </ul>
         </li>
         <!--<li class=""><a title="" href="#"><i class="icon icon-cog"></i> <span class="text">Tùy chỉnh</span></a></li>-->
-        <li class=""><a title="" href="http://192.168.1.220:8080/RealEstate/admin/pages/logout.php"><i class="icon icon-share-alt"></i> <span class="text">Đăng xuất</span></a></li>
+        <li class=""><a title="" href="http://192.168.1.220:8080/RealEstate/admin/dang-xuat"><i class="icon icon-share-alt"></i> <span class="text">Đăng xuất</span></a></li>
     </ul>
 </div>
 <!--close-top-Header-menu-->

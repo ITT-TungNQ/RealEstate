@@ -1,18 +1,18 @@
 <?php
 // ========== CHECK LOGIN ==========
-require_once("include/check-role.php");
-require_once("util/Constant.php");
+require_once("./include/check-role.php");
+require_once("./util/Constant.php");
 
 /* ========== GET USERS FROM DB ========== */
-require_once("util/AccessDatabase.php");
-require_once("util/User.php");
-require_once("controller/GetUser.php");
+require_once("./util/AccessDatabase.php");
+require_once("./util/User.php");
+require_once("./controller/GetUser.php");
 
 $userID = $_SESSION['login_user']['UserID'];
 $user = getUserByID($userID);
 
 if (!isset($user)) {
-    header("location: http://192.168.1.220:8080/RealEstate/admin/pages/logout.php");
+    header("location: http://192.168.1.220:8080/RealEstate/admin/dang-xuat");
 }
 
 $username = $user->getUsername();

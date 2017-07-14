@@ -31,7 +31,7 @@ function getAllUser() {
             array_push($lstUser, $user);
         }
     } catch (Exception $ex) {
-        header("location: http://192.168.1.220:8080/RealEstate/admin/pages/500.php");
+        header("location: http://192.168.1.220:8080/RealEstate/admin/unexpected-error");
     } finally {
         mysqli_close($conn);
     }
@@ -71,7 +71,7 @@ function getUserByID($userID) {
             $user->setUserLevelName($row['UserLevelName']);
         }
     } catch (Exception $ex) {
-        header("location: http://192.168.1.220:8080/RealEstate/admin/pages/500.php");
+        header("location: http://192.168.1.220:8080/RealEstate/admin/unexpected-error");
     } finally {
         mysqli_close($conn);
     }

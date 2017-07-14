@@ -43,7 +43,7 @@ if (isset($_POST['new-user'])) {
         setcookie('user_level', $_POST['user_level'], time() + 36000, '/RealEstate/admin');
 
         closeConnect($conn);
-        header("Location: http://192.168.1.220:8080/RealEstate/admin/add-new-user.php");
+        header("Location: http://192.168.1.220:8080/RealEstate/admin/them-tai-khoan-quan-ly");
         exit();
         return;
     }
@@ -93,17 +93,17 @@ if (isset($_POST['new-user'])) {
   				'$my_username', '$my_password', '$first_name', '$middle_name', '$last_name', STR_TO_DATE('$user_dob', '%d/%m/%Y'), '$user_email','$profile_picture', $enable)";
     if (mysqli_query($conn, $sql)) {
 //        echo "Records inserted successfully.";
-        header("location: http://192.168.1.220:8080/RealEstate/admin/user-manager.php");
+        header("location: http://192.168.1.220:8080/RealEstate/admin/danh-sach-tai-khoan-quan-ly");
     } else {
 //        echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
         setcookie('insert_err', 'SQL ERROR: Đã xảy ra lỗi khi thêm tài khoản mới.', time() + 36000, '/RealEstate/admin');
-        header("Location: http://192.168.1.220:8080/RealEstate/admin/add-new-user.php");
+        header("Location: http://192.168.1.220:8080/RealEstate/admin/them-tai-khoan-quan-ly");
     }
 
     mysqli_close($conn);
     exit();
 } else {
     mysqli_close($conn);
-    header("location: http://192.168.1.220:8080/RealEstate/admin/add-new-user.php");
+    header("location: http://192.168.1.220:8080/RealEstate/admin/them-tai-khoan-quan-ly");
 }
 ?>

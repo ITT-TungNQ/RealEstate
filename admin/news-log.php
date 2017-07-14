@@ -30,7 +30,7 @@ $listNewsLog = getAllLogs();
                     <a>
                         <i class="icon icon-file"></i> Quản lý bản tin
                     </a>
-                    <a href="http://192.168.1.220:8080/RealEstate/admin/news-log.php" class="current">
+                    <a href="http://192.168.1.220:8080/RealEstate/admin/nhat-ky-bai-dang" class="current">
                         <i class="icon icon-calendar"></i> Nhật ký đăng tin
                     </a>
                 </div>

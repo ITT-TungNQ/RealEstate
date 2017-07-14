@@ -1,7 +1,6 @@
 
 <?php
 
-
 function toStringMoney($value) {
     $strMoney = "Thỏa thuận";
     if (is_numeric($value)) {
@@ -134,7 +133,7 @@ if (isset($_GET["id"])) {
 
                     </div>
                     <div class="related_post">
-                        <h2 class="wow fadeInLeftBig">Related Posts you may like
+                        <h2 class="wow fadeInLeftBig"> Có thể bạn quan tâm 
                             <i class="fa fa-thumbs-o-up"></i>
                         </h2>
                         <ul class="recentpost_nav relatedpost_nav wow fadeInDown animated">
@@ -143,9 +142,13 @@ if (isset($_GET["id"])) {
                             foreach ($lienquan as $a) {
                                 ?>
                                 <li>
-                                    <a href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>"><img src="<?php echo($a['IllustrationURL']); ?>" alt=""></a>
+                                    <a href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>">
+                                        <div class="relate_post_image" style="background-image: url('<?php echo($a['IllustrationURL']); ?>');">
+
+                                        </div>
+                                        <!--<img src="<?php echo($a['IllustrationURL']); ?>" alt=""></a>-->
                                     <a href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>" class="recent_title">
-                                       <?php echo($a['Title']); ?>
+                                        <?php echo($a['Title']); ?>
                                     </a>
                                 </li>
                             <?php } ?>

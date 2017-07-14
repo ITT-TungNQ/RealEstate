@@ -12,7 +12,7 @@
 <?php
 require_once ("data/truyvan.php");
 $con = connect();
-    $tinNoiBat=TinNoiBat($con);
+$tinNoiBat = TinNoiBat($con);
 ?>
 <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" style="float: right;">
     <div class="row">
@@ -72,7 +72,7 @@ $con = connect();
                             $vt = "";
                             if (isset($_SESSION['thanhpho'])) {
                                 $thanhpho = $_SESSION['thanhpho'];
-                              }
+                            }
                             ?>
                             <select class="form-control" id="select_province" name="select_province">
                                 <option value="0">--- Chọn thành phố/tỉnh ---</option>
@@ -186,24 +186,29 @@ $con = connect();
                     </form>
                 </div>
             </div>   <!--tim kiem-->
-           <div class="single_leftbar wow fadeInDown">
+            <div class="single_leftbar wow fadeInDown">
                 <h2><span>Tin phổ biến</span></h2>
                 <div class="singleleft_inner">
                     <ul class="catg3_snav ppost_nav wow fadeInDown">
-                        
+
                         <?php
-                        foreach ($tinNoiBat as $a){
-                        ?>
-                        <li>
-                            <div class="media">
-                                <a href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>" class="media-left"><img alt="" src="<?php echo ($a['IllustrationURL']); ?>"></a>
-                                <div class="media-body">
-                                    <a href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>" class="catg_title"><?php echo ($a['Title']); ?> </a>
+                        foreach ($tinNoiBat as $a) {
+                            ?>
+                            <li>
+                                <div class="media">
+                                    <a href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>" class="media-left">
+                                        <div class="popular_news_image" style="background-image: url('<?php echo($a['IllustrationURL']); ?>');">
+
+                                        </div>
+                                        <!--<img alt="" src="<?php echo ($a['IllustrationURL']); ?>">-->
+                                    </a>
+                                    <div class="media-body">
+                                        <a href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>" class="catg_title"><?php echo ($a['Title']); ?> </a>
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
+                            </li>
                         <?php } ?>
-                        
+
                     </ul>
                 </div>
             </div> <!--tin noi bat-->
@@ -213,19 +218,19 @@ $con = connect();
                 <div class="singleleft_inner"> <a href="#"><img alt="" src="http://192.168.1.220:8080/RealEstate/images/lienhe.gif"></a></div>
             </div>
 
-            
-            
+
+
             <div class="single_leftbar wow fadeInDown">
                 <h2><span>Chủ đề được quan tâm</span></h2>
                 <div class="singleleft_inner">
                     <ul class="label_nav">
                         <li><a href="http://192.168.1.220:8080/RealEstate/index.php?page=theloai&type=datnen">Thị trường đất nền</a></li>
-                      
+
                         <li><a href="http://192.168.1.220:8080/RealEstate/index.php?page=theloai&type=duanmoi">Công trình, dự án mới</a></li>
                         <li><a href="#">Căn hộ 25m2</a></li>
-                       
-                        
-                       
+
+
+
                     </ul>
                 </div>
             </div>
@@ -234,7 +239,7 @@ $con = connect();
                 <div class="singleleft_inner">
                     <ul class="link_nav">
                         <li><a href="#">Liên hệ</a></li>
-                        <li><a href="https://www.facebook.com/chymchyck.bong">Facebook: Ngọc Như Ý </a></li>
+                        <li><a target="_blank" href="https://www.facebook.com/chymchyck.bong">Facebook: Ngọc Như Ý </a></li>
                         <li><a href="#">https://lien_ket.com.vn</a></li>
                         <li><a href="#">https://lien_ket.com.vn</a></li>
                         <li><a href="#">https://lien_ket.com.vn</a></li>
@@ -249,7 +254,7 @@ $con = connect();
     $lstProvinces = [];
     $lstDistricts = [];
     $lsrWards = [];
-   
+
 
     //alert("Minh " + thanhPho);
     $.getJSON("http://192.168.1.220:8080/RealEstate/Location.json", function (data) {

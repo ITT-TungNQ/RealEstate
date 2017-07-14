@@ -69,6 +69,7 @@ a.logo b{color:#09c}
 .owl-carousel .signle_iteam:last-child img{width:100% !important}
 .slider_tittle{background-image: url("images/des_bg.png"); background-repeat: repeat; bottom:15px; color:#fff; font-size:20px; left:0; line-height:23px; margin:0 20px; padding:20px 0; position:absolute; right:0; text-align:center; width:auto; z-index:5}
 .slider_tittle:hover, .slider_tittle:focus{color:#ffff00}
+.slider_image {width: 395px; height: 396px; background-size: cover; background-position: center; }
 #contentbody{background-color:#eee; display:inline; float:left; min-height:500px; padding:0 30px; width:100%; padding-top:10px}
 .left_bar{float:left; display:inline; width:93%; min-height:400px}
 .single_leftbar{float:left; display:inline; width:100%; margin-bottom:25px}
@@ -80,6 +81,7 @@ a.logo b{color:#09c}
 .recentpost_nav li a{display:block; line-height:23px; -webkit-transition:all 0.5s; -o-transition:all 0.5s; transition:all 0.5s}
 .recentpost_nav li a:hover{opacity:0.75}
 .recentpost_nav li a > img{margin-bottom:5px; width:100%}
+.recentpost_nav li a .relate_post_image{display: inline-block; height: 100px; margin-bottom:5px; width:100%; background-size: cover; background-position: center;}
 .recent_title:before{content:""; margin-right:5px}
 .recent_title:before{display:inline-block; font-family:FontAwesome; font-style:normal; font-weight:normal; line-height:1}
 .middle_bar{display:inline; float:left; padding-bottom:40px; width:98%}
@@ -122,6 +124,7 @@ a.logo b{color:#09c}
 .catg3_snav .media-left{width:70px; height:70px}
 .catg3_snav .media-left:hover{opacity:0.75}
 .catg3_snav .media-left > img{width:100%; height:100%}
+.catg3_snav .media-left > .popular_news_image{width:100%; height:100%; background-size: cover; background-position: center;}
 .catg5_nav li{border-top:medium none; float:left; padding-bottom:0; padding-top:5px; width:49%}
 .right_bar{float:left; display:inline; width:100%}
 .ppost_nav li{border-top:none}

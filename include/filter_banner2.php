@@ -178,7 +178,7 @@ $tinNoiBat = TinNoiBat($con);
                             </select>
                         </div>
                         <div class="form-group">
-                            <input id="search_type" type="checkbox" data-toggle="toggle" data-off="Cơ bản" data-on="Nâng cao">
+                            <input id="search_type" name="search_type" type="checkbox" data-toggle="toggle" data-off="Cơ bản" data-on="Nâng cao">
                             <button type="submit" id="filter_news" name="submit" class="btn btn-primary" style="float: right;">
                                 <span class="glyphicon glyphicon-search"></span> Tìm kiếm
                             </button>
@@ -251,6 +251,71 @@ $tinNoiBat = TinNoiBat($con);
 </div>
 
 <script type="text/javascript">
+//    Hiện tìm kiếm nâng cao nếu có
+    if ($('#search_type').prop('checked')) {
+        $('.advanced-search').show();
+    }
+
+//    Các giá trị tìm kiếm vị trí
+    $thanhpho = 0;
+    $quanHuyen = 0;
+    $phuongXa = 0;
+    $isAdvance = false;
+<?php
+if (isset($thanhpho)) {
+    echo '$thanhpho = ' . $thanhpho . ';';
+}
+if (isset($huyen)) {
+    echo '$quanHuyen = ' . $huyen . ';';
+}
+if (isset($phuongXa)) {
+    echo '$phuongXa = ' . $phuongXa . ';';
+}
+
+if (isset($_SESSION['search_type'])) {
+    echo '$isAdvance = ' . $_SESSION['search_type'] . ';';
+}
+?>
+
+    function setLocation() {
+        if ($thanhpho != 0) {
+            $('#select_province').val($thanhpho);
+            // Setup district 
+            $("#select_district").html('<option value="0">--- Chọn quận/huyện ---</option>');
+            if ($lstProvinces[$thanhpho]) {
+                $data = $lstProvinces[$thanhpho].lstSubLocation;
+                if ($data) {
+                    $.each($data, function (key, district) {
+                        $lstDistricts[district.locationID] = district;
+                        $("#select_district").append('<option value="' + district.locationID + '">' + district.locationName + '</option>');
+                    });
+                }
+            }
+
+            if ($quanHuyen != 0) {
+                $('#select_district').val($quanHuyen);
+            }
+            // Setup ward
+            $("#select_ward").html('<option value="0">--- Chọn phường/xã ---</option>');
+            if ($lstDistricts[$quanHuyen]) {
+                $data = $lstDistricts[$quanHuyen].lstSubLocation;
+                if ($data) {
+                    $.each($data, function (key, ward) {
+                        $lsrWards[ward.locationID] = ward;
+                        $("#select_ward").append('<option value="' + ward.locationID + '">' + ward.locationName + '</option>');
+                    });
+                }
+            }
+
+            if ($phuongXa != 0) {
+                $('#select_ward').val($phuongXa);
+            }
+            if ($isAdvance) {
+                $('#search_type').bootstrapToggle('on');
+            }
+        }
+    }
+
     $lstProvinces = [];
     $lstDistricts = [];
     $lsrWards = [];
@@ -261,10 +326,13 @@ $tinNoiBat = TinNoiBat($con);
         $.each(data, function (key, province) {
             $lstProvinces[province.locationID] = province;
             $("#select_province").append('<option value="' + province.locationID + '">' + province.locationName + '</option>');
+
+            setLocation();
         });
     });
     $('#select_province').on('change', function () {
         $("#select_district").html('<option value="0">--- Chọn quận/huyện ---</option>');
+        $("#select_ward").html('<option value="0">--- Chọn phường/xã ---</option>');
         if ($lstProvinces[this.value]) {
             $data = $lstProvinces[this.value].lstSubLocation;
             if ($data) {
@@ -288,3 +356,17 @@ $tinNoiBat = TinNoiBat($con);
         }
     });
 </script>
+
+<?php 
+// unset all look up session
+unset($_SESSION["search_type"]);
+unset($_SESSION["loai"]);
+unset($_SESSION["nha"]);
+unset($_SESSION["thanhpho"]);
+unset($_SESSION["huyen"]);
+unset($_SESSION["phuongXa"]);
+unset($_SESSION['dientich']);
+unset($_SESSION['gia']);
+unset($_SESSION['phong']);
+unset($_SESSION['huong']);
+?>

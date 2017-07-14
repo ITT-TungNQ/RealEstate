@@ -1,4 +1,9 @@
 RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteCond %{DOCUMENT_ROOT}/$1/index.php !-f
+RewriteRule ^(.+?)/?$ - [F]
+
 RewriteRule "^index.html$" "index.php"
 RewriteRule "^page-not-found$" "404.php"
 RewriteRule "^access-denied$" "403.php"
@@ -23,6 +28,10 @@ RewriteRule "^admin/phe-duyet-bai-dang$" "admin/approval-news-page.php"
 RewriteRule "^admin/thung-rac$" "admin/news-trash.php"
 RewriteRule "^admin/cap-nhat-bai-dang/([a-zA-Z0-9-]+)-([0-9]+)$" "admin/news-details.php?title=$1&newsID=$2"
 
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule "^(.*)$" "404.php" [L]
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule "^(.*)$" "404.php" [L]
+
+ErrorDocument 404 http://192.168.1.220:8080/RealEstate/page-not-found
+ErrorDocument 403 http://192.168.1.220:8080/RealEstate/access-denied
+ErrorDocument 500 http://192.168.1.220:8080/RealEstate/access-denied

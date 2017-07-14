@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>ERROR 404</title>
+        <title>ERROR 403</title>
         <?php include("include/header.php"); ?>
     </head>
     <body>
@@ -11,11 +11,11 @@
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <div class="errorpage_area">
-                                <div class="error-title"><span>404</span></div>
+                                <div class="error-title"><span>403</span></div>
                                 <div class="error_content">
                                     <p>
                                         <i class="fa fa-hand-o-right "></i>
-                                        Sorry, the page you were looking for in this blog does not exist.
+                                        Sorry you don't have permission to view this directory or page.
                                     </p>
                                     <a href="http://192.168.1.220:8080/RealEstate/index.html">Home</a>
                                 </div>

@@ -1,4 +1,8 @@
 jQuery(document).ready(function () {
+    $('html, body').animate({
+        scrollTop: 0
+    }, 100);
+
     // for search bar
     $('#searchIcon').on("click", function () {
         $(this).parents('.header_search').find("#shide").css('top', '0px');
@@ -65,6 +69,9 @@ jQuery(window).load(function () { // makes sure the whole site is loaded
     $('.scrollToTop').css({
         'display': 'none'
     });
+    $('.make-a-call').css({
+        'display': 'none'
+    });
 
     $('#status').delay(500).fadeOut(); // will first fade out the loading animation
     $('#preloader').delay(700).fadeOut('slow'); // will fade out the white DIV that covers the website.
@@ -74,6 +81,7 @@ jQuery(window).load(function () { // makes sure the whole site is loaded
 
 
     setTimeout(function () {
+        $('.make-a-call').fadeIn();
         if ($(this).scrollTop() > 300) {
             $('.scrollToTop').fadeIn();
         } else {

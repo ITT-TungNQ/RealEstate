@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Trang thông tin bất động sản</title>
+        <title>ERROR 500</title>
         <?php include("include/header.php"); ?>
     </head>
     <body>

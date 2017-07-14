@@ -16,9 +16,9 @@ $con = connect();
                         ?>
                         <li>
                             <div class="media">
-                                <a href="http://192.168.1.220:8080/RealEstate/chi-tiet/<?php echo(makeURL($a['Title'])); ?>-<?php echo($a['NewsID']); ?>.html" class="media-left"><img alt="" src="<?php echo ($a['IllustrationURL']); ?>"></a>
+                                <a href="http://192.168.1.220:8080/RealEstate/chi-tiet/<?php echo(makeURL($a['Title'])); ?>-<?php echo($a['NewsID']); ?>" class="media-left"><img alt="" src="<?php echo ($a['IllustrationURL']); ?>"></a>
                                 <div class="media-body">
-                                    <a href="http://192.168.1.220:8080/RealEstate/chi-tiet/<?php echo(makeURL($a['Title'])); ?>-<?php echo($a['NewsID']); ?>.html" class="catg_title"><?php echo ($a['Title']); ?> </a>
+                                    <a href="http://192.168.1.220:8080/RealEstate/chi-tiet/<?php echo(makeURL($a['Title'])); ?>-<?php echo($a['NewsID']); ?>" class="catg_title"><?php echo ($a['Title']); ?> </a>
                                 </div>
                             </div>
                         </li>

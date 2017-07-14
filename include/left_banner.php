@@ -16,9 +16,9 @@ $tinmoi = TinMoi($con);
                         foreach ($tinmoi as $a) {
                             ?>
                             <li>
-                                <a href="http://192.168.1.220:8080/RealEstate/chi-tiet/<?php echo(makeURL($a['Title'])); ?>-<?php echo($a['NewsID']); ?>.html">
+                                <a href="http://192.168.1.220:8080/RealEstate/chi-tiet/<?php echo(makeURL($a['Title'])); ?>-<?php echo($a['NewsID']); ?>">
                                     <img src="<?php echo ($a['IllustrationURL']); ?> "alt=""></a>
-                                <a class="recent_title" href="http://192.168.1.220:8080/RealEstate/chi-tiet/<?php echo(makeURL($a['Title'])); ?>-<?php echo($a['NewsID']); ?>.html"><?php echo ($a['Title']); ?></a>
+                                <a class="recent_title" href="http://192.168.1.220:8080/RealEstate/chi-tiet/<?php echo(makeURL($a['Title'])); ?>-<?php echo($a['NewsID']); ?>"><?php echo ($a['Title']); ?></a>
                             </li>
                         <?php } ?>
 

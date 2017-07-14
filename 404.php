@@ -17,7 +17,7 @@
                                         <i class="fa fa-hand-o-right "></i>
                                         Sorry, the page you were looking for in this blog does not exist.
                                     </p>
-                                    <a href="index.php">Home</a>
+                                    <a href="http://192.168.1.220:8080/RealEstate/index.html">Home</a>
                                 </div>
                             </div>
                         </div>

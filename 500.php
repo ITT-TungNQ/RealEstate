@@ -17,7 +17,7 @@
                                         <i class="fa fa-hand-o-right "></i>
                                         Sorry, something went wrong :(
                                     </p>
-                                    <a href="index.php">Home</a>
+                                    <a href="http://192.168.1.220:8080/RealEstate/index.html">Home</a>
                                 </div>
                             </div>
                         </div>

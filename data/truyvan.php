@@ -15,7 +15,7 @@ function connect() {
         return $con;
     } catch (PDOException $e) {
         echo "Ket noi that bai!!! " . $e->getMessage();
-        header("location: http://192.168.1.220:8080/RealEstate/unexpected-error.html");
+        header("location: http://192.168.1.220:8080/RealEstate/unexpected-error");
     }
 }
 
@@ -60,7 +60,7 @@ function ChiTietTin($con, $id) {
         echo '  - 23094820934820934820934830';
         return $kq;
     } catch (Exception $ex) {
-        header("location: http://192.168.1.220:8080/RealEstate/page-not-found.html");
+        header("location: http://192.168.1.220:8080/RealEstate/page-not-found");
         exit();
     }
 }

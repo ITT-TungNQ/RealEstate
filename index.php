@@ -40,7 +40,7 @@ $con = connect();
                                 case "category_content":
                                     require_once ("category_archive.php");
                                     break;
-                                case "timkiem":
+                                case "tim-kiem":
                                     require_once ("include/search.php");
                                     break;
                                 case "theloai":

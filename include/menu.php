@@ -18,11 +18,11 @@ $tinmoi = TinMoi($con);
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav custom_nav">
                         <li><a href="http://192.168.1.220:8080/RealEstate/index.html">Trang chủ</a></li>
-                        <li><a href="http://192.168.1.220:8080/RealEstate/the-loai/duanmoi.html">Dự án mới</a></li>
-                        <li><a href="http://192.168.1.220:8080/RealEstate/the-loai/datnen.html">Đất nền</a></li>
-                        <li><a href="http://192.168.1.220:8080/RealEstate/the-loai/canho.html">Căn hộ</a></li>
-                        <li><a href="http://192.168.1.220:8080/RealEstate/the-loai/bietthu.html">Biệt thự</a></li>
-                        <li><a href="http://192.168.1.220:8080/RealEstate/the-loai/tinmoi.html">Tin mới</a></li>
+                        <li><a href="http://192.168.1.220:8080/RealEstate/the-loai/du-an-moi">Dự án mới</a></li>
+                        <li><a href="http://192.168.1.220:8080/RealEstate/the-loai/dat-nen">Đất nền</a></li>
+                        <li><a href="http://192.168.1.220:8080/RealEstate/the-loai/can-ho">Căn hộ</a></li>
+                        <li><a href="http://192.168.1.220:8080/RealEstate/the-loai/biet-thu">Biệt thự</a></li>
+                        <li><a href="http://192.168.1.220:8080/RealEstate/the-loai/tin-moi">Tin mới</a></li>
                         <li><a href="#lien-he">Liên hệ</a></li>
                     </ul>
                 </div>
@@ -50,7 +50,7 @@ $tinmoi = TinMoi($con);
         <?php
         foreach ($tinmoi as $a) {
             ?>
-            <li><a href="http://192.168.1.220:8080/RealEstate/chi-tiet/<?php echo(makeURL($a['Title'])); ?>-<?php echo($a['NewsID']); ?>.html"><?php echo ($a['Title']); ?></a></li>
+            <li><a href="http://192.168.1.220:8080/RealEstate/chi-tiet/<?php echo(makeURL($a['Title'])); ?>-<?php echo($a['NewsID']); ?>"><?php echo ($a['Title']); ?></a></li>
         <?php } ?>
 
     </ul>

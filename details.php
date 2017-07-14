@@ -31,7 +31,7 @@ if (isset($_GET["id"])) {
     foreach ($row as $a) {
         $title = filter_input(INPUT_GET, 'title');
         if (makeURL($a['Title']) != $title) {
-            header("location: http://192.168.1.220:8080/RealEstate/page-not-found.html");
+            header("location: http://192.168.1.220:8080/RealEstate/page-not-found");
             exit();
         }
 
@@ -72,13 +72,13 @@ if (isset($_GET["id"])) {
                                 case 3:
                                 case 4:
                                     $idType = "NewsTypeID=1 or NewsTypeID=2 or NewsTypeID=3 or NewsTypeID=4";
-                                    $link = " http://192.168.1.220:8080/RealEstate/the-loai/canho.html";
+                                    $link = " http://192.168.1.220:8080/RealEstate/the-loai/can-ho";
                                     $loai = "Căn Hộ";
                                     break;
                                 case 5:
                                 case 6:
                                     $idType = "NewsTypeID=5 or NewsTypeID=6";
-                                    $link = " http://192.168.1.220:8080/RealEstate/the-loai/bietthu.html";
+                                    $link = " http://192.168.1.220:8080/RealEstate/the-loai/biet-thu";
                                     $loai = "Biệt Thự";
                                     break;
                                 case 7:
@@ -86,13 +86,13 @@ if (isset($_GET["id"])) {
                                 case 9:
                                 case 10:
                                     $idType = "NewsTypeID=7 or NewsTypeID=8 or NewsTypeID=9 or NewsTypeID=10";
-                                    $link = " http://192.168.1.220:8080/RealEstate/the-loai/duanmoi.html";
+                                    $link = " http://192.168.1.220:8080/RealEstate/the-loai/du-an-moi";
                                     $loai = "Dự Án Mới";
                                     break;
                                 case 11:
                                 case 12:
                                     $idType = "NewsTypeID=11 or NewsTypeID=12";
-                                    $link = " http://192.168.1.220:8080/RealEstate/the-loai/datnen.html";
+                                    $link = " http://192.168.1.220:8080/RealEstate/the-loai/dat-nen";
                                     $loai = "Đất Nền ";
                                     break;
 
@@ -103,7 +103,7 @@ if (isset($_GET["id"])) {
                                     break;
 
                                 default :
-                                    header("location: http://192.168.1.220:8080/RealEstate/page-not-found.html");
+                                    header("location: http://192.168.1.220:8080/RealEstate/page-not-found");
                                     exit();
                                     break;
                             }
@@ -159,12 +159,12 @@ if (isset($_GET["id"])) {
                             foreach ($lienquan as $a) {
                                 ?>
                                 <li>
-                                    <a href="http://192.168.1.220:8080/RealEstate/chi-tiet/<?php echo(makeURL($a['Title'])); ?>-<?php echo($a['NewsID']); ?>.html">
+                                    <a href="http://192.168.1.220:8080/RealEstate/chi-tiet/<?php echo(makeURL($a['Title'])); ?>-<?php echo($a['NewsID']); ?>">
                                         <div class="relate_post_image" style="background-image: url('<?php echo($a['IllustrationURL']); ?>');">
 
                                         </div>
                                         <!--<img src="<?php echo($a['IllustrationURL']); ?>" alt=""></a>-->
-                                        <a href="http://192.168.1.220:8080/RealEstate/chi-tiet/<?php echo(makeURL($a['Title'])); ?>-<?php echo($a['NewsID']); ?>.html" class="recent_title">
+                                        <a href="http://192.168.1.220:8080/RealEstate/chi-tiet/<?php echo(makeURL($a['Title'])); ?>-<?php echo($a['NewsID']); ?>" class="recent_title">
                                             <?php echo($a['Title']); ?>
                                         </a>
                                 </li>

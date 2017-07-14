@@ -17,7 +17,7 @@ $tinmoi = TinMoi($con);
                             ?>
                             <li>
                                 <a href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>">
-                                    <img src="http://192.168.1.220:8080/RealEstate/images/<?php echo ($a['IllustrationURL']); ?> "alt=""></a>
+                                    <img src="<?php echo ($a['IllustrationURL']); ?> "alt=""></a>
                                 <a class="recent_title" href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>"><?php echo ($a['Title']); ?></a>
                             </li>
                         <?php } ?>

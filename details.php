@@ -143,7 +143,7 @@ if (isset($_GET["id"])) {
                             foreach ($lienquan as $a) {
                                 ?>
                                 <li>
-                                    <a href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>"><img src="http://192.168.1.220:8080/RealEstate/images/<?php echo($a['IllustrationURL']); ?>" alt=""></a>
+                                    <a href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>"><img src="<?php echo($a['IllustrationURL']); ?>" alt=""></a>
                                     <a href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>" class="recent_title">
                                        <?php echo($a['Title']); ?>
                                     </a>

@@ -59,7 +59,7 @@ $theloai = TheLoai_PhanTrang($con, $idType, $from, $sotin1trang);
                     ?>
 
                     <div class="single_archive wow fadeInDown">
-                        <a href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>"><img src="http://192.168.1.220:8080/RealEstate/images/<?php echo($a['IllustrationURL']); ?>" alt=""></a>
+                        <a href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>"><img src="<?php echo($a['IllustrationURL']); ?>" alt=""></a>
                         <a href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>" class="read_more">
                             Đọc tiếp
                             <i class="fa fa-angle-double-right"></i>

@@ -196,7 +196,7 @@ $con = connect();
                         ?>
                         <li>
                             <div class="media">
-                                <a href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>" class="media-left"><img alt="" src="http://192.168.1.220:8080/RealEstate/images/<?php echo ($a['IllustrationURL']); ?>"></a>
+                                <a href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>" class="media-left"><img alt="" src="<?php echo ($a['IllustrationURL']); ?>"></a>
                                 <div class="media-body">
                                     <a href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>" class="catg_title"><?php echo ($a['Title']); ?> </a>
                                 </div>

@@ -21,7 +21,7 @@
                             if ($item == 0) {
                                 ?>
                                 <div class="item active"> 
-                                    <img src="http://192.168.1.220:8080/RealEstate/images/<?php echo ($tin['IllustrationURL']); ?>" alt="">
+                                    <img src="<?php echo ($tin['IllustrationURL']); ?>" alt="">
                                     <div class="carousel-caption">
                                         <h1><a href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>"><?php echo ($tin['Title']); ?></a></h1>
                                     </div>
@@ -31,7 +31,7 @@
                             } else {
                                 ?>
                                 <div class="item"> 
-                                    <img src="http://192.168.1.220:8080/RealEstate/images/<?php echo ($tin['IllustrationURL']); ?>" alt="">
+                                    <img src="<?php echo ($tin['IllustrationURL']); ?>" alt="">
                                     <div class="carousel-caption">
                                         <h1><a href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>"><?php echo ($tin['Title']); ?></a></h1>
                                     </div>
@@ -64,7 +64,7 @@
                             ?>
                             <li>
                                 <div class="catgimg_container"> <a class="catg1_img" href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>">
-                                        <img src="http://192.168.1.220:8080/RealEstate/images/<?php echo($a['IllustrationURL']); ?>" alt=""> </a>
+                                        <img src="<?php echo($a['IllustrationURL']); ?>" alt=""> </a>
                                 </div>
                                 <a class="catg_title" href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>"><?php echo($a['Title']); ?></a>
                                 <div class="sing_commentbox">
@@ -88,7 +88,7 @@
                             ?>
                             <li>
                                 <div class="catgimg_container"> <a class="catg1_img" href="#">
-                                        <img src="http://192.168.1.220:8080/RealEstate/images/<?php echo($a['IllustrationURL']); ?>" alt=""></a>
+                                        <img src="<?php echo($a['IllustrationURL']); ?>" alt=""></a>
                                 </div>
                                 <a class="catg_title" href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>"><?php echo($a['Title']); ?></a>
                                 <div class="sing_commentbox">
@@ -123,7 +123,7 @@
                                     <li>
                                         <div class="catgimg_container"> 
                                             <a class="catg1_img" href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>"> 
-                                                <img src="http://192.168.1.220:8080/RealEstate/images/<?php echo($a['IllustrationURL']); ?>" alt=""> 
+                                                <img src="<?php echo($a['IllustrationURL']); ?>" alt=""> 
                                             </a>
                                         </div>
                                         <a class="catg_title" href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>">
@@ -150,7 +150,7 @@
                                         <li>
                                             <div class="media">
                                                 <a class="media-left" href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>">
-                                                    <img src="http://192.168.1.220:8080/RealEstate/images/<?php echo($a['IllustrationURL']); ?>" alt=""></a>
+                                                    <img src="<?php echo($a['IllustrationURL']); ?>" alt=""></a>
                                                 <div class="media-body">
                                                     <a class="catg_title" href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>"> 
                                                         <?php echo ($a['Title']); ?>
@@ -185,7 +185,7 @@
                                     <li>
                                         <div class="catgimg_container"> 
                                             <a class="catg1_img" href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>"> 
-                                                <img src="http://192.168.1.220:8080/RealEstate/images/<?php echo($a['IllustrationURL']); ?>" alt=""> 
+                                                <img src="<?php echo($a['IllustrationURL']); ?>" alt=""> 
                                             </a>
                                         </div>
                                         <a class="catg_title" href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>">
@@ -212,7 +212,7 @@
                                         <li>
                                             <div class="media">
                                                 <a class="media-left" href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>">
-                                                    <img src="http://192.168.1.220:8080/RealEstate/images/<?php echo($a['IllustrationURL']); ?>" alt=""></a>
+                                                    <img src="<?php echo($a['IllustrationURL']); ?>" alt=""></a>
                                                 <div class="media-body">
                                                     <a class="catg_title" href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>"> 
                                                         <?php echo ($a['Title']); ?>
@@ -249,7 +249,7 @@
                         <li>
                             <div class="media"> 
                                 <a href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>" class="media-left">
-                                    <img alt="" src="http://192.168.1.220:8080/RealEstate/images/<?php echo($a['IllustrationURL']); ?>">
+                                    <img alt="" src="<?php echo($a['IllustrationURL']); ?>">
                                 </a>
                                 <div class="media-body"> 
                                     <a href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>" class="catg_title"><?php echo($a['Title']);?></a>

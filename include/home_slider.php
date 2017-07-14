@@ -6,7 +6,7 @@
         foreach ($tinmoi as $a) {
             ?>
             <div class="signle_iteam">
-                <img src="http://192.168.1.220:8080/RealEstate/images/<?php echo($a['IllustrationURL']); ?> " alt="">
+                <img src="<?php echo($a['IllustrationURL']); ?> " alt="">
                 <div class="sing_commentbox slider_comntbox">
                     <p><i class="fa fa-calendar"></i><?php echo date('d-m-Y',strtotime($a['LastUpdated'])); ?></p>
                     <p><i class="fa fa-eye"></i><?php echo($a['ViewNumber']); ?></p>

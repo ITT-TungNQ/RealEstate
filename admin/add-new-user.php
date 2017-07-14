@@ -2,7 +2,7 @@
 // ========== start - CHECK LOGIN AND ROLE ==========
 require_once (__DIR__) . '/util/Constant.php';
 require_once (__DIR__) . '/include/check-role.php';
-checkRole(Constants::CREATE_NEWS);
+checkRole(Constants::CREATE_USER);
 // ========== end - CHECK LOGIN AND ROLE ==========
 
 /* ========== ADD CALLBACK IF FAILED ========== */

@@ -8,7 +8,7 @@ require_once (__DIR__) . '/../include/check-role.php';
 <!DOCTYPE html>
 <html>
     <head>
-        <title>ERROR 404</title>
+        <title>ERROR 500</title>
         <?php require_once (__DIR__) . '/../include/header.php'; ?>
     </head>
     <body>
@@ -22,7 +22,7 @@ require_once (__DIR__) . '/../include/check-role.php';
                         <i class="icon-home"></i> Trang chủ
                     </a>
                     <a href="" class="current">
-                        <i class="icon-user"></i> Lỗi truy cập dữ liệu
+                        <i class="icon-ban-circle"></i> Lỗi truy cập dữ liệu
                     </a>
                 </div>
                 <h1>Lỗi truy cập dữ liệu</h1>

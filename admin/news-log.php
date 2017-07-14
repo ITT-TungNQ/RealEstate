@@ -2,7 +2,7 @@
 // ========== start - CHECK LOGIN AND ROLE ==========
 require_once('./util/Constant.php');
 require_once ('./include/check-role.php');
-checkRole(Constants::CHANGE_NEWS_STATE);
+checkRole(Constants::VIEW_NEWS_LOG);
 // ========== end - CHECK LOGIN AND ROLE ==========
 
 require_once './util/NewsLog.php';

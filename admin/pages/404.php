@@ -22,7 +22,7 @@ require_once (__DIR__) . '/../include/check-role.php';
                         <i class="icon-home"></i> Trang chủ
                     </a>
                     <a href="" class="current">
-                        <i class="icon-user"></i> Không tim thấy trang
+                        <i class="icon-ban-circle"></i> Không tim thấy trang
                     </a>
                 </div>
                 <h1>Không tìm thấy trang</h1>

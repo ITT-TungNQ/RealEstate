@@ -8,6 +8,7 @@ Version: 3.2 Timestamp: Mon Sep 10 10:38:04 PDT 2012
     zoom: 1;
     *display: inline;
     vertical-align: top; width:90%;
+    font-size: 14px;
 }
 .dataTables_length .select2-container{ width:auto!important;}
 .select2-container,

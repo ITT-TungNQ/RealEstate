@@ -4,6 +4,7 @@
     -moz-user-select: -moz-none;
     -khtml-user-select: none;
     -webkit-user-select: none;
+    -webkit-appearance:none;
     user-select: none;
 }
 html,
@@ -27,6 +28,9 @@ a:hover,
 a:focus {
     text-decoration: none;
     color: #28b779;
+}
+textarea {
+    resize: none;
 }
 .dropdown-menu .divider {
     margin: 4px 0px;
@@ -1381,12 +1385,20 @@ div.dataTables_wrapper .ui-widget-header {
 
 .modal.info .news-details-des {
     margin-top: 10px;
-    font-size: 12px;
+    text-align: center;
+    font-size: 18px;
     font-weight: bold;
 }
 
 .modal.info .news-details {
     margin-top: 10px;
+    border: 1px solid;
+    padding: 5px;
+}
+
+.modal.info .news-details img{
+    display: block;
+    margin: auto;
 }
 
 .notify-ui ul {
@@ -1450,6 +1462,17 @@ form {
     border-radius: 10px;
     -moz-border-radius: 10px;
 }
+.news-preview-img-container {
+    background-image: url('http://192.168.1.220:8080/RealEstate/admin/img/illustration-no-image.png');
+    background-size: cover;
+    background-position: center;
+    width: 300px;
+    height: 170px;
+    overflow: hidden;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+}
 .preview-img {
     height: 100%;
 }
@@ -1457,6 +1480,40 @@ form {
     margin-right: 25px;
     margin-bottom: 5px   
 }
+#imageClear {
+    cursor: pointer;
+    font-size: 14px;
+    display: inline-block;
+    padding: 0px 5px;
+    height: 28px;
+}
+
+#imageClear .icon-remove {
+    line-height: 28px;
+    text-align: center;
+}
+
+span.chars_left {
+    float: right;
+    position: absolute;
+    left: 89.5%;
+    margin-top: 105px;
+    display: block;
+    text-align: center;
+    z-index: 99;
+    background-color: #41BEDD;
+    color: #ffffff;
+    min-width: 26px;
+    line-height: 24px;
+}
+
+.area-unit {
+    display: inline-block;
+    margin-right: 10px;
+    margin-top: 6px;
+    margin-bottom: 0px;
+}
+
 /***********light-box***************/
 
 #lightbox {

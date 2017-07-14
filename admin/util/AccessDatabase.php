@@ -1,6 +1,6 @@
 <?php
 
-define('DB_SERVER', '192.168.1.220:8080:3306');
+define('DB_SERVER', 'localhost:3306');
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', 'root');
 define('DB_DATABASE', 'real_estate');

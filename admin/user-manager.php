@@ -7,7 +7,7 @@ require_once("util/Constant.php");
 if (in_array(Constants::UPDATE_USER_INFO, $_SESSION['user_role'])) {
     // Có thể check chéo db để đảm bảo.	
 } else {
-    header("location: http://192.168.1.220:8080/RealEstate/admin/");
+    header("location: http://192.168.1.220:8080/RealEstate/admin/pages/404.php");
 }
 
 /* ========== GET USERS FROM DB ========== */
@@ -57,6 +57,7 @@ if (isset($change_info_msg)) {
                 <div class="widget-box">
                     <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
                         <h5>Danh sách tài khoản quản lý</h5>
+                        <a href="http://192.168.1.220:8080/RealEstate/admin/add-new-user.php" class="label label-danger" style="padding: 5px; margin-top: 6px;"><i class="icon-plus"></i> Thêm mới tài khoản</a>
                     </div>
                     <div class="widget-content nopadding">
                         <table id="list-user" class="table table-bordered table-striped">

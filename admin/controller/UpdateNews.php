@@ -1,5 +1,6 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <?php
-
 require_once (__DIR__) . '/../util/Constant.php';
 require_once (__DIR__) . '/dao/NewsDAO.php';
 require_once (__DIR__) . '/../util/AccessDatabase.php';
@@ -79,47 +80,76 @@ if (isset($_POST['delete-news'])) {
     exit();
 }
 
+if (isset($_POST['move-news-to-trash'])) {
+
+    if (in_array(Constants::CHANGE_NEWS_STATE, $_SESSION['user_role'])) {
+        $isSuccess = changeNewsSate(filter_input(INPUT_POST, 'newsID'), Constants::DISABLE);
+
+        if ($isSuccess) {
+            setcookie('change_news_state', 'true', time() + 36000, '/RealEstate/admin/news-manager.php');
+        } else {
+            setcookie('change_news_state', 'false', time() + 36000, '/RealEstate/admin/news-manager.php');
+        }
+
+        header("location: http://192.168.1.220:8080/RealEstate/admin/news-manager.php");
+    } else {
+        header("location: http://192.168.1.220:8080/RealEstate/admin/pages/404.php");
+    }
+
+    exit();
+}
+
 ///DH
 
 $conn = getConnection();
 if (isset($_POST['update-news'])) {
+    $conn = getConnection();
+    $newsID = filter_input(INPUT_POST, 'newsID');
+    $title = mysqli_real_escape_string($conn, filter_input(INPUT_POST, 'title'));
+    $newsTypeID = filter_input(INPUT_POST, 'typeID');
+    $lineage = "/0/" . filter_input(INPUT_POST, 'provinceID') . "/" . filter_input(INPUT_POST, 'districtID') . "/";
+    if (filter_input(INPUT_POST, 'wardID') != '0') {
+        $lineage .= filter_input(INPUT_POST, 'wardID') . "/";
+    }
+    $address = mysqli_real_escape_string($conn, filter_input(INPUT_POST, 'address'));
+    $description = mysqli_real_escape_string($conn, filter_input(INPUT_POST, 'description'));
+    $illustrationURL = mysqli_real_escape_string($conn, filter_input(INPUT_POST, 'description'));
+    $detail = mysqli_real_escape_string($conn, filter_input(INPUT_POST, 'detail'));
+    $area_unit = filter_input(INPUT_POST, 'dien_tich');
+    $acreage = filter_input(INPUT_POST, 'acreage');
+    if ($area_unit == 2) {
+        $acreage *= 10000;
+    }
 
-    $newsTypeID = $_POST['typeID'];
-    $lineage = mysqli_real_escape_string($conn, $_POST['lineage']);
-    $tittle = mysqli_real_escape_string($conn, $_POST['tittle']);
-    $description = mysqli_real_escape_string($conn, $_POST['description']);
-    $illustrationURL = mysqli_real_escape_string($conn, $_POST['description']);
-    $detail = mysqli_real_escape_string($conn, $_POST['detail']);
-    $acreage = $_POST['acreage'];
-    $price = $_POST['price'];
-
-    $direction = $_POST['direction'];
-    $room = $_POST['room'];
-    $isHire = $_POST['isHire'];
-    $state = $_POST['isHire'];
-    $newsID = $_POST['newsID'];
+    $price = filter_input(INPUT_POST, 'price');
+    $direction = filter_input(INPUT_POST, 'direction');
+    $room = filter_input(INPUT_POST, 'room');
+    $isHire = filter_input(INPUT_POST, 'isHire') == 1 ? true : 0;
+    $state = filter_input(INPUT_POST, 'state') == 1 ? true : 0;
     $contact = "{";
-    $contact .= '"owner_name" : "' . filter_input(INPUT_COOKIE, 'contact_name') . '",';
-    $contact .= '"phone_number" : "' . filter_input(INPUT_COOKIE, 'contact_phone') . '",';
-    $contact .= '"email" : "' . filter_input(INPUT_COOKIE, 'contact_mail') . '"';
+    $contact .= '"owner_name" : "' . filter_input(INPUT_POST, 'contact_name') . '",';
+    $contact .= '"phone_number" : "' . filter_input(INPUT_POST, 'contact_phone') . '",';
+    $contact .= '"email" : "' . filter_input(INPUT_POST, 'contact_mail') . '"';
     $contact .= "}";
+    $contact = mysqli_real_escape_string($conn, $contact);
 
     /* ========== UPLOAD IMAGE TO SERVER ========== */
-    if (isset($_FILES["profile_picture"]["type"]) && $_FILES["profile_picture"]["name"] != "") {
+    if (isset($_FILES["illustrationURL"]["type"]) && $_FILES["illustrationURL"]["name"] != "") {
         $max_size = 5 * 1024 * 1024; // 5MB
-        $destination_directory = "./../image/";
+        $destination_directory = (__DIR__) . "/../img/post/";
         $validextensions = array("jpeg", "jpg", "png");
 
-        $temporary = explode(".", $_FILES["profile_picture"]["name"]);
+        $temporary = explode(".", $_FILES["illustrationURL"]["name"]);
         $file_extension = end($temporary);
 
         // We need to check for image format and size again, because client-side code can be altered
-        if ((($_FILES["profile_picture"]["type"] == "image/png") ||
-                ($_FILES["profile_picture"]["type"] == "image/jpg") ||
-                ($_FILES["profile_picture"]["type"] == "image/jpeg") ) && in_array($file_extension, $validextensions)) {
-            if ($_FILES["profile_picture"]["size"] < ($max_size)) {
-                if ($_FILES["profile_picture"]["error"] > 0) {
-                    echo "<div class=\"alert alert-danger img-upload\" role=\"alert\">Lỗi: <strong>" . $_FILES["profile_picture"]["error"] . "</strong></div>";
+        if ((($_FILES["illustrationURL"]["type"] == "image/png") ||
+                ($_FILES["illustrationURL"]["type"] == "image/jpg") ||
+                ($_FILES["illustrationURL"]["type"] == "image/jpeg") ) && in_array($file_extension, $validextensions)) {
+            if ($_FILES["illustrationURL"]["size"] < ($max_size)) {
+
+                if ($_FILES["illustrationURL"]["error"] > 0) {
+                    echo "<div class=\"alert alert-danger img-upload\" role=\"alert\">Lỗi: <strong>" . $_FILES["illustrationURL"]["error"] . "</strong></div>";
                 } else {
                     $util = new Utils();
                     $file_name = $util->gen_uuid() . '.jpg';
@@ -127,11 +157,11 @@ if (isset($_POST['update-news'])) {
                         $file_name = $util->gen_uuid() . '.jpg';
                     }
 
-                    $sourcePath = $_FILES["profile_picture"]["tmp_name"];
+                    $sourcePath = $_FILES["illustrationURL"]["tmp_name"];
                     $targetPath = $destination_directory . $file_name;
                     move_uploaded_file($sourcePath, $targetPath);
 
-                    $illustrationURL = 'http://192.168.1.220:8080/RealEstate/image/' . $file_name;
+                    $illustrationURL = 'http://192.168.1.220:8080/RealEstate/admin/img/post/' . $file_name;
                 }
             } else {
                 echo "<div class=\"alert alert-danger img-upload\" role=\"alert\">- Kích thước ảnh của bạn: " + (file . size / 1024) . toFixed(2) + " KB<br/>Kích thước tối đa: " + (maxsize / 1024 / 1024) . toFixed(2) + " MB</div>";
@@ -140,25 +170,34 @@ if (isset($_POST['update-news'])) {
             echo "<div class=\"alert alert-danger img-upload\" role=\"alert\">- Định dạng ảnh không được hỗ trợ.<br/>- Định dạng cho phép: JPG, JPEG, PNG.</div>";
         }
     } else {
-        $illustrationURL = "http://192.168.1.220:8080/RealEstate/image/310x150_001.jpg";
+        $illustrationURL = "http://192.168.1.220:8080/RealEstate/admin/img/illustration-no-image.png";
     }
 
     /* ========== UPDATE TO DB ========== */
-    $sql = "UPDATE `news` SET `NewsTypeID`=$newsTypeID,`Lineage`='$lineage',`Title`='$tittle',`IllustrationURL`='$illustrationURL',`Description`='$description',`Details`='$detail',`LastUpdated`=current_date(),`ViewNumber`=0,`Acreage`='$acreage',`Price`=$price,`Contact`='$contact',`Direction`=$direction,`Rooms`=$room,`IsHire`=$isHire,`State`=$state "
+    mysqli_autocommit($conn, false);
+    $sql = "UPDATE `news` SET `NewsTypeID`=$newsTypeID,`Lineage`='$lineage',`Title`='$title',`IllustrationURL`='$illustrationURL',`Description`='$description',`Details`='$detail',`LastUpdated`=now(),`ViewNumber`=0,`Acreage`='$acreage',`Price`=$price,`Contact`='$contact',`Direction`=$direction,`Rooms`=$room,`IsHire`=$isHire,`State`=$state "
             . "WHERE `NewsID` = " . $newsID . "";
     if (mysqli_query($conn, $sql)) {
-        // echo "Records inserted successfully.";
-        header("location: http://192.168.1.220:8080/RealEstate/admin/news-manager.php"); 
+        if (mysqli_affected_rows($conn)) {
+            if (insertNewsLog($newsID, Constants::LOG_UPDATING, $conn)) {
+                // Commit transaction
+                mysqli_commit($conn);
+                closeConnect($conn);
+
+                echo "Records inserted successfully.";
+                header("location: http://192.168.1.220:8080/RealEstate/admin/news-manager.php");
+            }
+        }
     } else {
-         echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+        echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
         setcookie('insert_err', 'SQL ERROR: Đã xảy ra lỗi khi thêm bài đăng mới.', time() + 36000, '/RealEstate/admin');
-//         header("Location: http://192.168.1.220:8080/RealEstate/admin/news-details.php?newsID=' . $newsID . '");
+        header("Location: http://192.168.1.220:8080/RealEstate/admin/pages.505.php");
     }
 
     mysqli_close($conn);
     exit();
 } else {
     mysqli_close($conn);
-    header("location: http://192.168.1.220:8080/RealEstate/admin/news-details.php?newsID=' . $newsID . '");
+    header("location: http://192.168.1.220:8080/RealEstate/admin/pages.505.php");
 }
 ?>

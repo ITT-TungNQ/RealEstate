@@ -33,7 +33,7 @@ if (isset($cookieModal)) {
                         <i class="icon-home"></i> Trang chủ
                     </a>
                     <a>
-                        <i class="icon-file"></i> Quản lý bản tin
+                        <i class="icon-file-alt"></i> Quản lý bản tin
                     </a>
                     <a href="http://192.168.1.220:8080/RealEstate/admin/approval-news-page.php" class="current">
                         <i class="icon-upload"></i> Phê duyệt bản tin
@@ -98,7 +98,7 @@ if (isset($cookieModal)) {
                                     echo '<td>' . $news->getLocationName() . '</td>';
                                     echo '<td>';
                                     echo '  <div style="float: left;">
-                                                <a href="#viewAlert' . $news->getNewsId() . '" data-toggle="modal" class="btn btn-info">
+                                                <a href="#viewAlert' . $news->getNewsId() . '" data-toggle="modal" class="btn btn-info tip-top" data-original-title="Chi tiết">
                                                     <i class="icon-eye-open"></i>
                                                 </a>
                                             </div>';
@@ -197,7 +197,7 @@ if (isset($cookieModal)) {
                                             </div>';
                                     echo '
                                             <div style="float: left;">
-                                                <a href="#approvalAlert' . $news->getNewsId() . '" data-toggle="modal" class="btn btn-warning">
+                                                <a href="#approvalAlert' . $news->getNewsId() . '" data-toggle="modal" class="btn btn-warning tip-top" data-original-title="Phê duyệt" >
                                                     <i class="icon-ok-circle"></i>
                                                 </a>
                                             </div>';

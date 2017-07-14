@@ -5469,7 +5469,7 @@ rangy.createModule("DomRange", function (api, module) {
                                                                     charset = doc.characterSet || doc.charset || "utf-8",
                                                                     sandboxHtml = this._getHtml({
                                                                         charset: charset,
-                                                                        stylesheets: this.config.stylesheets
+                                                                        stylesheets: []
                                                                     });
 
                                                             // Create the basic dom tree including proper DOCTYPE and charset

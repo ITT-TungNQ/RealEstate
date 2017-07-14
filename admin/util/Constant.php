@@ -32,6 +32,9 @@ class Constants {
     const DISABLE = 2;
     const DETELED = 3;
     
+    /* === NEWS STATE === */
+    public static $STATES = array('Chờ phê duyệt', 'Đã phê duyệt', 'Ẩn khỏi trang chủ', 'Đã xóa khỏi hệ thống');
+    
     /* === DIRECTION === */
     public static $DIRECTION = array('Liên hệ', "Đông", "Tây", "Nam", "Bắc", "Đông-Bắc", "Tây-Bắc", "Đông-Nam", "Tây-Nam");
 }

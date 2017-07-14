@@ -5,6 +5,9 @@
                 $('.advanced-search').show();
             } else {
                 $('.advanced-search').hide();
+                $('#select_ward').val(0);
+                $('#select_rooms').val(0);
+                $('#select_direction').val(0);
             }
         })
     })
@@ -273,7 +276,7 @@ if (isset($phuongXa)) {
 }
 
 if (isset($_SESSION['search_type'])) {
-    echo '$isAdvance = ' . $_SESSION['search_type'] . ';';
+    echo '$isAdvance = ' . $_SESSION['search_type'] == 1 . ';';
 }
 ?>
 

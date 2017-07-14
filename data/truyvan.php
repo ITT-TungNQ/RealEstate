@@ -14,6 +14,7 @@ function connect() {
         //$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $con;
     } catch (PDOException $e) {
+        header("location: http://192.168.1.220:8080/RealEstate/500.php");
         echo "Ket noi that bai!!! " . $e->getMessage();
     }
 }

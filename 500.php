@@ -11,11 +11,11 @@
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12">
                             <div class="errorpage_area">
-                                <div class="error-title"><span>404</span></div>
+                                <div class="error-title"><span>500</span></div>
                                 <div class="error_content">
                                     <p>
                                         <i class="fa fa-hand-o-right "></i>
-                                        Sorry, the page you were looking for in this blog does not exist.
+                                        Sorry, something went wrong :(
                                     </p>
                                     <a href="index.php">Home</a>
                                 </div>

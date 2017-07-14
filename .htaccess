@@ -1,0 +1,8 @@
+RewriteEngine On
+RewriteRule "index.html" "index.php"
+RewriteRule "page-not-found.html" "404.php"
+RewriteRule "access-denied.html" "403.php"
+RewriteRule "unexpected-error.html" "500.php"
+RewriteRule "^the-loai/([a-zA-Z0-9-]+).html$" "index.php?page=theloai&type=$1"
+RewriteRule "^the-loai/([a-zA-Z0-9-]+)/trang-([0-9]).html$" "index.php?page=theloai&type=$1&trang=$2"
+RewriteRule "^chi-tiet/([a-zA-Z0-9-]+)-([0-9]+).html$" "index.php?page=details&title=$1&id=$2"

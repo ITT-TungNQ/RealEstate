@@ -66,9 +66,9 @@ jQuery(window).load(function () { // makes sure the whole site is loaded
         'display': 'none'
     });
 
-    $('#status').delay(1000).fadeOut(); // will first fade out the loading animation
-    $('#preloader').delay(1200).fadeOut('slow'); // will fade out the white DIV that covers the website.
-    $('body').delay(1200).css({
+    $('#status').delay(500).fadeOut(); // will first fade out the loading animation
+    $('#preloader').delay(700).fadeOut('slow'); // will fade out the white DIV that covers the website.
+    $('body').delay(700).css({
         'overflow': 'visible'
     });
 

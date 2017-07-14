@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once './util/Utils.php';
 require_once ("data/truyvan.php");
 $con = connect();
 ?>
@@ -53,21 +54,11 @@ $con = connect();
                         <!--cái này là tìm kiếm là cái phần có mmaasy combobox tìm kiếm đứng ko?phải ok vậy trang kết quả sau tìm kiếm của c -->
                         <?php require_once ("include/filter_banner2.php"); ?>
                     </div>
-
                 </section>
-
             </div>
-
-
         </div>
 
+        <?php include("include/footer.php"); ?>
 
-        <?php include("include/footer.php");
-      
- 
-        ?>
-        
-    </div>
-</div>
-</body>
+    </body>
 </html>

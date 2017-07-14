@@ -33,6 +33,14 @@ if (isset($_GET["type"])) {
         case "tinmoi":
             $idType = "NewsTypeID=11 or NewsTypeID=12 or NewsTypeID=7 or NewsTypeID=8 or NewsTypeID=9 or NewsTypeID=10 or NewsTypeID=1 or NewsTypeID=2 or NewsTypeID=3 or NewsTypeID=4 or NewsTypeID=5 or NewsTypeID=6";
             break;
+        case "loai-khac":
+            $idType = "NewsTypeID=13 ";
+            break;
+        
+        default : 
+            header("location: http://192.168.1.220:8080/RealEstate/page-not-found.html");
+            exit();
+            break;
     }
 }
 
@@ -50,7 +58,7 @@ $from = ($trang - 1) * $sotin1trang;
 $theloai = TheLoai_PhanTrang($con, $idType, $from, $sotin1trang);
 ?>
 
-<div class="col-lg-7 col-md-7 col-sm-8 col-xs-12 " id="">
+<div class="col-lg-7 col-md-7 col-sm-8 col-xs-12 ">
     <div class="row">
         <div class="middle_bar">
             <div class="category_archive_area">
@@ -59,13 +67,13 @@ $theloai = TheLoai_PhanTrang($con, $idType, $from, $sotin1trang);
                     ?>
 
                     <div class="single_archive wow fadeInDown">
-                        <a href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>"><img src="<?php echo($a['IllustrationURL']); ?>" alt=""></a>
-                        <a href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>" class="read_more">
+                        <a href="http://192.168.1.220:8080/RealEstate/chi-tiet/<?php echo(makeURL($a['Title'])); ?>-<?php echo($a['NewsID']); ?>.html"><img src="<?php echo($a['IllustrationURL']); ?>" alt=""></a>
+                        <a href="http://192.168.1.220:8080/RealEstate/chi-tiet/<?php echo(makeURL($a['Title'])); ?>-<?php echo($a['NewsID']); ?>.html" class="read_more">
                             Đọc tiếp
                             <i class="fa fa-angle-double-right"></i>
                         </a>
                         <div class="singlearcive_article">
-                            <h2><a href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>"><?php echo($a['Title']); ?></a></h2>
+                            <h2><a href="http://192.168.1.220:8080/RealEstate/chi-tiet/<?php echo(makeURL($a['Title'])); ?>-<?php echo($a['NewsID']); ?>.html"><?php echo($a['Title']); ?></a></h2>
 
                             <a class="author_name" href="#">
                                 <i class="fa fa-eye"></i><?php echo($a['ViewNumber']); ?> Views
@@ -82,13 +90,13 @@ $theloai = TheLoai_PhanTrang($con, $idType, $from, $sotin1trang);
     </div>	
 
     <hr>
-
-    <style>
-        #phantrang{text-align: center}
-        #phantrang a:hover{background-color: #00acee}
-        #phantrang a{background-color:#000; color: #FF0; padding: 5px; margin-right: 3px  }
-    </style>
     <div id="phantrang">
+    <style type="text/css">
+        #phantrang{text-align: center}
+        #phantrang a:hover{background-color: #444}
+        #phantrang a{background-color:#09c; color: #fff; padding: 7px; margin-right: 5px; font-size: 16px; border-radius: 90px}
+    </style>
+
 
         <?php
         $tong = TheLoai($con, $idType);
@@ -97,7 +105,7 @@ $theloai = TheLoai_PhanTrang($con, $idType, $from, $sotin1trang);
             $tongSoTrang = ceil($sum / $sotin1trang);
             for ($i = 1; $i <= $tongSoTrang; $i++) {
                 ?>
-                <a <?php if ($i == $trang) echo "style='background-color:red'"; ?> href="http://192.168.1.220:8080/RealEstate/index.php?page=theloai&type=<?php echo ($tl); ?>&trang=<?php echo ($i); ?>"><?php echo ( $i ); ?></a>
+                <a <?php if ($i == $trang) echo "style='background-color: #444'"; ?> href="http://192.168.1.220:8080/RealEstate/<?php echo ($tl); ?>/trang-<?php echo ($i); ?>.html"><?php echo ( $i ); ?></a>
             <?php } ?> 
             <?php
         }

@@ -29,6 +29,12 @@ if (isset($_GET["id"])) {
 
     $row = ChiTietTin($con, $id);
     foreach ($row as $a) {
+        $title = filter_input(INPUT_GET, 'title');
+        if (makeURL($a['Title']) != $title) {
+            header("location: http://192.168.1.220:8080/RealEstate/page-not-found.html");
+            exit();
+        }
+
         $objContact = json_decode($a['Contact']);
         $ownerName = $objContact->{'owner_name'};
         $phoneNumber = $objContact->{'phone_number'};
@@ -66,13 +72,13 @@ if (isset($_GET["id"])) {
                                 case 3:
                                 case 4:
                                     $idType = "NewsTypeID=1 or NewsTypeID=2 or NewsTypeID=3 or NewsTypeID=4";
-                                    $link = " http://192.168.1.220:8080/RealEstate/index.php?page=theloai&type=canho";
+                                    $link = " http://192.168.1.220:8080/RealEstate/the-loai/canho.html";
                                     $loai = "Căn Hộ";
                                     break;
                                 case 5:
                                 case 6:
                                     $idType = "NewsTypeID=5 or NewsTypeID=6";
-                                    $link = " http://192.168.1.220:8080/RealEstate/index.php?page=theloai&type=bietthu";
+                                    $link = " http://192.168.1.220:8080/RealEstate/the-loai/bietthu.html";
                                     $loai = "Biệt Thự";
                                     break;
                                 case 7:
@@ -80,14 +86,25 @@ if (isset($_GET["id"])) {
                                 case 9:
                                 case 10:
                                     $idType = "NewsTypeID=7 or NewsTypeID=8 or NewsTypeID=9 or NewsTypeID=10";
-                                    $link = " http://192.168.1.220:8080/RealEstate/index.php?page=theloai&type=duanmoi";
+                                    $link = " http://192.168.1.220:8080/RealEstate/the-loai/duanmoi.html";
                                     $loai = "Dự Án Mới";
                                     break;
                                 case 11:
                                 case 12:
                                     $idType = "NewsTypeID=11 or NewsTypeID=12";
-                                    $link = " http://192.168.1.220:8080/RealEstate/index.php?page=theloai&type=datnen";
+                                    $link = " http://192.168.1.220:8080/RealEstate/the-loai/datnen.html";
                                     $loai = "Đất Nền ";
+                                    break;
+
+                                case 13:
+                                    $idType = "NewsTypeID=13";
+                                    $link = " http://192.168.1.220:8080/RealEstate/the-loai/loai-khac.html";
+                                    $loai = "Loại khác ";
+                                    break;
+
+                                default :
+                                    header("location: http://192.168.1.220:8080/RealEstate/page-not-found.html");
+                                    exit();
                                     break;
                             }
                             ?>
@@ -142,14 +159,14 @@ if (isset($_GET["id"])) {
                             foreach ($lienquan as $a) {
                                 ?>
                                 <li>
-                                    <a href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>">
+                                    <a href="http://192.168.1.220:8080/RealEstate/chi-tiet/<?php echo(makeURL($a['Title'])); ?>-<?php echo($a['NewsID']); ?>.html">
                                         <div class="relate_post_image" style="background-image: url('<?php echo($a['IllustrationURL']); ?>');">
 
                                         </div>
                                         <!--<img src="<?php echo($a['IllustrationURL']); ?>" alt=""></a>-->
-                                    <a href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>" class="recent_title">
-                                        <?php echo($a['Title']); ?>
-                                    </a>
+                                        <a href="http://192.168.1.220:8080/RealEstate/chi-tiet/<?php echo(makeURL($a['Title'])); ?>-<?php echo($a['NewsID']); ?>.html" class="recent_title">
+                                            <?php echo($a['Title']); ?>
+                                        </a>
                                 </li>
                             <?php } ?>
                         </ul>

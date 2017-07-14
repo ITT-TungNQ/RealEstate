@@ -21,7 +21,7 @@ $tinNoiBat = TinNoiBat($con);
                 <h2><span>Tìm kiếm</span></h2>
 
                 <div class="singleleft_inner">
-                    <form id="search_form" name="search_form" method="post" action="http://192.168.1.220:8080/RealEstate/index.php?page=theloai&type=timkiem">
+                    <form id="search_form" name="search_form" method="post" action="http://192.168.1.220:8080/RealEstate/the-loai/timkiem.html">
                         <div class="form-group">
                             <?php
                             $vt = "";
@@ -196,14 +196,14 @@ $tinNoiBat = TinNoiBat($con);
                             ?>
                             <li>
                                 <div class="media">
-                                    <a href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>" class="media-left">
+                                    <a href="http://192.168.1.220:8080/RealEstate/chi-tiet/<?php echo(makeURL($a['Title'])); ?>-<?php echo($a['NewsID']); ?>.html" class="media-left">
                                         <div class="popular_news_image" style="background-image: url('<?php echo($a['IllustrationURL']); ?>');">
 
                                         </div>
                                         <!--<img alt="" src="<?php echo ($a['IllustrationURL']); ?>">-->
                                     </a>
                                     <div class="media-body">
-                                        <a href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>" class="catg_title"><?php echo ($a['Title']); ?> </a>
+                                        <a href="http://192.168.1.220:8080/RealEstate/chi-tiet/<?php echo(makeURL($a['Title'])); ?>-<?php echo($a['NewsID']); ?>.html" class="catg_title"><?php echo ($a['Title']); ?> </a>
                                     </div>
                                 </div>
                             </li>
@@ -224,9 +224,9 @@ $tinNoiBat = TinNoiBat($con);
                 <h2><span>Chủ đề được quan tâm</span></h2>
                 <div class="singleleft_inner">
                     <ul class="label_nav">
-                        <li><a href="http://192.168.1.220:8080/RealEstate/index.php?page=theloai&type=datnen">Thị trường đất nền</a></li>
+                        <li><a href="http://192.168.1.220:8080/RealEstate/the-loai/datnen.html">Thị trường đất nền</a></li>
 
-                        <li><a href="http://192.168.1.220:8080/RealEstate/index.php?page=theloai&type=duanmoi">Công trình, dự án mới</a></li>
+                        <li><a href="http://192.168.1.220:8080/RealEstate/the-loai/duanmoi.html">Công trình, dự án mới</a></li>
                         <li><a href="#">Căn hộ 25m2</a></li>
 
 

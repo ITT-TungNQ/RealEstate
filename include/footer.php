@@ -37,7 +37,7 @@
                 </ul>
             </div>
         </div>
-        <div class="col-lg-3 col-md-3 col-sm-6">
+        <div id="lien-he" class="col-lg-3 col-md-3 col-sm-6">
             <div class="single_footer_top wow fadeInRight">
                 <h2>Liên hệ</h2>
                 <form action="#" class="contact_form">

@@ -23,7 +23,7 @@
                                 <div class="item active"> 
                                     <img src="<?php echo ($tin['IllustrationURL']); ?>" alt="">
                                     <div class="carousel-caption">
-                                        <h1><a href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>"><?php echo ($tin['Title']); ?></a></h1>
+                                        <h1><a href="http://192.168.1.220:8080/RealEstate/chi-tiet/<?php echo (makeURL($tin['Title'])); ?>-<?php echo($tin['NewsID']); ?>.html"><?php echo ($tin['Title']); ?></a></h1>
                                     </div>
                                 </div>
                                 <?php
@@ -33,7 +33,7 @@
                                 <div class="item"> 
                                     <img src="<?php echo ($tin['IllustrationURL']); ?>" alt="">
                                     <div class="carousel-caption">
-                                        <h1><a href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>"><?php echo ($tin['Title']); ?></a></h1>
+                                        <h1><a href="http://192.168.1.220:8080/RealEstate/chi-tiet/<?php echo (makeURL($tin['Title'])); ?>-<?php echo($tin['NewsID']); ?>.html"><?php echo ($tin['Title']); ?></a></h1>
                                     </div>
                                 </div>
 
@@ -63,10 +63,10 @@
                         foreach ($nhadat as $a) {
                             ?>
                             <li>
-                                <div class="catgimg_container"> <a class="catg1_img" href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>">
+                                <div class="catgimg_container"> <a class="catg1_img" href="http://192.168.1.220:8080/RealEstate/chi-tiet/<?php echo(makeURL($a['Title'])); ?>-<?php echo($a['NewsID']); ?>.html">
                                         <img src="<?php echo($a['IllustrationURL']); ?>" alt=""> </a>
                                 </div>
-                                <a class="catg_title" href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>"><?php echo($a['Title']); ?></a>
+                                <a class="catg_title" href="http://192.168.1.220:8080/RealEstate/chi-tiet/<?php echo(makeURL($a['Title'])); ?>-<?php echo($a['NewsID']); ?>.html"><?php echo($a['Title']); ?></a>
                                 <div class="sing_commentbox">
                                     <p><i class="fa fa-calendar"></i><?php echo date('d-m-Y', strtotime($a['LastUpdated'])); ?></p>
                                     <a href="#"><i class="fa fa-eye"></i><?php echo($a['ViewNumber']); ?> Views</a>
@@ -78,7 +78,7 @@
             </div>
 
             <div class="single_category  wow fadeInDown">
-                <div class="category_title"> <a href="http://192.168.1.220:8080/RealEstate/index.php?page=theloa&type=duanmoi">DỰ ÁN MỚI</a></div>
+                <div class="category_title"> <a href="http://192.168.1.220:8080/RealEstate/the-loai/the-loai/duanmoi.html">DỰ ÁN MỚI</a></div>
                 <div class="single_category_inner">
                     <ul class="catg_nav catg_nav2">
                         <?php
@@ -90,7 +90,7 @@
                                 <div class="catgimg_container"> <a class="catg1_img" href="#">
                                         <img src="<?php echo($a['IllustrationURL']); ?>" alt=""></a>
                                 </div>
-                                <a class="catg_title" href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>"><?php echo($a['Title']); ?></a>
+                                <a class="catg_title" href="http://192.168.1.220:8080/RealEstate/chi-tiet/<?php echo(makeURL($a['Title'])); ?>-<?php echo($a['NewsID']); ?>.html"><?php echo($a['Title']); ?></a>
                                 <div class="sing_commentbox">
                                     <p><i class="fa fa-calendar"></i><?php echo date('d-m-Y', strtotime($a['LastUpdated'])); ?></p>
                                     <a href="#"><i class="fa fa-eye"></i><?php echo($a['ViewNumber']); ?> Views</a>
@@ -110,7 +110,7 @@
                 <div class="category_three">
                     <div class="single_category">
                         <div class="category_title">
-                            <a href="http://192.168.1.220:8080/RealEstate/index.php?page=theloai&type=canho">NHÀ BÁN</a>
+                            <a href="http://192.168.1.220:8080/RealEstate/the-loai/canho.html">NHÀ BÁN</a>
                         </div>
                         <div class="single_category_inner">
                             <ul class="catg_nav catg_nav3">
@@ -122,11 +122,11 @@
                                     ?>
                                     <li>
                                         <div class="catgimg_container"> 
-                                            <a class="catg1_img" href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>"> 
+                                            <a class="catg1_img" href="http://192.168.1.220:8080/RealEstate/chi-tiet/<?php echo(makeURL($a['Title'])); ?>-<?php echo($a['NewsID']); ?>.html"> 
                                                 <img src="<?php echo($a['IllustrationURL']); ?>" alt=""> 
                                             </a>
                                         </div>
-                                        <a class="catg_title" href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>">
+                                        <a class="catg_title" href="http://192.168.1.220:8080/RealEstate/chi-tiet/<?php echo(makeURL($a['Title'])); ?>-<?php echo($a['NewsID']); ?>.html">
                                             <?php echo ($a['Title']); ?>
                                         </a>
                                         <div class="sing_commentbox">
@@ -149,10 +149,10 @@
                                         ?>
                                         <li>
                                             <div class="media">
-                                                <a class="media-left" href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>">
+                                                <a class="media-left" href="http://192.168.1.220:8080/RealEstate/chi-tiet/<?php echo(makeURL($a['Title'])); ?>-<?php echo($a['NewsID']); ?>.html">
                                                     <img src="<?php echo($a['IllustrationURL']); ?>" alt=""></a>
                                                 <div class="media-body">
-                                                    <a class="catg_title" href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>"> 
+                                                    <a class="catg_title" href="http://192.168.1.220:8080/RealEstate/chi-tiet/<?php echo(makeURL($a['Title'])); ?>-<?php echo($a['NewsID']); ?>.html"> 
                                                         <?php echo ($a['Title']); ?>
                                                     </a>
                                                     <div class="sing_commentbox">
@@ -173,7 +173,7 @@
 
                 <div class="category_four wow fadeInDown">
                     <div class="single_category">
-                        <div class="category_title"><a href="http://192.168.1.220:8080/RealEstate/index.php?page=theloai&type=bietthu">BIỆT THỰ</a></div>
+                        <div class="category_title"><a href="http://192.168.1.220:8080/RealEstate/the-loai/bietthu.html">BIỆT THỰ</a></div>
                         <div class="single_category_inner">
                             <ul class="catg_nav catg_nav3">
                                 <?php
@@ -184,11 +184,11 @@
                                     ?>
                                     <li>
                                         <div class="catgimg_container"> 
-                                            <a class="catg1_img" href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>"> 
+                                            <a class="catg1_img" href="http://192.168.1.220:8080/RealEstate/chi-tiet/<?php echo(makeURL($a['Title'])); ?>-<?php echo($a['NewsID']); ?>.html"> 
                                                 <img src="<?php echo($a['IllustrationURL']); ?>" alt=""> 
                                             </a>
                                         </div>
-                                        <a class="catg_title" href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>">
+                                        <a class="catg_title" href="http://192.168.1.220:8080/RealEstate/chi-tiet/<?php echo(makeURL($a['Title'])); ?>-<?php echo($a['NewsID']); ?>.html">
                                             <?php echo ($a['Title']); ?>
                                         </a>
                                         <div class="sing_commentbox">
@@ -211,10 +211,10 @@
                                         ?>
                                         <li>
                                             <div class="media">
-                                                <a class="media-left" href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>">
+                                                <a class="media-left" href="http://192.168.1.220:8080/RealEstate/chi-tiet/<?php echo(makeURL($a['Title'])); ?>-<?php echo($a['NewsID']); ?>.html">
                                                     <img src="<?php echo($a['IllustrationURL']); ?>" alt=""></a>
                                                 <div class="media-body">
-                                                    <a class="catg_title" href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>"> 
+                                                    <a class="catg_title" href="http://192.168.1.220:8080/RealEstate/chi-tiet/<?php echo(makeURL($a['Title'])); ?>-<?php echo($a['NewsID']); ?>.html"> 
                                                         <?php echo ($a['Title']); ?>
                                                     </a>
                                                     <div class="sing_commentbox">
@@ -237,7 +237,7 @@
 
 
             <div class="single_category wow fadeInDown">
-                <div class="category_title"> <a href="http://192.168.1.220:8080/RealEstate/index.php?page=theloai&type=datnen">ĐẤT NỀN</a></div>
+                <div class="category_title"> <a href="http://192.168.1.220:8080/RealEstate/the-loai/datnen.html">ĐẤT NỀN</a></div>
                 <div class="single_category_inner">
                     <ul class="catg3_snav catg5_nav">
                         <?php
@@ -248,11 +248,11 @@
                         ?>
                         <li>
                             <div class="media"> 
-                                <a href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>" class="media-left">
+                                <a href="http://192.168.1.220:8080/RealEstate/chi-tiet/<?php echo(makeURL($a['Title'])); ?>-<?php echo($a['NewsID']); ?>.html" class="media-left">
                                     <img alt="" src="<?php echo($a['IllustrationURL']); ?>">
                                 </a>
                                 <div class="media-body"> 
-                                    <a href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>" class="catg_title"><?php echo($a['Title']);?></a>
+                                    <a href="http://192.168.1.220:8080/RealEstate/chi-tiet/<?php echo(makeURL($a['Title'])); ?>-<?php echo($a['NewsID']); ?>.html" class="catg_title"><?php echo($a['Title']);?></a>
                                     <div class="sing_commentbox">
                                          <p><i class="fa fa-calendar"></i><?php echo date('d-m-Y', strtotime($a['LastUpdated'])); ?></p>
                                                         <a href="#"><i class="fa fa-eye"></i><?php echo($a['ViewNumber']); ?> Views</a>

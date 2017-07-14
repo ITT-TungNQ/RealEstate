@@ -1,6 +1,6 @@
 
 <?php
-
+ob_start();
 static $luuTK = "";
 
 function connect() {
@@ -14,8 +14,8 @@ function connect() {
         //$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $con;
     } catch (PDOException $e) {
-        header("location: http://192.168.1.220:8080/RealEstate/500.php");
         echo "Ket noi that bai!!! " . $e->getMessage();
+        header("location: http://192.168.1.220:8080/RealEstate/unexpected-error.html");
     }
 }
 
@@ -50,9 +50,19 @@ function TheLoai_PhanTrang($con, $idType, $from, $sotin1trang) {
 }
 
 function ChiTietTin($con, $id) {
-    $sql = "select * from news where NewsID=$id ";
-    $kq = $con->query($sql);
-    return $kq;
+    try {
+        $sql = "select * from news where NewsID=$id ";
+        $kq = $con->query($sql);
+
+        if ($kq->rowCount() == 0) {
+            throw new Exception();
+        }
+        echo '  - 23094820934820934820934830';
+        return $kq;
+    } catch (Exception $ex) {
+        header("location: http://192.168.1.220:8080/RealEstate/page-not-found.html");
+        exit();
+    }
 }
 
 function ViTri($con, $li) {

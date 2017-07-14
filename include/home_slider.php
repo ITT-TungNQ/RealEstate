@@ -14,7 +14,7 @@
                     <p><i class="fa fa-calendar"></i><?php echo date('d-m-Y',strtotime($a['LastUpdated'])); ?></p>
                     <p><i class="fa fa-eye"></i><?php echo($a['ViewNumber']); ?></p>
                 </div>
-                <a class="slider_tittle" href="http://192.168.1.220:8080/RealEstate/index.php?page=details&id=<?php echo($a['NewsID']); ?>"><?php echo($a['Title']); ?></a> 
+                <a class="slider_tittle" href="http://192.168.1.220:8080/RealEstate/chi-tiet/<?php echo(makeURL($a['Title'])); ?>-<?php echo($a['NewsID']); ?>.html"><?php echo($a['Title']); ?></a> 
             </div>
             <?php
         }

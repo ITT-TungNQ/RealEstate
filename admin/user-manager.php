@@ -4,11 +4,7 @@ require_once("include/check-role.php");
 require_once("util/Constant.php");
 
 /* ========== CHECK ROLE ON SESSION ========== */
-if (in_array(Constants::UPDATE_USER_INFO, $_SESSION['user_role'])) {
-    // Có thể check chéo db để đảm bảo.	
-} else {
-    header("location: http://192.168.1.220:8080/RealEstate/admin/pages/404.php");
-}
+checkRole(Constants::UPDATE_USER_INFO);
 
 /* ========== GET USERS FROM DB ========== */
 require_once("util/AccessDatabase.php");

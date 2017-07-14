@@ -40,7 +40,7 @@ $is_allow_manager_adv = in_array(Constants::MANAGER_ADV, $_SESSION['user_role'])
                             <span>Quản lý bản tin</span>
                         </a>
                         <ul>
-                            <li><a href="http://192.168.1.220:8080/RealEstate/admin/add-new-news.php"><i class="icon icon-plus"></i> Thêm bản tin mới</a></li>
+                                <li><a href="http://192.168.1.220:8080/RealEstate/admin/add-new-news.php"><i class="icon icon-plus"></i> Thêm bản tin mới</a></li>
                             <li><a href="http://192.168.1.220:8080/RealEstate/admin/news-manager.php"><i class="icon icon-file"></i> Danh sách bản tin</a></li>';
             if ($is_allow_view_news_log) {
                 echo '      <li><a href="http://192.168.1.220:8080/RealEstate/admin/news-log.php"><i class="icon icon-calendar"></i> Nhật ký đăng tin</a></li>';
@@ -60,8 +60,8 @@ $is_allow_manager_adv = in_array(Constants::MANAGER_ADV, $_SESSION['user_role'])
                             <span>Quản lý quảng cáo</span>
                         </a>
                         <ul>
-                            <li><a href="http://192.168.1.220:8080/RealEstate/admin/"><i class="icon icon-plus"></i> Thêm quảng cáo mới</a></li>
-                            <li><a href="http://192.168.1.220:8080/RealEstate/admin/"><i class="icon icon-film"></i> Danh sách quảng cáo</a></li>
+                            <li><a href="http://192.168.1.220:8080/RealEstate/admin/pages/403.php"><i class="icon icon-plus"></i> Thêm quảng cáo mới</a></li>
+                            <li><a href="http://192.168.1.220:8080/RealEstate/admin/pages/403.php"><i class="icon icon-film"></i> Danh sách quảng cáo</a></li>
                         </ul>
                     </li>';
         }

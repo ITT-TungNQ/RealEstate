@@ -15,7 +15,7 @@
             <ul class="dropdown-menu">
                 <li><a href="http://192.168.1.220:8080/RealEstate/admin/user-details.php"><i class="icon-user"></i> Thông tin tài khoản</a></li>
                 <li class="divider"></li>
-                <li><a href="#"><i class="icon-check"></i> Công việc của tôi</a></li>
+                <!--<li><a href="#"><i class="icon-check"></i> Công việc của tôi</a></li>-->
                 <li class="divider"></li>
                 <li><a href="http://192.168.1.220:8080/RealEstate/admin/pages/logout.php"><i class="icon-key"></i> Đăng xuất</a></li>
             </ul>
@@ -46,7 +46,7 @@
                 <li><a class="sTrash" title="" href="#"><i class="icon-trash"></i> Thùng rác</a></li>
             </ul>
         </li>
-        <li class=""><a title="" href="#"><i class="icon icon-cog"></i> <span class="text">Tùy chỉnh</span></a></li>
+        <!--<li class=""><a title="" href="#"><i class="icon icon-cog"></i> <span class="text">Tùy chỉnh</span></a></li>-->
         <li class=""><a title="" href="http://192.168.1.220:8080/RealEstate/admin/pages/logout.php"><i class="icon icon-share-alt"></i> <span class="text">Đăng xuất</span></a></li>
     </ul>
 </div>

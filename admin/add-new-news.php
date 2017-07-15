@@ -20,6 +20,9 @@ $lineage = filter_input(INPUT_COOKIE, 'lineage');
 $acreage = filter_input(INPUT_COOKIE, 'acreage');
 $price = filter_input(INPUT_COOKIE, 'price');
 $room = filter_input(INPUT_COOKIE, 'room');
+if (!isset($room)) {
+    $room = 0;
+}
 $direction = filter_input(INPUT_COOKIE, 'direction');
 $isHire = filter_input(INPUT_COOKIE, 'isHire');
 $detail = filter_input(INPUT_COOKIE, 'detail');
@@ -305,6 +308,10 @@ $contact_mail = '';
         <script src="http://192.168.1.220:8080/RealEstate/admin/js/bootstrap-wysihtml5.js"></script>
         <script src="http://192.168.1.220:8080/RealEstate/admin/js/news.form.validation.js"></script>
         <script>
+            function setLocation() {
+                
+            };
+            
             $(document).ready(function () {
                 var maxLength = 500;
                 $('.textarea_editor').wysihtml5();

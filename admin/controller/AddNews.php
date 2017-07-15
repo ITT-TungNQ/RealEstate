@@ -27,6 +27,7 @@ if (isset($_POST['new-news'])) {
     }
 
     $price = filter_input(INPUT_POST, 'price');
+    $price = str_replace('.', '', $price);
     $direction = filter_input(INPUT_POST, 'direction');
     $room = filter_input(INPUT_POST, 'room');
     $isHire = filter_input(INPUT_POST, 'isHire') == 1 ? true : 0;

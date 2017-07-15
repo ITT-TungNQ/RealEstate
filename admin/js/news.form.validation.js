@@ -8,14 +8,14 @@ $(document).ready(function () {
             $lstProvinces[province.locationID] = province;
             $("#provinceID").append('<option value="' + province.locationID + '">' + province.locationName + '</option>');
         });
-        
+
         setLocation();
     });
 
     $('#provinceID').on('change', function () {
         $('#s2id_districtID span:eq(0)').text("--- Chọn quận/huyện ---");
         $('#s2id_wardID span:eq(0)').text("--- Chọn phường/xã ---");
-        
+
         if (this.value != 0) {
             $('#provinceID_msg').css({"display": "none"});
         } else {
@@ -35,8 +35,8 @@ $(document).ready(function () {
 
     $('#districtID').on('change', function () {
         $('#s2id_wardID span:eq(0)').text("--- Chọn phường/xã ---");
-        
-        if(this.value != 0) {
+
+        if (this.value != 0) {
             $('#districtID_msg').css({"display": "none"});
         } else {
             $('#districtID_msg').css({"display": "inline-block"});
@@ -61,8 +61,53 @@ $(document).ready(function () {
         return regexpr.test(value);
     }, "Please enter a valid username.");
 
+    $is_price_msg_shown = false;
+    $('#price').bind('input propertychange', function () {
+        $money = $(this).val();
+        $money = $money.toString().replace(/\D/g, '');
+        $money = $money.toString().replace(/\./g, '');
+        $(this).val($money);
+
+        if ($is_price_msg_shown) {
+            if ($money == '') {
+                $('#price_msg').text('Bạn chưa nhập giá thành');
+                $('#price_msg').css({"display": "inline-block", "color": "#b94a48"});
+            } else {
+                if ($money % 1000 != 0) {
+                    $('#price_msg').text('Giá thành là bội số của 1000');
+                    $('#price_msg').css({"display": "inline-block", "color": "#b94a48"});
+                } else {
+                    $('#price_msg').css({"display": "none"});
+                }
+            }
+        }
+
+        if (!isNaN($money) && $money != '') {
+            $('#price').val(Number($money).toLocaleString());
+        }
+    });
+    $('#price').focusout(function () {
+        $money = $(this).val();
+        $money = $money.toString().replace(/\./g, '');
+
+        if ($money != '') {
+            $is_price_msg_shown = true;
+            if ($money % 1000 != 0) {
+                $is_price_msg_shown = true;
+                $('#price_msg').text('Giá thành là bội số của 1000');
+                $('#price_msg').css({"display": "inline-block", "color": "#b94a48"});
+            }
+        } else {
+
+        }
+    });
+    // update news:
+    $price = $('#price').val();
+    if (!isNaN($price) && $price != '') {
+        $('#price').val(Number($price).toLocaleString());
+    }
+
     $("#form-add-news-validate").submit(function (event) {
-        
         var provinceID = $('select[name="provinceID"]').val();
         var districtID = $('select[name="districtID"]').val();
         var details = $('textarea[name="detail"]').val();
@@ -80,19 +125,28 @@ $(document).ready(function () {
             if (districtID == 0) {
                 $('#districtID_msg').css({"display": "inline-block", "color": "#b94a48"});
             }
-            if (details == ''){
+            if (details == '') {
                 $('#detail_msg').css({"display": "inline-block", "color": "#b94a48"});
             } else {
                 $('#detail_msg').css({"display": "none"});
             }
             event.preventDefault();
         }
-        
-        if (price % 1000 != 0) {
+
+        if (price == '') {
+            $is_price_msg_shown = true;
+            $('#price_msg').text('Bạn chưa nhập giá thành');
             $('#price_msg').css({"display": "inline-block", "color": "#b94a48"});
             event.preventDefault();
         } else {
-             $('#price_msg').css({"display": "none"});
+            if (price % 1000 != 0) {
+                $is_price_msg_shown = true;
+                $('#price_msg').text('Giá thành không hợp lệ');
+                $('#price_msg').css({"display": "inline-block", "color": "#b94a48"});
+                event.preventDefault();
+            } else {
+                $('#price_msg').css({"display": "none"});
+            }
         }
     });
 
@@ -130,13 +184,11 @@ $(document).ready(function () {
                 min: 1
             },
             price: {
-                required: true,
-                number: true,
-                min: 0
+                required: true
             },
             room: {
                 required: false,
-                number: true,
+                digits: true,
                 min: 0
             },
             contact_name: {
@@ -196,6 +248,7 @@ $(document).ready(function () {
                 number: "Nhập vào số"
             },
             room: {
+                digits: "Số phòng không hợp lệ",
                 min: "Số phòng không hợp lệ"
             },
             contact_name: {

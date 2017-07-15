@@ -4,6 +4,9 @@
 require_once (__DIR__) . '/../util/Constant.php';
 require_once (__DIR__) . '/dao/NewsDAO.php';
 require_once (__DIR__) . '/../util/AccessDatabase.php';
+require_once './../util/Utils.php';
+checkRole(Constants::UPDATE_NEWS);
+
 /* ========= PHÊ DUYỆT BÀI ĐĂNG ========= */
 if (isset($_POST['activate-news'])) {
     if (in_array(Constants::CHANGE_NEWS_STATE, $_SESSION['user_role'])) {
@@ -122,6 +125,7 @@ if (isset($_POST['update-news'])) {
     }
 
     $price = filter_input(INPUT_POST, 'price');
+    $price = str_replace('.', '', $price);
     $direction = filter_input(INPUT_POST, 'direction');
     $room = filter_input(INPUT_POST, 'room');
     $isHire = filter_input(INPUT_POST, 'isHire') == 1 ? true : 0;
@@ -134,45 +138,48 @@ if (isset($_POST['update-news'])) {
     $contact = mysqli_real_escape_string($conn, $contact);
 
     /* ========== UPLOAD IMAGE TO SERVER ========== */
-    if (isset($_FILES["illustrationURL"]["type"]) && $_FILES["illustrationURL"]["name"] != "") {
-        $max_size = 5 * 1024 * 1024; // 5MB
-        $destination_directory = (__DIR__) . "/../img/post/";
-        $validextensions = array("jpeg", "jpg", "png");
+    try {
+        if (isset($_FILES["illustrationURL"]["type"]) && $_FILES["illustrationURL"]["name"] != "") {
+            $max_size = 5 * 1024 * 1024; // 5MB
+            $destination_directory = (__DIR__) . "/../img/post/";
+            $validextensions = array("jpeg", "jpg", "png");
 
-        $temporary = explode(".", $_FILES["illustrationURL"]["name"]);
-        $file_extension = end($temporary);
+            $temporary = explode(".", $_FILES["illustrationURL"]["name"]);
+            $file_extension = end($temporary);
 
-        // We need to check for image format and size again, because client-side code can be altered
-        if ((($_FILES["illustrationURL"]["type"] == "image/png") ||
-                ($_FILES["illustrationURL"]["type"] == "image/jpg") ||
-                ($_FILES["illustrationURL"]["type"] == "image/jpeg") ) && in_array($file_extension, $validextensions)) {
-            if ($_FILES["illustrationURL"]["size"] < ($max_size)) {
+            // We need to check for image format and size again, because client-side code can be altered
+            if ((($_FILES["illustrationURL"]["type"] == "image/png") ||
+                    ($_FILES["illustrationURL"]["type"] == "image/jpg") ||
+                    ($_FILES["illustrationURL"]["type"] == "image/jpeg") ) && in_array($file_extension, $validextensions)) {
+                if ($_FILES["illustrationURL"]["size"] < ($max_size)) {
 
-                if ($_FILES["illustrationURL"]["error"] > 0) {
-                    echo "<div class=\"alert alert-danger img-upload\" role=\"alert\">Lỗi: <strong>" . $_FILES["illustrationURL"]["error"] . "</strong></div>";
-                } else {
-                    $util = new Utils();
-                    $file_name = $util->gen_uuid() . '.jpg';
-                    while (file_exists($destination_directory . $file_name)) {
+                    if ($_FILES["illustrationURL"]["error"] > 0) {
+                        echo "<div class=\"alert alert-danger img-upload\" role=\"alert\">Lỗi: <strong>" . $_FILES["illustrationURL"]["error"] . "</strong></div>";
+                    } else {
+                        $util = new Utils();
                         $file_name = $util->gen_uuid() . '.jpg';
+                        while (file_exists($destination_directory . $file_name)) {
+                            $file_name = $util->gen_uuid() . '.jpg';
+                        }
+
+                        $sourcePath = $_FILES["illustrationURL"]["tmp_name"];
+                        $targetPath = $destination_directory . $file_name;
+                        move_uploaded_file($sourcePath, $targetPath);
+
+                        $illustrationURL = 'http://192.168.1.220:8080/RealEstate/admin/img/post/' . $file_name;
                     }
-
-                    $sourcePath = $_FILES["illustrationURL"]["tmp_name"];
-                    $targetPath = $destination_directory . $file_name;
-                    move_uploaded_file($sourcePath, $targetPath);
-
-                    $illustrationURL = 'http://192.168.1.220:8080/RealEstate/admin/img/post/' . $file_name;
+                } else {
+                    echo "<div class=\"alert alert-danger img-upload\" role=\"alert\">- Kích thước ảnh của bạn: " + (file . size / 1024) . toFixed(2) + " KB<br/>Kích thước tối đa: " + (maxsize / 1024 / 1024) . toFixed(2) + " MB</div>";
                 }
             } else {
-                echo "<div class=\"alert alert-danger img-upload\" role=\"alert\">- Kích thước ảnh của bạn: " + (file . size / 1024) . toFixed(2) + " KB<br/>Kích thước tối đa: " + (maxsize / 1024 / 1024) . toFixed(2) + " MB</div>";
+                echo "<div class=\"alert alert-danger img-upload\" role=\"alert\">- Định dạng ảnh không được hỗ trợ.<br/>- Định dạng cho phép: JPG, JPEG, PNG.</div>";
             }
         } else {
-            echo "<div class=\"alert alert-danger img-upload\" role=\"alert\">- Định dạng ảnh không được hỗ trợ.<br/>- Định dạng cho phép: JPG, JPEG, PNG.</div>";
+            $illustrationURL = "http://192.168.1.220:8080/RealEstate/admin/img/illustration-no-image.png";
         }
-    } else {
-        $illustrationURL = "http://192.168.1.220:8080/RealEstate/admin/img/illustration-no-image.png";
+    } catch (Exception $ex) {
+        header("location: http://192.168.1.220:8080/RealEstate/admin/unexpected-error");
     }
-
     /* ========== UPDATE TO DB ========== */
     mysqli_autocommit($conn, false);
     $sql = "UPDATE `news` SET `NewsTypeID`=$newsTypeID,`Lineage`='$lineage',`Title`='$title',`IllustrationURL`='$illustrationURL',`Description`='$description',`Details`='$detail',`LastUpdated`=now(),`ViewNumber`=0,`Acreage`='$acreage',`Price`=$price,`Contact`='$contact',`Direction`=$direction,`Rooms`=$room,`IsHire`=$isHire,`State`=$state "
@@ -191,13 +198,13 @@ if (isset($_POST['update-news'])) {
     } else {
         echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
         setcookie('insert_err', 'SQL ERROR: Đã xảy ra lỗi khi thêm bài đăng mới.', time() + 36000, '/RealEstate/admin');
-        header("Location: http://192.168.1.220:8080/RealEstate/admin/pages.505.php");
+        header("Location: http://192.168.1.220:8080/RealEstate/admin/unexpected-error");
     }
 
     mysqli_close($conn);
     exit();
 } else {
     mysqli_close($conn);
-    header("location: http://192.168.1.220:8080/RealEstate/admin/pages.505.php");
+    header("location: http://192.168.1.220:8080/RealEstate/admin/unexpected-error");
 }
 ?>

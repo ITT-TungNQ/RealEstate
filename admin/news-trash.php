@@ -172,8 +172,8 @@ if (isset($cookieModal)) {
                                                     </div>
                                                     <div class="row-fluid">
                                                         <div class="span12">
-                                                            <p class="news-details-des">' . $news->getDescription() . '</p>
-                                                            <p class="news-details">' . $news->getDetail() . '</p>
+                                                            <div class="news-details-des">' . $news->getDescription() . '</div>
+                                                            <div class="news-details">' . $news->getDetail() . '</div>
                                                         </div>
                                                     </div>
                                                     <div class="row-fluid">

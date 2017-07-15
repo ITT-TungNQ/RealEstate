@@ -20,56 +20,55 @@ function connect() {
 }
 
 function TinMoi($con) {
-    $sql = "select *from news order by NewsID desc limit 0,10";
+    $sql = "select *from news where state = 1 order by NewsID desc limit 0,10";
     $kq = $con->query($sql);
     return $kq;
 }
 
 function TinNoiBat($con) {
-    $sql = "select * from news order by ViewNumber desc limit 0,6";
+    $sql = "select * from news where state = 1 order by ViewNumber desc limit 0,6";
     $kq = $con->query($sql);
     return $kq;
 }
 
 function NhaDatNoiBat($con) {
-    $sql = "select * from news where LastUpdated >= time(NOW()) - INTERVAL 7 DAY order by ViewNumber desc limit 0,4";
+    $sql = "select * from news where state = 1 AND LastUpdated >= time(NOW()) - INTERVAL 7 DAY order by ViewNumber desc limit 0,4";
     $kq = $con->query($sql);
     return $kq;
 }
 
 function TheLoai($con, $idType) {
-    $sql = "select *from news where $idType";
+    $sql = "select *from news where $idType AND state = 1";
     $kq = $con->query($sql);
     return $kq;
 }
 
 function TheLoai_NoiBat($con) {
-    $sql = "select * from news where LastUpdated >= time(NOW()) - INTERVAL 7 DAY order by ViewNumber desc";
+    $sql = "select * from news where state = 1 AND LastUpdated >= time(NOW()) - INTERVAL 7 DAY order by ViewNumber desc";
     $kq = $con->query($sql);
     return $kq;
 }
 
 function NhaDatNoiBat_PhanTrang($con, $from, $sotin1trang) {
-    $sql = "select * from news where LastUpdated >= time(NOW()) - INTERVAL 7 DAY order by ViewNumber desc limit $from,$sotin1trang";
+    $sql = "select * from news where state = 1 AND LastUpdated >= time(NOW()) - INTERVAL 7 DAY order by ViewNumber desc limit $from,$sotin1trang";
     $kq = $con->query($sql);
     return $kq;
 }
 
 function TheLoai_PhanTrang($con, $idType, $from, $sotin1trang) {
-    $sql = "select *from news where $idType order by LastUpdated desc limit $from,$sotin1trang";
+    $sql = "select *from news where $idType AND state = 1 order by LastUpdated desc limit $from,$sotin1trang";
     $kq = $con->query($sql);
     return $kq;
 }
 
 function ChiTietTin($con, $id) {
     try {
-        $sql = "select * from news where NewsID=$id ";
+        $sql = "select * from news where NewsID=$id AND  state = 1 ";
         $kq = $con->query($sql);
 
         if ($kq->rowCount() == 0) {
             throw new Exception();
         }
-        echo '  - 23094820934820934820934830';
         return $kq;
     } catch (Exception $ex) {
         header("location: http://192.168.1.220:8080/RealEstate/page-not-found");

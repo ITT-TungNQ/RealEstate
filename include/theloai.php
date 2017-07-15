@@ -37,11 +37,11 @@ if (isset($_GET["type"])) {
         case "noi-bat":
             $check = TRUE;
             break;
-         case "loai-khac":
+        case "loai-khac":
             $idType = "NewsTypeID=13 ";
             break;
-        
-        default : 
+
+        default :
             header("location: http://192.168.1.220:8080/RealEstate/page-not-found");
             exit();
             break;
@@ -98,11 +98,11 @@ if ($check) {
 
     <hr>
     <div id="phantrang">
-    <style type="text/css">
-        #phantrang{text-align: center}
-        #phantrang a:hover{background-color: #444}
-        #phantrang a{background-color:#09c; color: #fff; padding: 7px; margin-right: 5px; font-size: 16px; border-radius: 90px}
-    </style>
+        <style type="text/css">
+            #phantrang{text-align: center}
+            #phantrang a:hover{background-color: #444}
+            #phantrang a{background-color:#09c; color: #fff; padding: 7px; margin-right: 5px; font-size: 16px; border-radius: 90px}
+        </style>
 
 
         <?php
@@ -146,6 +146,7 @@ function getSQL() {
         $gia = $_POST['select_price'];
         $phong = $_POST['select_rooms'];
         $huong = $_POST['select_direction'];
+        $_SESSION['search_type'] = filter_input(INPUT_POST, 'search_type') == 'on';
 
         $linegae = "/0/";
 

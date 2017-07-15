@@ -83,7 +83,7 @@ $(document).ready(function () {
         }
 
         if (!isNaN($money) && $money != '') {
-            $('#price').val(Number($money).toLocaleString());
+            $('#price').val(Number($money).toLocaleString("vi"));
         }
     });
     $('#price').focusout(function () {
@@ -104,7 +104,7 @@ $(document).ready(function () {
     // update news:
     $price = $('#price').val();
     if (!isNaN($price) && $price != '') {
-        $('#price').val(Number($price).toLocaleString());
+        $('#price').val(Number($price).toLocaleString("vi"));
     }
 
     $("#form-add-news-validate").submit(function (event) {

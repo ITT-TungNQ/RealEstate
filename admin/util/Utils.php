@@ -39,7 +39,7 @@ class Utils {
 
     function toStringMoney($value) {
         $strMoney = "Thỏa thuận";
-        if (is_numeric($value)) {
+        if (is_numeric($value) && $value != 0) {
             if ($value > 999999999) {
                 $value = $value / 1000000000;
                 $strMoney = number_format((float) $value, 1, ".", ",");

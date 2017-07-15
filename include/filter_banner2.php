@@ -276,7 +276,7 @@ if (isset($phuongXa)) {
 }
 
 if (isset($_SESSION['search_type'])) {
-    echo '$isAdvance = ' . $_SESSION['search_type'] == 1 . ';';
+    echo '$isAdvance = ' . ($_SESSION['search_type'] == 1) . ';';
 }
 ?>
 
@@ -313,10 +313,11 @@ if (isset($_SESSION['search_type'])) {
             if ($phuongXa != 0) {
                 $('#select_ward').val($phuongXa);
             }
-            if ($isAdvance) {
-                $('#search_type').bootstrapToggle('on');
-            }
         }
+    }
+    if ($isAdvance) {
+        $('#search_type').bootstrapToggle('on');
+        $('.advanced-search').show();
     }
 
     $lstProvinces = [];

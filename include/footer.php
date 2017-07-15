@@ -40,14 +40,14 @@
         <div id="lien-he" class="col-lg-3 col-md-3 col-sm-6">
             <div class="single_footer_top wow fadeInRight">
                 <h2>Liên hệ</h2>
-                <form action="#" class="contact_form">
+                <form action="http://192.168.1.220:8080/RealEstate/controller/SendContact.php" method="post" class="contact_form">
                     <label>Tên: *</label>
-                    <input class="form-control" type="text">
+                    <input class="form-control" name="contact_name" type="text" required="">
                     <label>Email: *</label>
-                    <input class="form-control" type="email">
+                    <input class="form-control" type="email" name="contact_email" required="">
                     <label>Nội dung: *</label>
-                    <textarea class="form-control" cols="30" rows="10" style="resize: none;"></textarea>
-                    <input class="send_btn" type="submit" value="Gửi liên hệ">
+                    <textarea class="form-control" cols="30" rows="10" name="contact_content" required="" style="resize: none;"></textarea>
+                    <input class="send_btn" type="submit" name="client-contact" value="Gửi liên hệ">
                 </form>
             </div>
         </div>
@@ -89,14 +89,14 @@
 </footer>
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/5969d1936edc1c10b03461be/default';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function () {
+        var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = 'https://embed.tawk.to/5969d1936edc1c10b03461be/default';
+        s1.charset = 'UTF-8';
+        s1.setAttribute('crossorigin', '*');
+        s0.parentNode.insertBefore(s1, s0);
+    })();
 </script>
 <!--End of Tawk.to Script-->

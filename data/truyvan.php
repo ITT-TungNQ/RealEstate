@@ -10,7 +10,7 @@ function connect() {
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
         );
         $con = "";
-        $con = new PDO("mysql:host=localhost; dbname=real_estate", "root", null, $options);
+        $con = new PDO("mysql:host=localhost; dbname=real_estate", "root", "root", $options);
         //$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $con;
     } catch (PDOException $e) {

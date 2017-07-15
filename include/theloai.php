@@ -1,5 +1,6 @@
 <?php
 $tl = "";
+$check = FALSE;
 if (isset($_GET["type"])) {
     $tl = $_GET["type"];
 // $idType="NewsID != 0  ";
@@ -33,7 +34,10 @@ if (isset($_GET["type"])) {
         case "tin-moi":
             $idType = "NewsTypeID=11 or NewsTypeID=12 or NewsTypeID=7 or NewsTypeID=8 or NewsTypeID=9 or NewsTypeID=10 or NewsTypeID=1 or NewsTypeID=2 or NewsTypeID=3 or NewsTypeID=4 or NewsTypeID=5 or NewsTypeID=6";
             break;
-        case "loai-khac":
+        case "noi-bat":
+            $check = TRUE;
+            break;
+         case "loai-khac":
             $idType = "NewsTypeID=13 ";
             break;
         
@@ -54,8 +58,11 @@ if (isset($_GET["trang"])) {
 }
 
 $from = ($trang - 1) * $sotin1trang;
-
-$theloai = TheLoai_PhanTrang($con, $idType, $from, $sotin1trang);
+if ($check) {
+    $theloai = NhaDatNoiBat_PhanTrang($con, $from, $sotin1trang);
+} else {
+    $theloai = TheLoai_PhanTrang($con, $idType, $from, $sotin1trang);
+}
 ?>
 
 <div class="col-lg-7 col-md-7 col-sm-8 col-xs-12 ">
@@ -99,7 +106,11 @@ $theloai = TheLoai_PhanTrang($con, $idType, $from, $sotin1trang);
 
 
         <?php
-        $tong = TheLoai($con, $idType);
+        if ($check) {
+            $tong = TheLoai_NoiBat($con);
+        } else {
+            $tong = TheLoai($con, $idType);
+        }
         $sum = $tong->rowCount();
         if ($sum != 0) {
             $tongSoTrang = ceil($sum / $sotin1trang);
@@ -135,8 +146,7 @@ function getSQL() {
         $gia = $_POST['select_price'];
         $phong = $_POST['select_rooms'];
         $huong = $_POST['select_direction'];
-        $_SESSION['search_type'] = filter_input(INPUT_POST, 'search_type') == 'on';
-            
+
         $linegae = "/0/";
 
 
@@ -144,7 +154,7 @@ function getSQL() {
             $_SESSION['loai'] = $loai;
 
             $loai = (int) $loai;
-            $sql .= " AND IsHire=$loai ";
+            $sql .= "AND IsHire=$loai ";
         } else {
             unset($_SESSION['loai']);
         }
@@ -152,7 +162,7 @@ function getSQL() {
         if ($nha != "0") {
             $_SESSION['nha'] = $nha;
             $nha = (int) $nha;
-            $sql .= " AND NewsTypeID=$nha ";
+            $sql .= "AND NewsTypeID=$nha ";
         } else {
             unset($_SESSION['nha']);
         }
@@ -164,14 +174,14 @@ function getSQL() {
                 $_SESSION['huyen'] = $huyen;
                 if ($phuongXa != "0") {
                     $_SESSION['phuongXa'] = $phuongXa;
-                    $sql .= " AND Lineage LIKE '/0/$thanhpho/$huyen/$phuongXa/%'";
+                    $sql .= "AND Lineage LIKE '/0/$thanhpho/$huyen/$phuongXa/%'";
                 } else {
                     unset($_SESSION['phuongXa']);
-                    $sql .= " AND Lineage LIKE '/0/$thanhpho/$huyen/%'";
+                    $sql .= "AND Lineage LIKE '/0/$thanhpho/$huyen/%'";
                 }
             } else {
                 unset($_SESSION['huyen']);
-                $sql .= " AND Lineage LIKE '/0/$thanhpho/%'";
+                $sql .= "AND Lineage LIKE '/0/$thanhpho/%'";
             }
         } else {
             unset($_SESSION['thanhpho']);
@@ -180,7 +190,7 @@ function getSQL() {
             $_SESSION['dientich'] = $dientich;
             $dientich = explode('-', $dientich);
 
-            $sql .= " AND Acreage BETWEEN '$dientich[0]' AND '$dientich[1]' ";
+            $sql .= "AND Acreage BETWEEN '$dientich[0]' AND '$dientich[1]' ";
         } else {
             unset($_SESSION['dientich']);
         }
@@ -188,7 +198,7 @@ function getSQL() {
             $_SESSION['gia'] = $gia;
             $gia = explode('-', $gia);
 
-            $sql .= " AND Price BETWEEN '$gia[0]' AND '$gia[1]' ";
+            $sql .= "AND Price BETWEEN '$gia[0]' AND '$gia[1]' ";
         } else {
             unset($_SESSION['gia']);
         }
@@ -196,14 +206,14 @@ function getSQL() {
         if ($phong != "0") {
             $_SESSION['phong'] = $phong;
             $phong = (int) $phong;
-            $sql .= " AND Rooms=$phong";
+            $sql .= "AND Rooms=$phong";
         } else {
             unset($_SESSION['phong']);
         }
         if ($huong != "0") {
             $_SESSION['huong'] = $huong;
             $huong = (int) $huong;
-            $sql .= " AND Direction=$huong";
+            $sql .= "AND Direction=$huong";
         } else {
             unset($_SESSION['huong']);
         }

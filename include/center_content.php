@@ -54,7 +54,7 @@
             </div>
 
             <div class="single_category wow fadeInDown">
-                <div class="category_title"> <a href="http://192.168.1.220:8080/RealEstate/category_archive.php">NHÀ ĐẤT NỔI BẬT</a></div>
+                <div class="category_title"> <a href="http://192.168.1.220:8080/RealEstate/the-loai/noi-bat">NHÀ ĐẤT NỔI BẬT</a></div>
                 <div class="single_category_inner">
                     <ul class="catg_nav">
 

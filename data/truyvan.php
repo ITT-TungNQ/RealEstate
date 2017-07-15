@@ -32,13 +32,25 @@ function TinNoiBat($con) {
 }
 
 function NhaDatNoiBat($con) {
-    $sql = "select *from news order by ViewNumber desc limit 0,4";
+    $sql = "select * from news where LastUpdated >= time(NOW()) - INTERVAL 7 DAY order by ViewNumber desc limit 0,4";
     $kq = $con->query($sql);
     return $kq;
 }
 
 function TheLoai($con, $idType) {
     $sql = "select *from news where $idType";
+    $kq = $con->query($sql);
+    return $kq;
+}
+
+function TheLoai_NoiBat($con) {
+    $sql = "select * from news where LastUpdated >= time(NOW()) - INTERVAL 7 DAY order by ViewNumber desc";
+    $kq = $con->query($sql);
+    return $kq;
+}
+
+function NhaDatNoiBat_PhanTrang($con, $from, $sotin1trang) {
+    $sql = "select * from news where LastUpdated >= time(NOW()) - INTERVAL 7 DAY order by ViewNumber desc limit $from,$sotin1trang";
     $kq = $con->query($sql);
     return $kq;
 }

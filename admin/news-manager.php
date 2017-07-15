@@ -45,6 +45,117 @@ if (isset($cookieModal)) {
                 </div>
                 <h1>Quản lý bài đăng</h1>
             </div>
+
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span6">
+                        <div class="widget-box">
+                            <div class="widget-title">
+                                <span class="icon">
+                                    <i class="icon-list-ul"></i>
+                                </span>
+                                <h5>Lọc thông tin cơ bản</h5>
+                            </div>
+                            <div class="widget-content">
+                                <form class="form-horizontal">
+                                    <div class="control-group">
+                                        <label class="control-label">Hình thức giao dịch :</label>
+                                        <div class="controls">
+                                            <select name="isHire" id="isHire">
+                                                <option value="-1">--- Chọn hình thức giao dịch ---</option>
+                                                <option value="0">Tin đăng bán</option>
+                                                <option value="1">Tin cho thuê</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label">Loại bất động sản : </label>
+                                        <div class="controls">
+                                            <select name="typeID" id="typeID">
+                                                <option value="0">--- Chọn loại bất động sản ---</option>
+                                                <optgroup label="Căn hộ">
+                                                    <option value="1">Căn hộ chung cư</option>
+                                                    <option value="2">Nhà riêng</option>
+                                                    <option value="3">Nhà mặt phố</option>
+                                                    <option value="4">Tập thể</option>
+                                                </optgroup>
+                                                <optgroup label="Biệt thự">
+                                                    <option value="5">Biệt thự cao cấp</option>
+                                                    <option value="6">Biệt thự liền kề</option>
+                                                </optgroup>
+                                                <optgroup label="Dự án">
+                                                    <option value="7">Khu nghỉ dưỡng</option>
+                                                    <option value="8">Chung cư, khu đô thị</option> 
+                                                    <option value="9">Trang trại</option>
+                                                    <option value="10">Dự án khác</option>
+                                                </optgroup>
+                                                <optgroup label="Đất nền"> 
+                                                    <option value="11">Đất nền dự án</option>
+                                                    <option value="12">Bán đất</option>
+                                                </optgroup>
+                                                <option value="13">Loại khác</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label">Trạng thái :</label>
+                                        <div class="controls">
+                                            <select name="state" id="state">
+                                                <option value="-1">--- Chọn trạng thái ---</option>
+                                                <option value="0">Chờ phê duyệt</option>
+                                                <option value="1">Đã phê duyệt</option>
+                                                <option value="2">Ẩn khỏi trang chủ</option>
+                                                <option value="3">Đã xóa khỏi hệ thống</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="span6">
+                        <div class="widget-box">
+                            <div class="widget-title">
+                                <span class="icon">
+                                    <i class="icon-list-ul"></i>
+                                </span>
+                                <h5>Lọc thông tin vị trí</h5>
+                            </div>
+                            <div class="widget-content">
+                                <form class="form-horizontal">
+                                    <div class="control-group">
+                                        <label class="control-label">Thành phố/Tỉnh :</label>
+                                        <div class="controls">
+                                            <!--<input value="<?php echo($lineage); ?>" id="lineage" type="text" class="span11" name="lineage" placeholder="Nhập vị trí" />-->
+                                            <select id="provinceID" name="provinceID" required="">
+                                                <option value="0">--- Chọn thành phố/tỉnh ---</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label">Quận/Huyện :</label>
+                                        <div class="controls">
+                                            <select id="districtID" name="districtID" required="">
+                                                <option value="0">--- Chọn quận/huyện  ---</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label">Phường/Thị xã :</label>
+                                        <div class="controls">
+                                            <select id="wardID" name="wardID">
+                                                <option value="0">--- Chọn phường/xã ---</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="container-fluid">
                 <hr>
                 <div class="widget-box">
@@ -57,8 +168,8 @@ if (isset($cookieModal)) {
                             <thead>
                                 <tr>
                                     <th>Tiêu đề</th>
+                                    <th>Loại tin rao</th>
                                     <th>Loại nhà đất</th>
-                                    <th>Ngày tạo</th>
                                     <th>Khu vực</th>
                                     <th>Trạng thái</th>
                                     <th></th>
@@ -326,6 +437,7 @@ if (isset($cookieModal)) {
             });
         </script>
         <!-- end-Highlight menu -->
+        <script src="http://192.168.1.220:8080/RealEstate/admin/js/table-filter.js"></script>
     </body>
 </html>
 

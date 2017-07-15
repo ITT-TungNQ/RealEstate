@@ -276,7 +276,9 @@ if (isset($phuongXa)) {
 }
 
 if (isset($_SESSION['search_type'])) {
-    echo '$isAdvance = ' . ($_SESSION['search_type'] == 1) . ';';
+    if ($_SESSION['search_type'] == 1) {
+        echo '$isAdvance = true;';
+    }
 }
 ?>
 
@@ -361,16 +363,3 @@ if (isset($_SESSION['search_type'])) {
     });
 </script>
 
-<?php 
-// unset all look up session
-unset($_SESSION["search_type"]);
-unset($_SESSION["loai"]);
-unset($_SESSION["nha"]);
-unset($_SESSION["thanhpho"]);
-unset($_SESSION["huyen"]);
-unset($_SESSION["phuongXa"]);
-unset($_SESSION['dientich']);
-unset($_SESSION['gia']);
-unset($_SESSION['phong']);
-unset($_SESSION['huong']);
-?>

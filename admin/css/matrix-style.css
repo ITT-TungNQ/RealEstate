@@ -1280,6 +1280,9 @@ div.dataTables_wrapper .ui-widget-header {
 .dataTables_filter input {
     margin-bottom: 0;
 }
+.dataTables_filter #table_second_filter {
+    display: none;
+}
 .table th {
     height: auto;
     font-size: 10px;

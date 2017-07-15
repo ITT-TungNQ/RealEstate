@@ -7,17 +7,21 @@ if (isset($_GET["type"])) {
     switch ($tl) {
         case "dat-nen":
             $idType = "NewsTypeID=11 or NewsTypeID=12";
+            unsetFilterSession();
             break;
         case "du-an-moi":
             $idType = "NewsTypeID=7 or NewsTypeID=8 or NewsTypeID=9 or NewsTypeID=10";
+            unsetFilterSession();
             break;
 
         case "can-ho":
             $idType = "NewsTypeID=1 or NewsTypeID=2 or NewsTypeID=3 or NewsTypeID=4";
+            unsetFilterSession();
             break;
 
         case "biet-thu":
             $idType = "NewsTypeID=5 or NewsTypeID=6";
+            unsetFilterSession();
             break;
 
         case "tim-kiem":
@@ -29,20 +33,25 @@ if (isset($_GET["type"])) {
                 }
             } else {
                 $idType = getSQL();
+//                unsetFilterSession();
             }
             break;
         case "tin-moi":
             $idType = "NewsTypeID=11 or NewsTypeID=12 or NewsTypeID=7 or NewsTypeID=8 or NewsTypeID=9 or NewsTypeID=10 or NewsTypeID=1 or NewsTypeID=2 or NewsTypeID=3 or NewsTypeID=4 or NewsTypeID=5 or NewsTypeID=6";
+            unsetFilterSession();
             break;
         case "noi-bat":
             $check = TRUE;
+            unsetFilterSession();
             break;
         case "loai-khac":
             $idType = "NewsTypeID=13 ";
+            unsetFilterSession();
             break;
 
         default :
             header("location: http://192.168.1.220:8080/RealEstate/page-not-found");
+            unsetFilterSession();
             exit();
             break;
     }

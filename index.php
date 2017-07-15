@@ -3,6 +3,20 @@ session_start();
 require_once './util/Utils.php';
 require_once ("data/truyvan.php");
 $con = connect();
+
+function unsetFilterSession() {
+//    unset all look up session
+    unset($_SESSION["search_type"]);
+    unset($_SESSION["loai"]);
+    unset($_SESSION["nha"]);
+    unset($_SESSION["thanhpho"]);
+    unset($_SESSION["huyen"]);
+    unset($_SESSION["phuongXa"]);
+    unset($_SESSION['dientich']);
+    unset($_SESSION['gia']);
+    unset($_SESSION['phong']);
+    unset($_SESSION['huong']);
+}
 ?>
 
 
@@ -36,6 +50,7 @@ $con = connect();
                                     break;
                                 case "details":
                                     require_once("details.php");
+                                    unsetFilterSession();
                                     break;
                                 case "category_content":
                                     require_once ("category_archive.php");
@@ -49,6 +64,7 @@ $con = connect();
                             }
                         } else {
                             require_once("include/center_content.php");
+                            unsetFilterSession();
                         }
                         ?>
                         <!--cái này là tìm kiếm là cái phần có mmaasy combobox tìm kiếm đứng ko?phải ok vậy trang kết quả sau tìm kiếm của c -->

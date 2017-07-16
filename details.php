@@ -127,7 +127,7 @@ if (isset($_GET["id"])) {
                             </li>
                             <li class="col-lg-6 col-md-12 col-sm-12 post_contact_right">
                                 <i class="fa fa-user"></i> &nbsp;<?php echo ($ownerName); ?><br/>
-                                <a href="tel:+841643720393"><i class="fa fa-phone"></i> &nbsp;<?php echo ($phoneNumber); ?><br/></a>
+                                <a href="tel:<?php echo ($phoneNumber); ?>"><i class="fa fa-phone"></i> &nbsp;<?php echo ($phoneNumber); ?><br/></a>
                                 <a href="mailTo:master@gmail.com"><i class="fa fa-envelope"></i> &nbsp;<?php echo ($email); ?></a>
                             </li>
                         </ul>

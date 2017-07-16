@@ -69,6 +69,16 @@ if (isset($insert_err)) {
         <?php include("include/header.php"); ?>
     </head>
     <body>
+        <div class="outer" id="loading-on-submit">
+            <div class="middle">
+                <div id="loading-box" >
+                    <div class="control-group normal_text">
+                        <img src="http://192.168.1.220:8080/RealEstate/admin/img/status.gif" alt="Logo Admin" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         <?php include("include/top-header.php"); ?>
         <?php include("include/left-menu.php"); ?>
 
@@ -77,6 +87,9 @@ if (isset($insert_err)) {
                 <div id="breadcrumb">
                     <a href="http://192.168.1.220:8080/RealEstate/admin/" title="Tới trang chủ" class="tip-bottom">
                         <i class="icon-home"></i> Trang chủ
+                    </a>
+                    <a>
+                        <i class="icon-user-md"></i> Quản lý tài khoản
                     </a>
                     <a href="http://192.168.1.220:8080/RealEstate/admin/them-tai-khoan-quan-ly" class="current">
                         <i class="icon-user"></i> Thêm tài khoản mới

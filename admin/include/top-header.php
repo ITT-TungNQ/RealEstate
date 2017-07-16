@@ -47,7 +47,7 @@
             </ul>
         </li>-->
         <!--<li class=""><a title="" href="#"><i class="icon icon-cog"></i> <span class="text">Tùy chỉnh</span></a></li>-->
-        <li class=""><a title="" href="http://192.168.1.220:8080/RealEstate/admin/user-details.php"><i class="icon-user"></i> Thông tin tài khoản</a></li>
+        <li class=""><a title="" href="http://192.168.1.220:8080/RealEstate/admin/user-details.php"><i class="icon-user"></i> <?php echo $_SESSION['login_user']['LastName'] . ' ' . $_SESSION['login_user']['MiddleName'] . ' ' . $_SESSION['login_user']['FirstName'] ?></a></li>
         <li class=""><a title="" href="http://192.168.1.220:8080/RealEstate/admin/dang-xuat"><i class="icon icon-share-alt"></i> <span class="text">Đăng xuất</span></a></li>
     </ul>
 </div>

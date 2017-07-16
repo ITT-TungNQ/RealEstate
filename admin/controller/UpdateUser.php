@@ -153,6 +153,9 @@ if (isset($inputChangeInfo)) {
     $conn = getConnection();
     if (mysqli_query($conn, $sql)) {
         if (mysqli_affected_rows($conn) == 1) {
+            $_SESSION['login_user']['LastName'] = $postLName;
+            $_SESSION['login_user']['MiddleName'] = $postMName;
+            $_SESSION['login_user']['FirstName'] = $postFName;
             setcookie("change_info_msg", "Thay đổi thông tin thành công", time() + 3600, "/RealEstate/admin/user-details.php");
         } else {
             // Không thay đổi gì

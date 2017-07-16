@@ -51,6 +51,16 @@ if (!isset($change_pwd_msg)) {
         </style>
     </head>
     <body>
+        <div class="outer" id="loading-on-submit">
+            <div class="middle">
+                <div id="loading-box" >
+                    <div class="control-group normal_text">
+                        <img src="http://192.168.1.220:8080/RealEstate/admin/img/status.gif" alt="Logo Admin" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         <?php include("include/top-header.php"); ?>
         <?php include("include/left-menu.php"); ?>
 

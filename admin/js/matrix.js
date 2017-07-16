@@ -163,7 +163,7 @@ $(document).ready(function () {
 
     $('form').on('submit', function (e) {
         if ($('form').valid() == true) {
-            $('#loading-on-submit').css({"z-index": "999"}).css({"display": "table"});
+            $('#loading-on-submit').css({"z-index": "999999 !important"}).css({"display": "table"});
         }
     });
 

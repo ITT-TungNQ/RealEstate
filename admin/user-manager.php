@@ -33,6 +33,16 @@ if (isset($change_info_msg)) {
         <?php include("include/header.php"); ?>
     </head>
     <body>
+        <div class="outer" id="loading-on-submit">
+            <div class="middle">
+                <div id="loading-box" >
+                    <div class="control-group normal_text">
+                        <img src="http://192.168.1.220:8080/RealEstate/admin/img/status.gif" alt="Logo Admin" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         <?php include("include/top-header.php"); ?>
         <?php include("include/left-menu.php"); ?>
 
@@ -42,8 +52,11 @@ if (isset($change_info_msg)) {
                     <a href="http://192.168.1.220:8080/RealEstate/admin/" title="Tới trang chủ" class="tip-bottom">
                         <i class="icon-home"></i> Trang chủ
                     </a>
+                    <a>
+                        <i class="icon-user-md"></i> Quản lý tài khoản
+                    </a>
                     <a href="http://192.168.1.220:8080/RealEstate/admin/danh-sach-tai-khoan-quan-ly" class="current">
-                        <i class="icon-user"></i> Quản lý tài khoản
+                        <i class="icon-group"></i> Quản lý tài khoản
                     </a>
                 </div>
                 <h1>Quản lý tài khoản</h1>

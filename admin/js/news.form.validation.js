@@ -130,6 +130,8 @@ $(document).ready(function () {
             } else {
                 $('#detail_msg').css({"display": "none"});
             }
+
+            $('#loading-on-submit').css({"display": "none"});
             event.preventDefault();
         }
 
@@ -137,12 +139,16 @@ $(document).ready(function () {
             $is_price_msg_shown = true;
             $('#price_msg').text('Bạn chưa nhập giá thành');
             $('#price_msg').css({"display": "inline-block", "color": "#b94a48"});
+            
+            $('#loading-on-submit').css({"display": "none"});
             event.preventDefault();
         } else {
             if (price % 1000 != 0) {
                 $is_price_msg_shown = true;
                 $('#price_msg').text('Giá thành không hợp lệ');
                 $('#price_msg').css({"display": "inline-block", "color": "#b94a48"});
+                
+                $('#loading-on-submit').css({"display": "none"});
                 event.preventDefault();
             } else {
                 $('#price_msg').css({"display": "none"});

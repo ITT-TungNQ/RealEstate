@@ -147,9 +147,19 @@ $selectedBg = "$bg[$i]";
         </style>
     </head>
     <body>
+
+        <div class="outer" id="loading-on-submit">
+            <div class="middle">
+                <div id="loading-box" >
+                    <div class="control-group normal_text">
+                        <img src="http://192.168.1.220:8080/RealEstate/admin/img/status.gif" alt="Logo Admin" />
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="outer">
             <div class="middle">
-                <div id="loginbox">            
+                <div id="loginbox">
                     <form class="form-vertical" id="login_form" name="login_form" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
                         <div class="control-group normal_text">
                             <h3><img src="http://192.168.1.220:8080/RealEstate/admin/img/logo.png" alt="Logo Admin" /></h3>
@@ -160,7 +170,7 @@ $selectedBg = "$bg[$i]";
                         <div class="control-group" style="padding-top: 10px">
                             <div class="controls">
                                 <div class="main_input_box">
-                                    <span class="add-on bg_lg"><i class="icon-user"> </i></span><input type="text" id="username" name="username" placeholder="Nhập tài khoản" required="" />
+                                    <span class="add-on bg_lg"><i class="icon-user"></i></span><input type="text" id="username" name="username" placeholder="Nhập tài khoản" required="" />
                                 </div>
                             </div>
                         </div>
@@ -179,7 +189,7 @@ $selectedBg = "$bg[$i]";
                         </div>
                         <div class="form-actions">
                             <span class="pull-left">
-                                <span class="pull-left"><a href="#" class="flip-link btn btn-info" id="to-recover">Quên mật khẩu?</a></span>
+                                <span class="pull-left"><a class="flip-link btn btn-info" id="to-recover">Quên mật khẩu?</a></span>
                             </span>
                             <span class="pull-right">
                                 <input type="submit" class="btn btn-success" name="login" value="Đăng nhập" />
@@ -196,7 +206,7 @@ $selectedBg = "$bg[$i]";
                         <div class="control-group" style="padding-top: 10px">
                             <div class="controls">
                                 <div class="main_input_box">
-                                    <span class="add-on bg_lg"><i class="icon-user"> </i></span><input type="text" id="username" name="username" placeholder="Nhập tài khoản" required="" />
+                                    <span class="add-on bg_lg"><i class="icon-user"></i></span><input type="text" id="username" name="username" placeholder="Nhập tài khoản" required="" />
                                 </div>
                             </div>
                         </div>
@@ -209,8 +219,8 @@ $selectedBg = "$bg[$i]";
                         </div>
                         <div class="form-actions">
                             <span class="pull-left">
-                                <a href="#" class="flip-link btn btn-success" id="to-login">
-                                    <span class="icon"><i class="icon-arrow-left"></i></span> Trở lại Đăng nhập
+                                <a class="flip-link btn btn-success" id="to-login">
+                                    <span class="icon"><i class="icon-arrow-left"></i></span>Trở lại Đăng nhập
                                 </a>
                             </span>
                             <span class="pull-right">
@@ -221,11 +231,13 @@ $selectedBg = "$bg[$i]";
                 </div>
             </div>
         </div>
-        <script src="http://192.168.1.220:8080/RealEstate/admin/js/jquery.min.js"></script>  
-        <script src="http://192.168.1.220:8080/RealEstate/admin/js/bootstrap.min.js"></script> 
-        <script src="http://192.168.1.220:8080/RealEstate/admin/js/jquery.validate.js"></script> 
-        <script src="http://192.168.1.220:8080/RealEstate/admin/js/matrix.js"></script> 
-        <script src="http://192.168.1.220:8080/RealEstate/admin/js/matrix.login.js"></script> 
+
+
+        <script src="http://192.168.1.220:8080/RealEstate/admin/js/jquery.min.js"></script>
+        <script src="http://192.168.1.220:8080/RealEstate/admin/js/bootstrap.min.js"></script>
+        <script src="http://192.168.1.220:8080/RealEstate/admin/js/jquery.validate.js"></script>
+        <script src="http://192.168.1.220:8080/RealEstate/admin/js/matrix.js"></script>
+        <script src="http://192.168.1.220:8080/RealEstate/admin/js/matrix.login.js"></script>
         <?php
         if ($isRecoverPwd) {
             echo '<script type="text/javascript">'

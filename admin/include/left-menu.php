@@ -53,18 +53,18 @@ $is_allow_manager_adv = in_array(Constants::MANAGER_ADV, $_SESSION['user_role'])
                     </li>';
         }
 
-        if ($is_allow_manager_adv) {
-            echo '  <li class="header_menu_link submenu">
-                        <a href="#">
-                            <i class="icon icon-film"></i>
-                            <span>Quản lý quảng cáo</span>
-                        </a>
-                        <ul>
-                            <li><a href="http://192.168.1.220:8080/RealEstate/admin/access-denied"><i class="icon icon-plus"></i> Thêm quảng cáo mới</a></li>
-                            <li><a href="http://192.168.1.220:8080/RealEstate/admin/access-denied"><i class="icon icon-film"></i> Danh sách quảng cáo</a></li>
-                        </ul>
-                    </li>';
-        }
+//        if ($is_allow_manager_adv) {
+//            echo '  <li class="header_menu_link submenu">
+//                        <a href="#">
+//                            <i class="icon icon-film"></i>
+//                            <span>Quản lý quảng cáo</span>
+//                        </a>
+//                        <ul>
+//                            <li><a href="http://192.168.1.220:8080/RealEstate/admin/access-denied"><i class="icon icon-plus"></i> Thêm quảng cáo mới</a></li>
+//                            <li><a href="http://192.168.1.220:8080/RealEstate/admin/access-denied"><i class="icon icon-film"></i> Danh sách quảng cáo</a></li>
+//                        </ul>
+//                    </li>';
+//        }
         ?>
 </div>
 <!--sidebar-menu-->

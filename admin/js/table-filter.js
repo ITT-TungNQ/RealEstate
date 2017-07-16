@@ -75,66 +75,25 @@ $(document).ready(function () {
         doFilter();
     });
 
-    $('#isHire').on('change', function () {
-        if ($(this).val() != "-1") {
-            $strHire = $("#isHire option:selected").text();
-        } else {
-            $strHire = '';
-        }
-
-        doFilter();
-    });
-
-    $('#typeID').on('change', function () {
-        $typeID = $(this).val();
-        switch ($typeID) {
-            case "1":
-                $strType = 'Căn hộ chung cư';
-                break;
-            case "2":
-                $strType = 'Nhà riêng';
-                break;
-            case "3":
-                $strType = 'Nhà mặt phố';
-                break;
-            case "4":
-                $strType = 'Tập thể';
-                break;
-            case "5":
-                $strType = 'Biệt thự cao cấp';
-                break;
-            case "6":
-                $strType = 'Biệt thự liền kề';
-                break;
-            case "7":
-                $strType = 'Khu nghỉ dưỡng';
-                break;
-            case "8":
-                $strType = 'Chung cư, khu đô thị';
-                break;
-            case "9":
-                $strType = 'Trang trại';
-                break;
-            case "10":
-                $strType = 'Dự án khác';
-                break;
-            case "11":
-                $strType = 'Đất nền dự án';
-                break;
-            case "12":
-                $strType = 'Bán đất';
-                break;
-            case "13":
-                $strType = 'Loại khác';
-                break;
-            default:
-                $strType = '';
-                break;
-        }
-
-        doFilter();
-    });
+//    $('#isHire').on('change', function () {
+//        if ($(this).val() != "-1") {
+//            $strHire = $("#isHire option:selected").text();
+//        } else {
+//            $strHire = '';
+//        }
 //
+//        doFilter();
+//    });
+//
+//    $('#typeID').on('change', function () {
+//        if ($(this).val() != "0") {
+//            $strType = $("#typeID option:selected").text();
+//        } else {
+//            $strType = '';
+//        }
+//
+//        doFilter();
+//    });
 
     function doFilter() {
         if ($("#provinceID").val() != 0) {

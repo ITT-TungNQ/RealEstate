@@ -22,6 +22,14 @@ $(document).ready(function () {
             {"sWidth": "14%"},
             {"sWidth": "14%"},
             {"sWidth": "10%"}
+        ],
+        "aoPreSearchCols" : [
+            {"bSmart": true},
+            {"bSmart": false},
+            {"bSmart": false},
+            {"bSmart": true},
+            {"bSmart": true},
+            {"bSmart": true}
         ]
     });
 

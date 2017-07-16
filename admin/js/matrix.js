@@ -162,7 +162,9 @@ $(document).ready(function () {
     });
 
     $('form').on('submit', function (e) {
-        $('#loading-on-submit').css({"z-index": "999"}).css({"display": "table"});
+        if ($('form').valid() == true) {
+            $('#loading-on-submit').css({"z-index": "999"}).css({"display": "table"});
+        }
     });
 
 });

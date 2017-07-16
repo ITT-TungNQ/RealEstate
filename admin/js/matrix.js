@@ -161,5 +161,9 @@ $(document).ready(function () {
         $('#lightbox').hide(200);
     });
 
+    $('form').on('submit', function (e) {
+        $('#loading-on-submit').css({"z-index": "999"}).css({"display": "table"});
+    });
+
 });
 

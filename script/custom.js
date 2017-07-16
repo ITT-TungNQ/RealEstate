@@ -1,4 +1,8 @@
 jQuery(document).ready(function () {
+    $('form').on('submit', function (e) {
+            $('#loading-on-submit').css({"z-index": "999999 !important"}).css({"display": "table"});
+    });
+    
     $('html, body').animate({
         scrollTop: 0
     }, 100);

@@ -259,6 +259,29 @@ a.logo b{color:#09c}
 .error_content a{background-color:#fff; color:#111; display:inline-block; padding:10px 25px; margin-top:25px; -webkit-transition:all 0.5s; -o-transition:all 0.5s; transition:all 0.5s}
 .error_content a:hover{text-decoration:none; outline:none; color:#fff}
 
+/*==========start loading panel============*/
+.outer {
+    display: table;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+}
+
+.middle {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#loading-on-submit {
+    z-index: 999999 !important;
+    background-color: rgba(068,068,068,0.8);
+    display: none;
+}
+#loading-box{width:400px; height:400px; border-radius: 100px; position:absolute; left:50%; top:50%; margin:-200px 0 0 -200px;}
+#loading-box img {
+    width: 100%;
+    height: auto;
+}
 /*==========start responsive style============*/
 @media(max-width:1199px ){.logo_area{width:32%}.top_addarea{width:66%}.catg_nav li{width:47.94%}.catg_nav3 li{width:100%}.relatedpost_nav li{margin-right:9px}.custom-tabs > li > a{font-size:11px; padding:8px 2px}}
 @media(max-width:991px ){.slider_tittle{bottom:10px; color:#fff; font-size:18px; line-height:1.5em; margin:0 15px}.logo_area{width:100%}.top_addarea{display:none}.middle_bar{width:100%}.catg_nav li{width:47.64%}.catg_nav3 li{width:100%}.catg5_nav li{width:49%; padding-right:6px}.catg3_snav .media-left > img{height:auto}.ppost_nav li{width:50%; float:left}.catg_nav2 .catgimg_container{height:250px}.relatedpost_nav li{margin-right:7px}.custom-tabs > li > a{font-size:13px; padding:8px 5px}}

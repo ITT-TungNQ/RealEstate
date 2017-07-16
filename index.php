@@ -27,6 +27,13 @@ function unsetFilterSession() {
         <?php include("include/header.php"); ?>
     </head>
     <body>
+        <div class="outer" id="loading-on-submit">
+            <div class="middle">
+                <div id="loading-box" >
+                    <img src="http://192.168.1.220:8080/RealEstate/images/status_1.gif" alt="Logo Loading" />
+                </div>
+            </div>
+        </div>
 
         <div class="container">
             <div class="box_wrapper">

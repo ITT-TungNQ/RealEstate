@@ -30,6 +30,19 @@ $(document).ready(function () {
             $(element).parents('.control-group').addClass('success');
         }
     });
+    
+    $('#recover_form').on('submit', function (e) {
+       if ($(this).valid() !== true) {
+           $('#loading-on-submit').css({"display": "none"});
+           e.preventDefault();
+       } 
+    });
+    $('#login_form').on('submit', function (e) {
+       if ($(this).valid() !== true) {
+           $('#loading-on-submit').css({"display": "none"});
+           e.preventDefault();
+       } 
+    });
 
     $('#recover_form').validate({
         rules: {

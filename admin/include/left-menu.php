@@ -1,6 +1,5 @@
 <?php
-$server_dir = filter_input(INPUT_SERVER, 'DOCUMENT_ROOT');
-require_once ($server_dir . '/RealEstate/admin/util/Constant.php');
+require_once (__DIR__) . '/../util/Constant.php';
 
 $is_allow_create_news = in_array(Constants::CREATE_NEWS, $_SESSION['user_role']);
 $is_allow_update_news = in_array(Constants::UPDATE_NEWS, $_SESSION['user_role']);

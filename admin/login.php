@@ -139,7 +139,7 @@ $selectedBg = "$bg[$i]";
         <link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
         <link rel="stylesheet" href="css/matrix-login.css" />
         <link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
         <style type="text/css">
             body{
                 background: url('http://192.168.1.220:8080/RealEstate/admin/img/<?php echo $selectedBg; ?>');

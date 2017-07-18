@@ -96,7 +96,7 @@ a.logo b{color:#09c}
 .singleleft_inner{background-color:#fff; display:inline; float:left; padding:15px; width:100%}
 .singleleft_inner img{width:100%}
 .recentpost_nav li{display:block; margin-bottom:20px}
-.recentpost_nav li a{display:block; line-height:23px; -webkit-transition:all 0.5s; -o-transition:all 0.5s; transition:all 0.5s}
+.recentpost_nav li a{overflow-wrap: break-word; display:block; line-height:23px; -webkit-transition:all 0.5s; -o-transition:all 0.5s; transition:all 0.5s}
 .recentpost_nav li a:hover{opacity:0.75}
 .recentpost_nav li a > img{margin-bottom:5px; width:100%}
 .recentpost_nav li a .relate_post_image{display: inline-block; height: 100px; margin-bottom:5px; width:100%; background-size: cover; background-position: center;}

@@ -116,7 +116,6 @@ if (isset($_POST['update-news'])) {
     }
     $address = mysqli_real_escape_string($conn, filter_input(INPUT_POST, 'address'));
     $description = mysqli_real_escape_string($conn, filter_input(INPUT_POST, 'description'));
-    $illustrationURL = mysqli_real_escape_string($conn, filter_input(INPUT_POST, 'description'));
     $detail = mysqli_real_escape_string($conn, filter_input(INPUT_POST, 'detail'));
     $area_unit = filter_input(INPUT_POST, 'dien_tich');
     $acreage = filter_input(INPUT_POST, 'acreage');
@@ -175,15 +174,20 @@ if (isset($_POST['update-news'])) {
                 echo "<div class=\"alert alert-danger img-upload\" role=\"alert\">- Định dạng ảnh không được hỗ trợ.<br/>- Định dạng cho phép: JPG, JPEG, PNG.</div>";
             }
         } else {
-            $illustrationURL = "http://192.168.1.220:8080/RealEstate/admin/img/illustration-no-image.png";
+            // Ko cập nhật ảnh
         }
     } catch (Exception $ex) {
         header("location: http://192.168.1.220:8080/RealEstate/admin/unexpected-error");
     }
     /* ========== UPDATE TO DB ========== */
     mysqli_autocommit($conn, false);
-    $sql = "UPDATE `news` SET `NewsTypeID`=$newsTypeID,`Lineage`='$lineage',`Title`='$title',`IllustrationURL`='$illustrationURL',`Description`='$description',`Details`='$detail',`LastUpdated`=now(),`ViewNumber`=0,`Acreage`='$acreage',`Price`=$price,`Contact`='$contact',`Direction`=$direction,`Rooms`=$room,`IsHire`=$isHire,`State`=$state "
-            . "WHERE `NewsID` = " . $newsID . "";
+    $sql = "UPDATE `news` SET `NewsTypeID`=$newsTypeID,`Lineage`='$lineage',`Title`='$title',`Description`='$description',`Details`='$detail',`LastUpdated`=now(),`ViewNumber`=0,`Acreage`='$acreage',`Price`=$price,`Contact`='$contact',`Direction`=$direction,`Rooms`=$room,`IsHire`=$isHire,`State`=$state ";
+    
+    if (isset($illustrationURL)) {
+        $sql .= ", `IllustrationURL`='$illustrationURL' ";
+    }
+    $sql .=  " WHERE `NewsID` = " . $newsID . ";";
+    
     if (mysqli_query($conn, $sql)) {
         if (mysqli_affected_rows($conn)) {
             if (insertNewsLog($newsID, Constants::LOG_UPDATING, $conn)) {
@@ -194,10 +198,12 @@ if (isset($_POST['update-news'])) {
                 echo "Records inserted successfully.";
                 header("location: http://192.168.1.220:8080/RealEstate/admin/quan-ly-bai-dang");
             }
+        } else {
+            // Không thay đổi gì
         }
     } else {
         echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
-        setcookie('insert_err', 'SQL ERROR: Đã xảy ra lỗi khi thêm bài đăng mới.', time() + 36000, '/RealEstate/admin');
+//        setcookie('insert_err', 'SQL ERROR: Đã xảy ra lỗi khi thêm bài đăng mới.', time() + 36000, '/RealEstate/admin');
         header("Location: http://192.168.1.220:8080/RealEstate/admin/unexpected-error");
     }
 

@@ -112,8 +112,9 @@ $(document).ready(function () {
         var districtID = $('select[name="districtID"]').val();
         var details = $('textarea[name="detail"]').val();
         var price = $('input[name="price"]').val();
+        price = price.toString().replace(/\./g, '');
 
-        if (provinceID != 0 && districtID != 0 && details != '') {
+        if (provinceID != 0 && districtID != 0 && details != '' && bcmod(price, 1000) == 0) {
             $('#provinceID_msg').css({"display": "none"});
             $('#districtID_msg').css({"display": "none"});
             $('#detail_msg').css({"display": "none"});

@@ -12,4 +12,4 @@
 <link rel="stylesheet" href="http://192.168.1.220:8080/RealEstate/admin/css/bootstrap-wysihtml5.css" />
 <link href="http://192.168.1.220:8080/RealEstate/admin/font-awesome/css/font-awesome.css" rel="stylesheet" />
 <link rel="stylesheet" href="http://192.168.1.220:8080/RealEstate/admin/css/jquery.gritter.css" />
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>

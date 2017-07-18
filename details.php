@@ -6,12 +6,18 @@ function toStringMoney($value) {
     if (is_numeric($value) && $value != 0 && bcmod($value, 1000) == 0) {
         if ($value > 999999999) {
             $value = $value / 1000000000;
-            $strMoney = number_format((float) $value, 1, ".", ",");
+            $strMoney = number_format((float) $value, 1, ",", ".");
             $strMoney .= " tỷ";
         } else {
-            $value = $value / 1000000;
-            $strMoney = number_format((float) $value, 1, ".", ",");
-            $strMoney .= " triệu";
+            if ($value < 1000000) {
+                // dưới 1 triệu giữ nguyên giá
+                $strMoney = number_format((float) $value, 0, ",", ".");
+                $strMoney .= "<sup>đ</sup>";
+            } else {
+                $value = $value / 1000000;
+                $strMoney = number_format((float) $value, 1, ",", ".");
+                $strMoney .= " triệu";
+            }
         }
     }
 

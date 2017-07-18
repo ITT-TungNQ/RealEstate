@@ -114,11 +114,11 @@ $(document).ready(function () {
         var price = $('input[name="price"]').val();
         price = price.toString().replace(/\./g, '');
 
-        if (provinceID != 0 && districtID != 0 && details != '' && bcmod(price, 1000) == 0) {
+        if (provinceID != 0 && districtID != 0 && details != '') {
             $('#provinceID_msg').css({"display": "none"});
             $('#districtID_msg').css({"display": "none"});
             $('#detail_msg').css({"display": "none"});
-            return true;
+//            return true;
         } else {
             if (provinceID == 0) {
                 $('#provinceID_msg').css({"display": "inline-block", "color": "#b94a48"});

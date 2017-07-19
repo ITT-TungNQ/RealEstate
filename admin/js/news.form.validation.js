@@ -196,7 +196,8 @@ $(document).ready(function () {
             room: {
                 required: false,
                 digits: true,
-                min: 0
+                min: 0,
+                max: 100
             },
             contact_name: {
                 required: true,
@@ -256,7 +257,8 @@ $(document).ready(function () {
             },
             room: {
                 digits: "Số phòng không hợp lệ",
-                min: "Số phòng không hợp lệ"
+                min: "Số phòng không hợp lệ",
+                max: "Số phòng không hợp lệ"
             },
             contact_name: {
                 required: "Bạn chưa nhập người liên hệ",

@@ -223,7 +223,7 @@ if (isset($_GET['newsID'])) {
                                                 <input type="radio" value="1" id="dien_tich" name="dien_tich" checked=""/> m<sup>2</sup>
                                             </label>
                                             <label class="area-unit">
-                                                <input type="radio" value="2" id="dien_tich" name="dien_tich" value="2"/> ha</sup>
+                                                <input type="radio" value="2" id="dien_tich" name="dien_tich"/> ha
                                             </label>
                                         </div>
                                         <div class="controls">
@@ -352,7 +352,7 @@ if (isset($_GET['newsID'])) {
             echo 'http://192.168.1.220:8080/RealEstate/admin/img/illustration-no-image.png';
         }
         ?>'"});
-                    $('#profile_picture').val('');
+                    $('#illustrationURL').val('');
                     $('.filename').html('No file selected');
                 });
             });

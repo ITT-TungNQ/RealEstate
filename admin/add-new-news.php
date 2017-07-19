@@ -192,7 +192,7 @@ checkRole(Constants::CREATE_NEWS);
                                                 <input type="radio" value="1" id="dien_tich" name="dien_tich" checked=""/> m<sup>2</sup>
                                             </label>
                                             <label class="area-unit">
-                                                <input type="radio" value="2" id="dien_tich" name="dien_tich" value="2"/> ha</sup>
+                                                <input type="radio" value="2" id="dien_tich" name="dien_tich"/> ha
                                             </label>
                                         </div>
                                         <div class="controls">
@@ -291,6 +291,11 @@ checkRole(Constants::CREATE_NEWS);
                 $('div#sidebar ul li.header_menu_link:eq(1)').addClass('open');
             }
             $('div#sidebar ul li.open ul li:eq(0)').addClass('active');
+            
+            function setLocation() {
+
+            }
+
         </script>
         <!-- end-Highlight menu -->
 
@@ -298,11 +303,6 @@ checkRole(Constants::CREATE_NEWS);
         <script src="http://192.168.1.220:8080/RealEstate/admin/js/bootstrap-wysihtml5.js"></script>
         <script src="http://192.168.1.220:8080/RealEstate/admin/js/news.form.validation.js"></script>
         <script>
-            function setLocation() {
-
-            }
-            ;
-
             $(document).ready(function () {
                 var maxLength = 500;
                 $('.textarea_editor').wysihtml5();
@@ -314,18 +314,17 @@ checkRole(Constants::CREATE_NEWS);
                 });
 
                 $('#imageClear').on('click', function () {
-                    $('#news-preview-img-container').css({"backgroundImage": "url('\n\
-<?php
-if (isset($illustrationURL)) {
-    echo $illustrationURL;
-} else {
-    echo 'http://192.168.1.220:8080/RealEstate/admin/img/illustration-no-image.png';
-}
-?>'"});
-                    $('#profile_picture').val('');
-                    $('.filename').html('No file selected');
+                    $('#news-preview-img-container').css({"backgroundImage": "url('<?php
+        if (isset($illustrationURL)) {
+            echo $illustrationURL;
+        } else {
+            echo 'http://192.168.1.220:8080/RealEstate/admin/img/illustration-no-image.png';
+        }
+        ?>'"});
+                        $('#illustrationURL').val('');
+                        $('.filename').html('No file selected');
+                    });
                 });
-            });
         </script>
     </body>
 </html>

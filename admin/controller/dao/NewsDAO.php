@@ -1,5 +1,23 @@
 <?php
 
+try {
+    if (!file_exists((__DIR__) . '/../../util/AccessDatabase.php')) {
+        throw new Exception ();
+    }
+    if (!file_exists((__DIR__) . '/../../util/Constant.php')) {
+        throw new Exception ();
+    }
+    if (!file_exists((__DIR__) . '/../../util/News.php')) {
+        throw new Exception ();
+    }
+    if (!file_exists((__DIR__) . '/../../include/check-role.php')) {
+        throw new Exception ();
+    }
+} catch (Exception $ex) {
+    header("location: http://192.168.1.220:8080/RealEstate/admin/404-file-not-found");
+    exit();
+}
+
 require_once (__DIR__) . '/../../util/AccessDatabase.php';
 require_once (__DIR__) . '/../../util/Constant.php';
 require_once (__DIR__) . '/../../util/News.php';

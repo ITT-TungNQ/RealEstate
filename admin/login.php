@@ -1,5 +1,18 @@
 <?php
-include("util/AccessDatabase.php");
+try {
+    if (!file_exists((__DIR__) . '/util/AccessDatabase.php')) {
+        throw new Exception ();
+    }
+    if (!file_exists((__DIR__) . '/util/Constant.php')) {
+        throw new Exception ();
+    }
+} catch (Exception $ex) {
+    header("location: http://192.168.1.220:8080/RealEstate/unexpected-error");
+    exit();
+}
+require_once (__DIR__) . '/util/AccessDatabase.php';
+require_once (__DIR__) . '/util/Constant.php';
+
 session_start();
 
 $msg = '&nbsp;';
@@ -67,11 +80,11 @@ function doLoggin($my_username, $my_password) {
             $isRemember = filter_input(INPUT_POST, 'remember_login');
             if (isset($isRemember)) {
                 if ($isRemember) {
-                    setcookie('logged_username', $my_username, time() + 604800, '/RealEstate/admin/dang-nhap');
-                    setcookie('logged_pwd', $my_password, time() + 604800, '/RealEstate/admin/dang-nhap');
+                    setcookie('logged_username', $my_username, time() + 604800, Constants::PREFIX_PATH . '/admin/dang-nhap', Constants::DOMAIN);
+                    setcookie('logged_pwd', $my_password, time() + 604800, Constants::PREFIX_PATH . '/admin/dang-nhap', Constants::DOMAIN);
                 } else {
-                    setcookie('logged_username', '', time() - 36000, '/RealEstate/admin/dang-nhap');
-                    setcookie('logged_pwd', '', time() - 36000, '/RealEstate/admin/dang-nhap');
+                    setcookie('logged_username', '', time() - 36000, Constants::PREFIX_PATH . '/admin/dang-nhap', Constants::DOMAIN);
+                    setcookie('logged_pwd', '', time() - 36000, Constants::PREFIX_PATH . '/admin/dang-nhap', Constants::DOMAIN);
                 }
             }
             closeConnect($conn);

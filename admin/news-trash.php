@@ -16,11 +16,11 @@ $modalDetails = '';
 
 $cookieModal = filter_input(INPUT_COOKIE, 'change_news_state');
 if (isset($cookieModal)) {
-    setcookie("change_news_state", "", time() - 3600, "/RealEstate/admin/thung-rac");
+    setcookie("change_news_state", "", time() - 3600, Constants::PREFIX_PATH . '/admin/thung-rac', Constants::DOMAIN);
 
     $changeTo = filter_input(INPUT_COOKIE, 'change_to');
     if (isset($changeTo)) {
-        setcookie("change_to", "", time() - 3600, "/RealEstate/admin/thung-rac");
+        setcookie("change_to", "", time() - 3600, Constants::PREFIX_PATH . '/admin/thung-rac', Constants::DOMAIN);
 
         if (isset($changeTo)) {
             switch ($changeTo) {

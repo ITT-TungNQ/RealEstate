@@ -18,7 +18,6 @@ if (isset($_POST['new-news'])) {
     }
     $address = mysqli_real_escape_string($conn, filter_input(INPUT_POST, 'address'));
     $description = mysqli_real_escape_string($conn, filter_input(INPUT_POST, 'description'));
-    $illustrationURL = mysqli_real_escape_string($conn, filter_input(INPUT_POST, 'description'));
     $detail = mysqli_real_escape_string($conn, filter_input(INPUT_POST, 'detail'));
     $area_unit = filter_input(INPUT_POST, 'dien_tich');
     $acreage = filter_input(INPUT_POST, 'acreage');
@@ -79,7 +78,7 @@ if (isset($_POST['new-news'])) {
         $illustrationURL = "http://192.168.1.220:8080/RealEstate/admin/img/illustration-no-image.png";
     }
 
-    /* ========== ISERT TO DB ========== */
+    /* ========== INSERT TO DB ========== */
     mysqli_autocommit($conn, false);
     $sql = "INSERT INTO `news`  (`NewsTypeID`, `Lineage`, `Title`, `IllustrationURL`, `Description`, `Details`, `LastUpdated`, `ViewNumber`, `Acreage`, `Price`, `Contact`, `Direction`, `Rooms`, `IsHire`, `State`) "
             . "VALUES           ('$newsTypeID','$lineage','$title','$illustrationURL','$description','$detail', now(), 0,           '$acreage','$price','$contact','$direction','$room', $isHire, $state);";

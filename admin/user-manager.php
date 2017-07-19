@@ -17,10 +17,10 @@ $cookieModal = filter_input(INPUT_COOKIE, 'user_modal');
 $change_info_msg = filter_input(INPUT_COOKIE, 'change_info_msg');
 
 if (isset($cookieModal)) {
-    setcookie("user_modal", "", time()-3600, "/RealEstate/admin/danh-sach-tai-khoan-quan-ly");
+    setcookie("user_modal", "", time()-3600, Constants::PREFIX_PATH . '/admin/danh-sach-tai-khoan-quan-ly', Constants::DOMAIN);
 }
 if (isset($change_info_msg)) {
-    setcookie("change_info_msg", "", time()-3600,"/RealEstate/admin/danh-sach-tai-khoan-quan-ly");
+    setcookie("change_info_msg", "", time()-3600, Constants::PREFIX_PATH . '/admin/danh-sach-tai-khoan-quan-ly', Constants::DOMAIN);
 } else {
     $change_info_msg = ' ';
 }

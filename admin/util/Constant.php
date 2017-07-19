@@ -2,6 +2,11 @@
 
 class Constants {
 
+    /* === SERVER INFO === */
+    const DOMAIN = "192.168.1.220";
+    const PREFIX_PATH = '/RealEstate';
+
+    /* === USER ROLE === */
     const CREATE_NEWS = 1;
     const UPDATE_NEWS = 2;
     const CHANGE_NEWS_STATE = 3;
@@ -18,7 +23,7 @@ class Constants {
     const SUPER_ADMIN = 1;
 
     /* === NEWS LOG TYPE === */
-    const LOG_CREATING  = 1;
+    const LOG_CREATING = 1;
     const LOG_UPDATING = 2;
     const LOG_CHANGE_STATE = 3;
     const LOG_APPROVAL = 4;
@@ -26,17 +31,19 @@ class Constants {
     const LOG_DELETE = 6;
 
 
-    /* === NEWS STATE ===*/
+    /* === NEWS STATE === */
     const PENDDING = 0;
     const ENABLE = 1;
     const DISABLE = 2;
     const DETELED = 3;
-    
+
     /* === NEWS STATE === */
+
     public static $STATES = array('Chờ phê duyệt', 'Đã phê duyệt', 'Ẩn khỏi trang chủ', 'Đã xóa khỏi hệ thống');
-    
+
     /* === DIRECTION === */
     public static $DIRECTION = array('Liên hệ', "Đông", "Tây", "Nam", "Bắc", "Đông-Bắc", "Tây-Bắc", "Đông-Nam", "Tây-Nam");
+
 }
 
 ?>

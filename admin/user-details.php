@@ -26,7 +26,7 @@ $user_email = $user->getEmail();
 
 $change_info_msg = filter_input(INPUT_COOKIE, 'change_info_msg');
 if (isset($change_info_msg)) {
-    setcookie("change_info_msg", "", time() - 3600, "/RealEstate/admin/user-details.php");
+    setcookie("change_info_msg", "", time() - 3600, Constants::PREFIX_PATH . '/admin/user-profile', Constants::DOMAIN);
 } else {
     $change_info_msg = '';
 }
@@ -35,7 +35,7 @@ $change_pwd_msg = filter_input(INPUT_COOKIE, 'change_pwd_msg');
 if (!isset($change_pwd_msg)) {
     $change_pwd_msg = '';
 } else {
-    setcookie("change_pwd_msg", "", time() - 3600, "/RealEstate/admin/user-details.php");
+    setcookie("change_pwd_msg", "", time() - 3600, Constants::PREFIX_PATH . '/admin/user-profile', Constants::DOMAIN);
 }
 ?>
 
@@ -82,7 +82,7 @@ if (!isset($change_pwd_msg)) {
                     <div class="span6">
                         <?php
                         if ($change_pwd_msg != '') {
-                            echo '<div class="widget-box" style="text-align:center;font-weight:bold">' . $change_pwd_msg . '</div>';
+                            echo '<div class="widget-box change-msg">' . $change_pwd_msg . '</div>';
                         }
                         ?>
                         <div class="widget-box">
@@ -123,7 +123,7 @@ if (!isset($change_pwd_msg)) {
                     <div class="span6">
                         <?php
                         if ($change_info_msg != '') {
-                            echo '<div class="widget-box">' . $change_info_msg . '</div>';
+                            echo '<div class="widget-box change-msg">' . $change_info_msg . '</div>';
                         }
                         ?>
                         <div class="widget-box">

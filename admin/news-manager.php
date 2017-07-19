@@ -1,21 +1,39 @@
 <?php
+try {
+    if (!file_exists((__DIR__) . '/util/Constant.php')) {
+        throw new Exception ();
+    }
+    if (!file_exists((__DIR__) . '/include/check-role.php')) {
+        throw new Exception ();
+    }
+    if (!file_exists((__DIR__) . '/util/News.php')) {
+        throw new Exception ();
+    }
+    if (!file_exists((__DIR__) . '/util/Utils.php')) {
+        throw new Exception ();
+    }
+    if (!file_exists((__DIR__) . '/controller/dao/NewsDAO.php')) {
+        throw new Exception ();
+    }
+} catch (Exception $ex) {
+    header("location: http://192.168.1.220:8080/RealEstate/admin/404-file-not-found");
+    exit();
+}
 // ========== CHECK LOGIN ==========
-require_once("./include/check-role.php");
-require_once("./util/Constant.php");
+require_once (__DIR__) . '/util/Constant.php';
+require (__DIR__) . '/include/check-role.php';
+
 checkRole(Constants::UPDATE_NEWS);
 
 /* ========== GET NEWS FROM DB ========== */
-require_once("./controller/dao/NewsDAO.php");
-require_once("./controller/GetType.php");
-require_once("./util/AccessDatabase.php");
-require_once("./util/News.php");
-require_once("./util/Type.php");
-require_once("./util/Utils.php");
+require_once (__DIR__) . '/util/News.php';
+require_once (__DIR__) . '/util/Utils.php';
+require_once (__DIR__) . '/controller/dao/NewsDAO.php';
 $lstNews = getAllNews();
 
 $cookieModal = filter_input(INPUT_COOKIE, 'change_news_state');
 if (isset($cookieModal)) {
-    setcookie("change_news_state", "", time() - 3600, "/RealEstate/admin/quan-ly-bai-dang");
+    setcookie("change_news_state", "", time() - 3600, Constants::PREFIX_PATH . "/admin/quan-ly-bai-dang", Constants::DOMAIN);
 }
 ?>
 

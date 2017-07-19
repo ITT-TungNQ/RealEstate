@@ -19,7 +19,7 @@ if (isset($_POST['deactivate-user'])) {
                     echo "Records updated successfully.";
                 } else {
                     echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
-                    // setcookie('deactivate_err', 'SQL ERROR: Đã xảy ra lỗi khi khóa tài khoản.', time()+36000, '/RealEstate/admin');
+                    // setcookie('deactivate_err', 'SQL ERROR: Đã xảy ra lỗi khi khóa tài khoản.', time()+3600, Constants::PREFIX_PATH . '/admin', Constants::DOMAIN);
                 }
             }
         }
@@ -44,7 +44,7 @@ if (isset($_POST['activate-user'])) {
                     echo "Records updated successfully.";
                 } else {
                     echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
-//                  setcookie('deactivate_err', 'SQL ERROR: Đã xảy ra lỗi khi kích hoạt tài khoản.', time()+36000, '/RealEstate/admin');
+//                  setcookie('deactivate_err', 'SQL ERROR: Đã xảy ra lỗi khi kích hoạt tài khoản.', time()+3600, Constants::PREFIX_PATH . '/admin', Constants::DOMAIN);
                 }
             }
         }
@@ -65,8 +65,8 @@ $inputUserID = filter_input(INPUT_POST, 'change_pwd_id');
 $btnChanePWD = filter_input(INPUT_POST, 'change-pwd');
 if (isset($inputPwd1) && isset($inputPwd2) && isset($btnChanePWD)) {
     if ($inputPwd1 != $inputPwd2) {
-        setcookie("change_pwd_msg", "Xác nhận mật khẩu không trùng khớp", time() + 3600);
-        header("location: http://192.168.1.220:8080/RealEstate/admin/user-details.php");
+        setcookie("change_pwd_msg", "Xác nhận mật khẩu không trùng khớp", time() + 3600, Constants::PREFIX_PATH . '/admin/user-profile', Constants::DOMAIN);
+        header("location: http://192.168.1.220:8080/RealEstate/admin/user-profile");
     } else {
         $conn = getConnection();
         $inputPwd1 = mysqli_real_escape_string($conn, $inputPwd1);
@@ -76,17 +76,17 @@ if (isset($inputPwd1) && isset($inputPwd2) && isset($btnChanePWD)) {
                 . "WHERE UserID = '$inputUserID';";
         if (mysqli_query($conn, $sql)) {
             if (mysqli_affected_rows($conn) == 1) {
-                setcookie("change_pwd_msg", "Đổi mật khẩu mới thành công", time() + 3600, "/RealEstate/admin/user-details.php");
+                setcookie("change_pwd_msg", "Đổi mật khẩu mới thành công", time() + 3600, Constants::PREFIX_PATH . '/admin/user-profile', Constants::DOMAIN);
             } else {
-                setcookie("change_pwd_msg", "Mật khẩu mới phải khác mật khẩu cũ", time() + 3600, "/RealEstate/admin/user-details.php");
+                setcookie("change_pwd_msg", "Mật khẩu mới phải khác mật khẩu cũ", time() + 3600, Constants::PREFIX_PATH . '/admin/user-profile', Constants::DOMAIN);
             }
         } else {
-            setcookie("change_pwd_msg", "ERROR: Could not able to execute $sql.", time() + 3600, "/RealEstate/admin/user-details.php");
+            setcookie("change_pwd_msg", "ERROR: Could not able to execute $sql.", time() + 3600, Constants::PREFIX_PATH . '/admin/user-profile', Constants::DOMAIN);
             echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
         }
 
         closeConnect($conn);
-        header("location: http://192.168.1.220:8080/RealEstate/admin/user-details.php");
+        header("location: http://192.168.1.220:8080/RealEstate/admin/user-profile");
         exit();
     }
 }
@@ -139,7 +139,7 @@ if (isset($inputChangeInfo)) {
         // Ko có ảnh
     }
 
-    $sql = "UPDATE User "
+    $sql = "UPDATE user "
             . "SET FirstName = '$postFName', MiddleName = '$postMName', LastName = '$postLName', "
             . "DOB = STR_TO_DATE('$postDOB', '%d/%m/%Y'), Email = '$postUserEmail' ";
     if (isset($profile_picture)) {
@@ -156,18 +156,19 @@ if (isset($inputChangeInfo)) {
             $_SESSION['login_user']['LastName'] = $postLName;
             $_SESSION['login_user']['MiddleName'] = $postMName;
             $_SESSION['login_user']['FirstName'] = $postFName;
-            setcookie("change_info_msg", "Thay đổi thông tin thành công", time() + 3600, "/RealEstate/admin/user-details.php");
+            setcookie("change_info_msg", "Thay đổi thông tin thành công", time() + 3600, Constants::PREFIX_PATH . '/admin/user-profile', Constants::DOMAIN);
         } else {
             // Không thay đổi gì
-            setcookie("change_info_msg", "", time() + 3600, "/RealEstate/admin/user-details.php");
+            setcookie("change_info_msg", "", time() + 3600, Constants::PREFIX_PATH . '/admin/user-profile', Constants::DOMAIN);
         }
     } else {
-        setcookie("change_info_msg", "ERROR: Could not able to execute $sql.", time() + 3600, "/RealEstate/admin/user-details.php");
+//        setcookie("change_info_msg", "ERROR: Could not able to execute $sql.", time() + 3600, Constants::PREFIX_PATH . '/admin/user-profile', Constants::DOMAIN);
+        setcookie("change_info_msg", "Đã có lỗi xảy ra", time() + 3600, Constants::PREFIX_PATH . '/admin/user-profile', Constants::DOMAIN);
         echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
     }
 
     closeConnect($conn);
-    header("location: http://192.168.1.220:8080/RealEstate/admin/user-details.php");
+//    header("location: http://192.168.1.220:8080/RealEstate/admin/user-profile");
     exit();
 }
 
@@ -186,11 +187,12 @@ if (isset($inputChangeInfo)) {
     }
 
     if (isset($inputPwd1) && !empty($inputPwd1) && $inputPwd1 != $inputPwd2) {
-        setcookie("change_info_msg", "Xác nhận mật khẩu không trùng khớp", time() + 3600, '/RealEstate/admin/danh-sach-tai-khoan-quan-ly');
+        setcookie("user_modal", "editAlert" . $inputUserID, time() + 3600, Constants::PREFIX_PATH . '/admin/danh-sach-tai-khoan-quan-ly', Constants::DOMAIN);
+        setcookie("change_info_msg", "Xác nhận mật khẩu không trùng khớp", time() + 3600, Constants::PREFIX_PATH . '/admin/danh-sach-tai-khoan-quan-ly', Constants::DOMAIN);
         header("location: http://192.168.1.220:8080/RealEstate/admin/danh-sach-tai-khoan-quan-ly");
     } else {
         $conn = getConnection();
-        $sql = "UPDATE User "
+        $sql = "UPDATE `user` "
                 . "SET ";
 
         if (isset($inputUserLevel)) {
@@ -198,8 +200,8 @@ if (isset($inputChangeInfo)) {
         } else {
             if (!isset($inputPwd1) || empty($inputPwd1)) {
                 // Về trang quản lý:
-                setcookie("change_info_msg", "Không có gì thay đổi", time() + 3600, "/RealEstate/admin/danh-sach-tai-khoan-quan-ly");
-                setcookie("user_modal", "editAlert" . $inputUserID, time() + 3600, "/RealEstate/admin/danh-sach-tai-khoan-quan-ly");
+                setcookie("change_info_msg", "Không có gì thay đổi", time() + 3600, Constants::PREFIX_PATH . '/admin/danh-sach-tai-khoan-quan-ly', Constants::DOMAIN);
+                setcookie("user_modal", "editAlert" . $inputUserID, time() + 3600, Constants::PREFIX_PATH . '/admin/danh-sach-tai-khoan-quan-ly', Constants::DOMAIN);
 
                 closeConnect($conn);
                 header("location: http://192.168.1.220:8080/RealEstate/admin/danh-sach-tai-khoan-quan-ly");
@@ -218,15 +220,15 @@ if (isset($inputChangeInfo)) {
         $sql .= "WHERE UserID = '$inputUserID';";
         if (mysqli_query($conn, $sql)) {
             if (mysqli_affected_rows($conn) == 1) {
-                setcookie("change_info_msg", "Cập nhật thành công", time() + 3600, "/RealEstate/admin/danh-sach-tai-khoan-quan-ly");
-                setcookie("user_modal", "editAlert" . $inputUserID, time() + 3600, "/RealEstate/admin/danh-sach-tai-khoan-quan-ly");
+                setcookie("change_info_msg", "Cập nhật thành công", time() + 3600, Constants::PREFIX_PATH . '/admin/danh-sach-tai-khoan-quan-ly', Constants::DOMAIN);
+                setcookie("user_modal", "editAlert" . $inputUserID, time() + 3600, Constants::PREFIX_PATH . '/admin/danh-sach-tai-khoan-quan-ly', Constants::DOMAIN);
             } else {
-                setcookie("change_info_msg", "Không có gì thay đổi", time() + 3600, "/RealEstate/admin/danh-sach-tai-khoan-quan-ly");
-                setcookie("user_modal", "editAlert" . $inputUserID, time() + 3600, "/RealEstate/admin/danh-sach-tai-khoan-quan-ly");
+                setcookie("change_info_msg", "Không có gì thay đổi", time() + 3600, Constants::PREFIX_PATH . '/admin/danh-sach-tai-khoan-quan-ly', Constants::DOMAIN);
+                setcookie("user_modal", "editAlert" . $inputUserID, time() + 3600, Constants::PREFIX_PATH . '/admin/danh-sach-tai-khoan-quan-ly', Constants::DOMAIN);
             }
         } else {
-            setcookie("change_info_msg", "ERROR: Could not able to execute $sql.", time() + 3600, "/RealEstate/admin/danh-sach-tai-khoan-quan-ly");
-            setcookie("user_modal", "editAlert" . $inputUserID, time() + 3600, "/RealEstate/admin/danh-sach-tai-khoan-quan-ly");
+            setcookie("change_info_msg", "ERROR: Could not able to execute $sql.", time() + 3600, Constants::PREFIX_PATH . '/admin/danh-sach-tai-khoan-quan-ly', Constants::DOMAIN);
+            setcookie("user_modal", "editAlert" . $inputUserID, time() + 3600, Constants::PREFIX_PATH . '/admin/danh-sach-tai-khoan-quan-ly', Constants::DOMAIN);
             echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
         }
 

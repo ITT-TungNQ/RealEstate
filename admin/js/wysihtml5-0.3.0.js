@@ -8377,7 +8377,8 @@ rangy.createModule("DomRange", function (api, module) {
                                                                 "body.placeholder { color: #a9a9a9 !important; }",
                                                         "body[disabled]   { background-color: #eee !important; color: #999 !important; cursor: default !important; }",
                                                         // Ensure that user see's broken images and can delete them
-                                                        "img:-moz-broken  { -moz-force-broken-image-icon: 1; height: 24px; width: 24px; }"
+                                                        "img:-moz-broken  { -moz-force-broken-image-icon: 1; height: 24px; width: 24px; }",
+                                                        "img{width: 100%; margin: 10px 5px}"
                                                     ];
 
                                             /**

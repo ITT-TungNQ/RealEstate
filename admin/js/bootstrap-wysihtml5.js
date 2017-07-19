@@ -69,14 +69,41 @@
                   "<h3>" + locale.image.insert + "</h3>" +
                 "</div>" +
                 "<div class='modal-body'>" +
-                  "<input value='http://' class='bootstrap-wysihtml5-insert-image-url  m-wrap large' type='text'>" +
+                  "<input placeholder='http://url-image.jpg' class='bootstrap-wysihtml5-insert-image-url  m-wrap large' type='text'>" +
                 "</div>" +
                 "<div class='modal-footer'>" +
                   "<a href='#' class='btn' data-dismiss='modal'>" + locale.image.cancel + "</a>" +
                   "<a href='#' class='btn  green btn-primary' data-dismiss='modal'>" + locale.image.insert + "</a>" +
                 "</div>" +
               "</div>" +
-              "<a class='btn" + size + "' data-wysihtml5-command='insertImage' title='" + locale.image.insert + "'><i class='icon-picture'></i></a>" +
+              "<a class='btn" + size + "' data-wysihtml5-command='insertImage' title='" + locale.image.insert + "'><i class='icon-film'></i></a>" +
+            "</li>";
+        },
+        
+        "local-image": function(locale, options) {
+            var size = (options && options.size) ? ' btn-'+options.size : '';
+            return "<li>" +
+              "<div class='bootstrap-wysihtml5-insert-local-image-modal modal hide fade'>" +
+                "<div class='modal-header'>" +
+                  "<a class='close' data-dismiss='modal'></a>" +
+                  "<h3>" + locale.local_image.insert + "</h3>" +
+                "</div>" +
+                "<div class='modal-body'>" +
+                  "<div class='control-group'>\n\
+                        <div class='controls' style='margin: 0px;'>\n\
+                            <div class='news-local-preview-img-container' id='news-local-preview-img-container' ></div>\n\
+                            <span class='help-block' id='img-message'>Kích thước tối đa 5MB</span>\n\
+                            <input class='bootstrap-wysihtml5-insert-local-image-url  m-wrap large' type='file' />\n\
+                        </div>\n\
+                    </div>" +
+//                  "<input value='http://' class='bootstrap-wysihtml5-insert-local-image-url  m-wrap large' type='text'>" +
+                "</div>" +
+                "<div class='modal-footer'>" +
+                  "<a href='#' class='btn' data-dismiss='modal'>" + locale.local_image.cancel + "</a>" +
+                  "<a href='#' class='btn  green btn-primary' data-dismiss='modal'>" + locale.local_image.insert + "</a>" +
+                "</div>" +
+              "</div>" +
+              "<a class='btn" + size + "' data-wysihtml5-command='insertLocalImage' title='" + locale.local_image.insert + "'><i class='icon-picture'></i></a>" +
             "</li>";
         },
 
@@ -187,6 +214,10 @@
                     if(key === "image") {
                         this.initInsertImage(toolbar);
                     }
+                    
+                    if(key === "local-image") {
+                        this.initInsertLocalImage(toolbar);
+                    }
                 }
             }
 
@@ -229,9 +260,11 @@
 
             var insertImage = function() {
                 var url = urlInput.val();
-                urlInput.val(initialValue);
-                self.editor.currentView.element.focus();
-                self.editor.composer.commands.exec("insertImage", url);
+                if (url != '') {
+                    urlInput.val(initialValue);
+                    self.editor.currentView.element.focus();
+                    self.editor.composer.commands.exec("insertImage", url);
+                }
             };
 
             urlInput.keypress(function(e) {
@@ -264,6 +297,118 @@
                 else {
                     return true;
                 }
+            });
+        },
+
+        initInsertLocalImage: function(toolbar) {
+            var self = this;
+            // Tìm popup div:
+            var insertLocalImageModal = toolbar.find('.bootstrap-wysihtml5-insert-local-image-modal');
+            
+            // Tìm input file:
+            var inputFile = insertLocalImageModal.find('.bootstrap-wysihtml5-insert-local-image-url');
+            var imageMessage = insertLocalImageModal.find('#img-message');
+            var imagePrevew = insertLocalImageModal.find('.news-local-preview-img-container');
+            
+            // Tìm nút Sumbit:
+            var insertLocalButton = insertLocalImageModal.find('a.btn-primary');
+            
+            var insertLocalImage = function() {
+                var file_data = inputFile.prop('files')[0];
+                if (file_data) {
+                    var form_data = new FormData();
+                    form_data.append('local-image', file_data, 'dsd.jpg');
+
+                    $.ajax({
+                        url: 'http://192.168.1.220:8080/RealEstate/admin/controller/UploadImage.php',
+                        data: form_data,
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                        type: 'POST',
+                        success: function (data) {
+                            if (data == 'error') {
+                                
+                            } else {
+                                noPreview();
+                                self.editor.currentView.element.focus();
+                                self.editor.composer.commands.exec("insertImage", data);
+                            }
+                        }
+                    });
+                }
+//                self.editor.currentView.element.focus();
+                //self.editor.composer.commands.exec("insertImage", url); // Gọi hàm để xử lý
+            };
+
+            // Sự kiện bấm nút submit:
+            insertLocalButton.click(insertLocalImage);
+
+            insertLocalImageModal.on('shown', function() {
+                inputFile.focus();
+            });
+
+            insertLocalImageModal.on('hide', function() {
+                self.editor.currentView.element.focus();
+                noPreview();
+            });
+
+            // Sự kiện khi bấm icon button:
+            toolbar.find('a[data-wysihtml5-command=insertLocalImage]').click(function() {
+                var activeButton = $(this).hasClass("wysihtml5-command-active");
+
+                if (!activeButton) {
+                    insertLocalImageModal.modal('show');
+                    insertLocalImageModal.on('click.dismiss.modal', '[data-dismiss="modal"]', function(e) {
+                        e.stopPropagation();
+                    });
+                    return false;
+                }
+                else {
+                    return true;
+                }
+            });
+            
+            ////////////////////////////////////////////////////////////
+            // Preview upload image:
+            ////////////////////////////////////////////////////////////
+            var noPreview = function() {
+                inputFile.val('');
+                imagePrevew.css({"backgroundImage": "url('http://192.168.1.220:8080/RealEstate/admin/img/illustration-no-image.png'"});
+            };
+
+            var selectImage =  function(e) {
+                imagePrevew.css({"backgroundImage": "url('" + e.target.result + "'"});
+            };
+            
+            inputFile.change(function () {
+                var maxsize = 5 * 1024 * 1024; // 5 MB
+                var file = this.files[0];
+                if (file === undefined) {
+                    noPreview();
+                    imageMessage.html('Kích thước tối đa 5MB');
+                    return false;
+                }
+                var match = ["image/jpeg", "image/png", "image/jpg"];
+                if (!((file.type === match[0]) || (file.type === match[1]) || (file.type === match[2]))) {
+                    noPreview();
+                    $(this).val(''); 
+                    imageMessage.html('<div class="alert alert-error img-upload" role="alert">- Định dạng ảnh không được hỗ trợ.<br/>- Định dạng cho phép: JPG, JPEG, PNG.</div>');
+
+                    return false;
+                }
+
+                if (file.size > maxsize) {
+                    noPreview();
+                    imageMessage.html('<div class=\"alert alert-error img-upload\" role=\"alert\">- Kích thước ảnh của bạn: ' + (file.size / 1024).toFixed(2) + ' KB<br/>Kích thước tối đa: ' + (maxsize / 1024 / 1024).toFixed(2) + ' MB</div>');
+                    $(this).val('');
+                    return false;
+                }
+
+                imageMessage.html('Kích thước tối đa 5MB');
+                var reader = new FileReader();
+                reader.onload = selectImage;
+                reader.readAsDataURL(this.files[0]);
             });
         },
 
@@ -367,6 +512,7 @@
         "html": false,
         "link": true,
         "image": true,
+        "local-image": true,
         events: {},
         parserRules: {
             classes: {
@@ -432,15 +578,15 @@
     var locale = $.fn.wysihtml5.locale = {
         en: {
             font_styles: {
-                normal: "Normal text",
+                normal: "Chữ thường",
                 h1: "Heading 1",
                 h2: "Heading 2",
                 h3: "Heading 3"
             },
             emphasis: {
-                bold: "Bold",
-                italic: "Italic",
-                underline: "Underline"
+                bold: "In đậm",
+                italic: "In nghiêng",
+                underline: "Gạch chân"
             },
             lists: {
                 unordered: "Unordered list",
@@ -449,12 +595,16 @@
                 indent: "Indent"
             },
             link: {
-                insert: "Insert link",
-                cancel: "Cancel"
+                insert: "Chèn liên kết",
+                cancel: "Đóng"
             },
             image: {
-                insert: "Insert image",
-                cancel: "Cancel"
+                insert: "Chèn đường dẫn ảnh",
+                cancel: "Đóng"
+            },
+            local_image: {
+                insert: "Chèn ảnh",
+                cancel: "Đóng"
             },
             html: {
                 edit: "Edit HTML"

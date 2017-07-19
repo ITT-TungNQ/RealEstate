@@ -9,7 +9,8 @@ $tinmoi = TinMoi($con);
 <a class="scrollToTop" href="#"><i class="fa fa-angle-up"></i></a>
 <a href="tel:+841643720393">
     <div class="make-a-call">
-        <img src="http://192.168.1.220:8080/RealEstate/images/hotline.png" alt=""/>
+        <img id="hotline" src="http://192.168.1.220:8080/RealEstate/images/hotline.png" alt=""/>
+        <img id="hotline_lite" src="http://192.168.1.220:8080/RealEstate/images/hotline_lite.png" alt=""/>
         <p class="phone_number">0938.45.89.45</p>
     </div>
 </a>

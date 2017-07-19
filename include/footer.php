@@ -49,42 +49,42 @@
                     <input class="send_btn" type="submit" name="client-contact" value="Gửi liên hệ">
                 </form>
             </div>
+            <div class="footer_bottom_right">
+                <ul>
+                    <li>
+                        <a class="tootlip" data-toggle="tooltip" data-placement="top" title="Twitter" href="#">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="tootlip" data-toggle="tooltip" data-placement="top" title="Facebook" href="https://www.facebook.com/chymchyck.bong" target="_blank">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="tootlip" data-toggle="tooltip" data-placement="top" title="Googel+" href="#">
+                            <i class="fa fa-google-plus"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="tootlip" data-toggle="tooltip" data-placement="top" title="Youtube" href="#">
+                            <i class="fa fa-youtube"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="tootlip" data-toggle="tooltip" data-placement="top" title="Rss" href="#">
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
     <div class="footer_bottom">
-        <div class="footer_bottom_left">
+        <div class="footer_bottom_center">
             <p>Copyright &copy; 2017</p>
         </div>
-        <div class="footer_bottom_right">
-            <ul>
-                <li>
-                    <a class="tootlip" data-toggle="tooltip" data-placement="top" title="Twitter" href="#">
-                        <i class="fa fa-twitter"></i>
-                    </a>
-                </li>
-                <li>
-                    <a class="tootlip" data-toggle="tooltip" data-placement="top" title="Facebook" href="#">
-                        <i class="fa fa-facebook"></i>
-                    </a>
-                </li>
-                <li>
-                    <a class="tootlip" data-toggle="tooltip" data-placement="top" title="Googel+" href="#">
-                        <i class="fa fa-google-plus"></i>
-                    </a>
-                </li>
-                <li>
-                    <a class="tootlip" data-toggle="tooltip" data-placement="top" title="Youtube" href="#">
-                        <i class="fa fa-youtube"></i>
-                    </a>
-                </li>
-                <li>
-                    <a class="tootlip" data-toggle="tooltip" data-placement="top" title="Rss" href="#">
-                        <i class="fa fa-rss"></i>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>   
+    </div>
 </footer>
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">

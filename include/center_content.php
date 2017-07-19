@@ -68,7 +68,7 @@
                                 </div>
                                 <a class="catg_title" href="http://192.168.1.220:8080/RealEstate/chi-tiet/<?php echo(makeURL($a['Title'])); ?>-<?php echo($a['NewsID']); ?>"><?php echo($a['Title']); ?></a>
                                 <div class="sing_commentbox">
-                                    <p><i class="fa fa-calendar"></i><?php echo date('d-m-Y', strtotime($a['LastUpdated'])); ?></p>
+                                    <p><i class="fa fa-calendar"></i><?php echo date('d/m/Y', strtotime($a['LastUpdated'])); ?></p>
                                     <a href="#"><i class="fa fa-eye"></i><?php echo($a['ViewNumber']); ?> Views</a>
                                 </div>
                             </li>
@@ -92,7 +92,7 @@
                                 </div>
                                 <a class="catg_title" href="http://192.168.1.220:8080/RealEstate/chi-tiet/<?php echo(makeURL($a['Title'])); ?>-<?php echo($a['NewsID']); ?>"><?php echo($a['Title']); ?></a>
                                 <div class="sing_commentbox">
-                                    <p><i class="fa fa-calendar"></i><?php echo date('d-m-Y', strtotime($a['LastUpdated'])); ?></p>
+                                    <p><i class="fa fa-calendar"></i><?php echo date('d/m/Y', strtotime($a['LastUpdated'])); ?></p>
                                     <a href="#"><i class="fa fa-eye"></i><?php echo($a['ViewNumber']); ?> Views</a>
                                 </div>
                                 <p class="post-summary">
@@ -130,7 +130,7 @@
                                             <?php echo ($a['Title']); ?>
                                         </a>
                                         <div class="sing_commentbox">
-                                            <p><i class="fa fa-calendar"></i><?php echo date('d-m-Y', strtotime($a['LastUpdated'])); ?></p>
+                                            <p><i class="fa fa-calendar"></i><?php echo date('d/m/Y', strtotime($a['LastUpdated'])); ?></p>
                                             <a href="#"><i class="fa fa-eye"></i><?php echo($a['ViewNumber']); ?> Views</a>
                                             <p class="post-summary">
                                                 Vị trí: <?php
@@ -156,7 +156,7 @@
                                                         <?php echo ($a['Title']); ?>
                                                     </a>
                                                     <div class="sing_commentbox">
-                                                        <p><i class="fa fa-calendar"></i><?php echo date('d-m-Y', strtotime($a['LastUpdated'])); ?></p>
+                                                        <p><i class="fa fa-calendar"></i><?php echo date('d/m/Y', strtotime($a['LastUpdated'])); ?></p>
                                                         <a href="#"><i class="fa fa-eye"></i><?php echo($a['ViewNumber']); ?> Views</a>
 
                                                     </div>
@@ -192,7 +192,7 @@
                                             <?php echo ($a['Title']); ?>
                                         </a>
                                         <div class="sing_commentbox">
-                                            <p><i class="fa fa-calendar"></i><?php echo date('d-m-Y', strtotime($a['LastUpdated'])); ?></p>
+                                            <p><i class="fa fa-calendar"></i><?php echo date('d/m/Y', strtotime($a['LastUpdated'])); ?></p>
                                             <a href="#"><i class="fa fa-eye"></i><?php echo($a['ViewNumber']); ?> Views</a>
                                             <p class="post-summary">
                                                 Vị trí: <?php
@@ -218,7 +218,7 @@
                                                         <?php echo ($a['Title']); ?>
                                                     </a>
                                                     <div class="sing_commentbox">
-                                                        <p><i class="fa fa-calendar"></i><?php echo date('d-m-Y', strtotime($a['LastUpdated'])); ?></p>
+                                                        <p><i class="fa fa-calendar"></i><?php echo date('d/m/Y', strtotime($a['LastUpdated'])); ?></p>
                                                         <a href="#"><i class="fa fa-eye"></i><?php echo($a['ViewNumber']); ?> Views</a>
 
                                                     </div>
@@ -254,7 +254,7 @@
                                 <div class="media-body"> 
                                     <a href="http://192.168.1.220:8080/RealEstate/chi-tiet/<?php echo(makeURL($a['Title'])); ?>-<?php echo($a['NewsID']); ?>" class="catg_title"><?php echo($a['Title']);?></a>
                                     <div class="sing_commentbox">
-                                         <p><i class="fa fa-calendar"></i><?php echo date('d-m-Y', strtotime($a['LastUpdated'])); ?></p>
+                                         <p><i class="fa fa-calendar"></i><?php echo date('d/m/Y', strtotime($a['LastUpdated'])); ?></p>
                                                         <a href="#"><i class="fa fa-eye"></i><?php echo($a['ViewNumber']); ?> Views</a>
   </div>
                                 </div>

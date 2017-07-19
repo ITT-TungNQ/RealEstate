@@ -122,7 +122,7 @@ if (isset($_GET["id"])) {
                     </ol>
                     <h2 class="post_title wow "><?php echo($a['Title']); ?></h2>
 
-                    <a class="post_date"><i class="fa fa-clock-o"></i><?php echo date('d-m-Y', strtotime($a['LastUpdated'])); ?></a>
+                    <a class="post_date"><i class="fa fa-clock-o"></i><?php echo date('d/m/Y', strtotime($a['LastUpdated'])); ?></a>
                     <a class="post_views"><i class="fa fa-eye"></i><?php echo($a['ViewNumber']); ?> Views</a>
                     <div class="post_contact">
                         <ul class="post_contact_pager">

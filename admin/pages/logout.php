@@ -3,7 +3,9 @@
 session_start();
 
 // ========== SET OFFLINE TO DATABASE ==========
-require_once ('../util/AccessDatabase.php');
+require_once '../util/AccessDatabase.php';
+require_once '../util/Constant.php';
+
 $conn = getConnection();
 $sql = "UPDATE user SET `Online`=b'0', LastLogin='" . date('Y-m-d H:i:s') . "' "
         . "WHERE UserID = '" . $_SESSION['login_user']['UserID'] . "'";
@@ -15,8 +17,8 @@ if (mysqli_query($conn, $sql)) {
 
 unset($_SESSION["login_user"]);
 unset($_SESSION["timeout"]);
-setcookie('logged_username', '', time() - 36000, '/RealEstate/admin/dang-nhap');
-setcookie('logged_pwd', '', time() - 36000, '/RealEstate/admin/dang-nhap');
+setcookie('logged_username', '', time() - 36000, Constants::PREFIX_PATH . '/admin/dang-nhap', Constants::DOMAIN);
+setcookie('logged_pwd', '', time() - 36000, Constants::PREFIX_PATH . '/admin/dang-nhap', Constants::DOMAIN);
 // If it's desired to kill the session, also delete the session cookie.
 // Note: This will destroy the session, and not just the session data!
 if (ini_get("session.use_cookies")) {

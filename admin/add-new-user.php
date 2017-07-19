@@ -15,49 +15,49 @@ $user_dob = filter_input(INPUT_COOKIE, 'user_dob');
 $user_email = filter_input(INPUT_COOKIE, 'user_email');
 $user_level = 5;
 if ($username) {
-    setcookie('username', '', time() - 36000, '/RealEstate/admin');
+    setcookie('username', '', time() - 36000, Constants::PREFIX_PATH . '/admin/them-tai-khoan-quan-ly', Constants::DOMAIN);
 } else {
     $username = '';
 }
 if (isset($username_err)) {
-    setcookie('username_err', '', time() - 36000, '/RealEstate/admin');
+    setcookie('username_err', '', time() - 36000, Constants::PREFIX_PATH . '/admin/them-tai-khoan-quan-ly', Constants::DOMAIN);
 } else {
     $username_err = '';
 }
 if (isset($first_name)) {
-    setcookie('first_name', '', time() - 36000, '/RealEstate/admin');
+    setcookie('first_name', '', time() - 36000, Constants::PREFIX_PATH . '/admin/them-tai-khoan-quan-ly', Constants::DOMAIN);
 } else {
     $first_name = '';
 }
 if (isset($middle_name)) {
-    setcookie('middle_name', '', time() - 36000, '/RealEstate/admin');
+    setcookie('middle_name', '', time() - 36000, Constants::PREFIX_PATH . '/admin/them-tai-khoan-quan-ly', Constants::DOMAIN);
 } else {
     $middle_name = '';
 }
 if (isset($last_name)) {
-    setcookie('last_name', '', time() - 36000, '/RealEstate/admin');
+    setcookie('last_name', '', time() - 36000, Constants::PREFIX_PATH . '/admin/them-tai-khoan-quan-ly', Constants::DOMAIN);
 } else {
     $last_name = '';
 }
 if (isset($user_dob)) {
-    setcookie('user_dob', '', time() - 36000, '/RealEstate/admin');
+    setcookie('user_dob', '', time() - 36000, Constants::PREFIX_PATH . '/admin/them-tai-khoan-quan-ly', Constants::DOMAIN);
 } else {
     $user_dob = '';
 }
 if (isset($user_email)) {
-    setcookie('user_email', '', time() - 36000, '/RealEstate/admin');
+    setcookie('user_email', '', time() - 36000, Constants::PREFIX_PATH . '/admin/them-tai-khoan-quan-ly', Constants::DOMAIN);
 } else {
     $user_email = '';
 }
 if (isset($user_level)) {
-    setcookie('user_level', '', time() - 36000, '/RealEstate/admin');
+    setcookie('user_level', '', time() - 36000, Constants::PREFIX_PATH . '/admin/them-tai-khoan-quan-ly', Constants::DOMAIN);
 } else {
     $user_level = '';
 }
 
 $insert_err = filter_input(INPUT_COOKIE, '$insert_err');
 if (isset($insert_err)) {
-    setcookie('insert_err', '', time() - 36000, '/RealEstate/admin');
+    setcookie('insert_err', '', time() - 36000, Constants::PREFIX_PATH . '/admin/them-tai-khoan-quan-ly', Constants::DOMAIN);
 } else {
     $insert_err = '';
 }

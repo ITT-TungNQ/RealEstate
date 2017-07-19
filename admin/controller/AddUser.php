@@ -1,5 +1,21 @@
 <?php
-
+try {
+    if (!file_exists((__DIR__) . '/../util/AccessDatabase.php')) {
+        throw new Exception ();
+    }
+    if (!file_exists((__DIR__) . '/../util/Utils.php')) {
+        throw new Exception ();
+    }
+    if (!file_exists((__DIR__) . '/../util/Constant.php')) {
+        throw new Exception ();
+    }
+    if (!file_exists((__DIR__) . '/../include/check-role.php')) {
+        throw new Exception ();
+    }
+} catch (Exception $ex) {
+    header("location: http://192.168.1.220:8080/RealEstate/admin/404-file-not-found");
+    exit();
+}
 require_once (__DIR__) . '/../util/AccessDatabase.php';
 require_once (__DIR__) . '/../util/Utils.php';
 
@@ -11,15 +27,15 @@ checkRole(Constants::CREATE_NEWS);
 // GET NEW USER DATA FROM CLIENT:
 if (isset($_POST['new-user'])) {
     $conn = getConnection();
-    $my_username = mysqli_real_escape_string($conn, $_POST['username']);
-    $my_password = mysqli_real_escape_string($conn, $_POST['pwd']);
+    $my_username = mysqli_real_escape_string($conn, filter_input(INPUT_POST, 'username'));
+    $my_password = mysqli_real_escape_string($conn, filter_input(INPUT_POST, 'pwd'));
     $my_password = sha1($my_password);
-    $first_name = mysqli_real_escape_string($conn, $_POST['first_name']);
-    $middle_name = mysqli_real_escape_string($conn, $_POST['middle_name']);
-    $last_name = mysqli_real_escape_string($conn, $_POST['last_name']);
-    $user_dob = $_POST['user_dob'];
+    $first_name = mysqli_real_escape_string($conn, filter_input(INPUT_POST, 'first_name'));
+    $middle_name = mysqli_real_escape_string($conn, filter_input(INPUT_POST, 'middle_name'));
+    $last_name = mysqli_real_escape_string($conn, filter_input(INPUT_POST, 'last_name'));
+    $user_dob = filter_input(INPUT_POST, 'user_dob');
     $user_email = filter_input(INPUT_POST, 'user_email');
-    $user_level = $_POST['user_level'];
+    $user_level = filter_input(INPUT_POST, 'user_level');
     $enable = 0;
     if (isset($_POST['user_enable'])) {
         $enable = true;
@@ -33,14 +49,14 @@ if (isset($_POST['new-user'])) {
     if ($count >= 1) {
 // username exist
 // CHECK DADA IF FAILED
-        setcookie('username', $my_username, time() + 36000, '/RealEstate/admin');
-        setcookie('username_err', "Tài khoản đã tồn tại trong hệ thống", time() + 36000, '/RealEstate/admin');
-        setcookie('last_name', $last_name, time() + 36000, '/RealEstate/admin');
-        setcookie('first_name', $first_name, time() + 36000, '/RealEstate/admin');
-        setcookie('middle_name', $middle_name, time() + 36000, '/RealEstate/admin');
-        setcookie('user_dob', $user_dob, time() + 36000, '/RealEstate/admin');
-        setcookie('user_email', $user_email, time() + 36000, '/RealEstate/admin');
-        setcookie('user_level', $_POST['user_level'], time() + 36000, '/RealEstate/admin');
+        setcookie('username', $my_username, time() + 3600, Constants::PREFIX_PATH . '/admin/them-tai-khoan-quan-ly', Constants::DOMAIN);
+        setcookie('username_err', "Tài khoản đã tồn tại trong hệ thống", time() + 3600, Constants::PREFIX_PATH . '/admin/them-tai-khoan-quan-ly', Constants::DOMAIN);
+        setcookie('last_name', $last_name, time() + 3600, Constants::PREFIX_PATH . '/admin/them-tai-khoan-quan-ly', Constants::DOMAIN);
+        setcookie('first_name', $first_name, time() + 3600, Constants::PREFIX_PATH . '/admin/them-tai-khoan-quan-ly', Constants::DOMAIN);
+        setcookie('middle_name', $middle_name, time() + 3600, Constants::PREFIX_PATH . '/admin/them-tai-khoan-quan-ly', Constants::DOMAIN);
+        setcookie('user_dob', $user_dob, time() + 3600, Constants::PREFIX_PATH . '/admin/them-tai-khoan-quan-ly', Constants::DOMAIN);
+        setcookie('user_email', $user_email, time() + 3600, Constants::PREFIX_PATH . '/admin/them-tai-khoan-quan-ly', Constants::DOMAIN);
+        setcookie('user_level', $_POST['user_level'], time() + 3600, Constants::PREFIX_PATH . '/admin/them-tai-khoan-quan-ly', Constants::DOMAIN);
 
         closeConnect($conn);
         header("Location: http://192.168.1.220:8080/RealEstate/admin/them-tai-khoan-quan-ly");
@@ -88,7 +104,7 @@ if (isset($_POST['new-user'])) {
     }
 
     /* ========== ISERT TO DB ========== */
-    $sql = "INSERT INTO User (UserLevelID, UserName, Password, FirstName, MiddleName, LastName, DOB, Email, ProfileImageURL, Enable)
+    $sql = "INSERT INTO `user` (UserLevelID, UserName, Password, FirstName, MiddleName, LastName, DOB, Email, ProfileImageURL, Enable)
   				VALUES ($user_level, 
   				'$my_username', '$my_password', '$first_name', '$middle_name', '$last_name', STR_TO_DATE('$user_dob', '%d/%m/%Y'), '$user_email','$profile_picture', $enable)";
     if (mysqli_query($conn, $sql)) {
@@ -96,7 +112,7 @@ if (isset($_POST['new-user'])) {
         header("location: http://192.168.1.220:8080/RealEstate/admin/danh-sach-tai-khoan-quan-ly");
     } else {
 //        echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
-        setcookie('insert_err', 'SQL ERROR: Đã xảy ra lỗi khi thêm tài khoản mới.', time() + 36000, '/RealEstate/admin');
+//        setcookie('insert_err', 'SQL ERROR: Đã xảy ra lỗi khi thêm tài khoản mới.', time() + 3600, Constants::PREFIX_PATH . '/admin/them-tai-khoan-quan-ly', Constants::DOMAIN);
         header("Location: http://192.168.1.220:8080/RealEstate/admin/them-tai-khoan-quan-ly");
     }
 

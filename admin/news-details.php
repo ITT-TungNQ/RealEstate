@@ -1,20 +1,34 @@
 <?php
+try {
+    if (!file_exists((__DIR__) . '/util/Constant.php')) {
+        throw new Exception ();
+    }
+    if (!file_exists((__DIR__) . '/include/check-role.php')) {
+        throw new Exception ();
+    }
+    if (!file_exists((__DIR__) . '/util/News.php')) {
+        throw new Exception ();
+    }
+    if (!file_exists((__DIR__) . '/util/Utils.php')) {
+        throw new Exception ();
+    }
+    if (!file_exists((__DIR__) . '/controller/dao/NewsDAO.php')) {
+        throw new Exception ();
+    }
+} catch (Exception $ex) {
+    header("location: http://192.168.1.220:8080/RealEstate/admin/404-file-not-found");
+    exit();
+}
 // ========== start - CHECK LOGIN AND ROLE ==========
-require_once('./util/Constant.php');
-require ('./include/check-role.php');
+require_once (__DIR__) . '/util/Constant.php';
+require (__DIR__) . '/include/check-role.php';
 checkRole(Constants::UPDATE_NEWS);
 // ========== end - CHECK LOGIN AND ROLE ==========
-// ========== start - GET LIST TYPE ==========
-require_once("./util/AccessDatabase.php");
-require_once("./util/Type.php");
-require_once("./controller/getType.php");
-$lstType = getAllType();
-// ========== end - GET LIST TYPE ==========
 
 /* ========== GET NEWS FROM DB ========== */
-require_once("util/News.php");
-require_once("controller/dao/NewsDAO.php");
-require_once './util/Utils.php';
+require_once (__DIR__) . '/util/News.php';
+require_once (__DIR__) . '/util/Utils.php';
+require_once (__DIR__) . '/controller/dao/NewsDAO.php';
 
 if (isset($_GET['newsID'])) {
     $newsID = $_GET['newsID'];
@@ -221,7 +235,7 @@ if (isset($_GET['newsID'])) {
                                         <label class="control-label"> Giá thành :</label>
                                         <div class="controls">
                                             <div class="input-append">
-                                                <input value="<?php echo($news->getPrice()); ?>" type="text" id="price" class="span11" name="price" placeholder="Nhập giá thành" >
+                                                <input value="<?php echo($news->getPrice()); ?>" type="text" id="price" class="span11" name="price" maxlength="18" placeholder="Nhập giá thành" >
                                                 <span class="add-on">VNĐ</span>
                                             </div>
                                             <span id="price_msg" class="help-block" style="display: none">Giá là bội số của 1000</span>

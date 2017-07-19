@@ -12,7 +12,7 @@ $listNews = getNewsBySate(Constants::PENDDING);
 /* ========= AFTER UPDATE ========== */
 $cookieModal = filter_input(INPUT_COOKIE, 'change_news_state');
 if (isset($cookieModal)) {
-    setcookie("change_news_state", "", time() - 3600, "/RealEstate/admin/phe-duyet-bai-dang");
+    setcookie("change_news_state", "", time() - 3600, Constants::PREFIX_PATH . '/admin/phe-duyet-bai-dang', Constants::DOMAIN);
 }
 ?>
 

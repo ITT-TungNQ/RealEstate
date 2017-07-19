@@ -771,6 +771,16 @@ hr {
     margin-top: 0;
     margin-bottom: 0;
 }
+
+.widget-box.change-msg {
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    margin-bottom: 5px;
+    background: rgba(255, 0, 0, 0.4);
+    line-height: 25px;
+}
+
 .widget-title,
 .modal-header,
 .table th,

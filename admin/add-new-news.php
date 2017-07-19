@@ -1,39 +1,20 @@
 <?php
+try {
+    if (!file_exists((__DIR__) . '/util/Constant.php')) {
+        throw new Exception ();
+    }
+    if (!file_exists((__DIR__) . '/include/check-role.php')) {
+        throw new Exception ();
+    }
+} catch (Exception $ex) {
+    header("location: http://192.168.1.220:8080/RealEstate/admin/404-file-not-found");
+    exit();
+}
 // ========== start - CHECK LOGIN AND ROLE ==========
-require_once('./util/Constant.php');
-require ('./include/check-role.php');
+require_once (__DIR__) . '/util/Constant.php';
+require (__DIR__) . '/include/check-role.php';
 checkRole(Constants::CREATE_NEWS);
 // ========== end - CHECK LOGIN AND ROLE ==========
-// ========== start - GET LIST TYPE ==========
-require_once("./util/AccessDatabase.php");
-require_once("./util/Type.php");
-require_once("./controller/GetType.php");
-$lstType = getAllType();
-// ========== end - GET LIST TYPE ==========
-// DEFINE NEWS PROPERTY
-$title = filter_input(INPUT_COOKIE, 'title');
-$typeID = filter_input(INPUT_COOKIE, 'typeID');
-$state = filter_input(INPUT_COOKIE, 'state');
-$description = filter_input(INPUT_COOKIE, 'description');
-$illustrationURL = filter_input(INPUT_COOKIE, 'illustrationURL');
-$lineage = filter_input(INPUT_COOKIE, 'lineage');
-$acreage = filter_input(INPUT_COOKIE, 'acreage');
-$price = filter_input(INPUT_COOKIE, 'price');
-$room = filter_input(INPUT_COOKIE, 'room');
-if (!isset($room)) {
-    $room = 0;
-}
-$direction = filter_input(INPUT_COOKIE, 'direction');
-$isHire = filter_input(INPUT_COOKIE, 'isHire');
-$detail = filter_input(INPUT_COOKIE, 'detail');
-$contact = "{";
-$contact .= '"owner_name" : "' . filter_input(INPUT_COOKIE, 'contact_name') . '",';
-$contact .= '"phone_number" : "' . filter_input(INPUT_COOKIE, 'contact_phone') . '",';
-$contact .= '"email" : "' . filter_input(INPUT_COOKIE, 'contact_mail') . '"';
-$contact .= "}";
-$contact_name = '';
-$contact_phone = '';
-$contact_mail = '';
 ?>
 <!DOCTYPE html>
 <html>
@@ -51,7 +32,7 @@ $contact_mail = '';
                 </div>
             </div>
         </div>
-        
+
         <?php include("include/top-header.php"); ?>
         <?php include("include/left-menu.php"); ?>
         <div id="content">
@@ -86,7 +67,7 @@ $contact_mail = '';
                                     <div class="control-group">
                                         <label class="control-label">Tiêu đề : </label>
                                         <div class="controls">
-                                            <input type="text" id="title" class="span11" name="title" maxlength="255" value="<?php echo($title); ?>" placeholder="Nhập tiêu đề bài đăng" />
+                                            <input type="text" id="title" class="span11" name="title" maxlength="255" value="" placeholder="Nhập tiêu đề bài đăng" />
                                         </div>
                                     </div>
                                     <div class="control-group">
@@ -95,7 +76,7 @@ $contact_mail = '';
                                             <label> <input type="radio" value="0" id="isHire" name="isHire" checked />
                                                 Bất động sản bán
                                             </label>
-                                            <label> <input type="radio" value="1" id="isHire" name="isHire" <?php if ($isHire) echo 'checked'; ?>/>
+                                            <label> <input type="radio" value="1" id="isHire" name="isHire" />
                                                 Bất động sản cho thuê
                                             </label>
                                         </div>
@@ -156,14 +137,14 @@ $contact_mail = '';
                                         <label class="control-label">Mô tả chung : </label>
                                         <div class="controls">
                                             <span id="chars_left" class="chars_left">500</span>
-                                            <textarea id="description" class="span11" name="description" rows="6"  maxlength="500" placeholder="Nhập mô tả chung..."><?php echo($description); ?></textarea>
+                                            <textarea id="description" class="span11" name="description" rows="6"  maxlength="500" placeholder="Nhập mô tả chung..."></textarea>
                                         </div>
                                     </div>
 
                                     <div class="control-group">
                                         <label class="control-label">Hình ảnh minh hoạ : </label>
                                         <div class="controls">
-                                            <div class="news-preview-img-container" id="news-preview-img-container" <?php if (isset($illustrationURL)) echo "style=\"background-image: url('$illustrationURL')\""; ?> >
+                                            <div class="news-preview-img-container" id="news-preview-img-container" >
                                             </div>
                                             <span class="help-block" id="img-message">Kích thước tối đa 5MB</span>
                                             <input id="illustrationURL" class="span11" name="illustrationURL" type="file" />
@@ -187,7 +168,6 @@ $contact_mail = '';
                                     <div class="control-group">
                                         <label class="control-label">Khu vực :</label>
                                         <div class="controls">
-                                            <!--<input value="<?php echo($lineage); ?>" id="lineage" type="text" class="span11" name="lineage" placeholder="Nhập vị trí" />-->
                                             <select id="provinceID" name="provinceID" required="">
                                                 <option value="0">--- Chọn thành phố/tỉnh ---</option>
                                             </select>
@@ -216,7 +196,7 @@ $contact_mail = '';
                                             </label>
                                         </div>
                                         <div class="controls">
-                                            <input value="<?php echo($acreage); ?>" type="number" id="acreage" class="span11" name="acreage" placeholder="Nhập diện tích">
+                                            <input value="" type="number" id="acreage" class="span11" name="acreage" placeholder="Nhập diện tích">
                                         </div>
                                     </div>
 
@@ -224,7 +204,7 @@ $contact_mail = '';
                                         <label class="control-label"> Giá thành :</label>
                                         <div class="controls">
                                             <div class="input-append">
-                                                <input type="text" value="<?php echo($price); ?>" id="price" class="span11" name="price" placeholder="Nhập giá thành" >
+                                                <input type="text" value="" id="price" class="span11" name="price" placeholder="Nhập giá thành" maxlength="18">
                                                 <span class="add-on">VNĐ</span>
                                             </div>
                                             <span id="price_msg" class="help-block" style="display: none">Giá là bội số của 1000</span>
@@ -234,7 +214,7 @@ $contact_mail = '';
                                     <div class="control-group">
                                         <label class="control-label">Số phòng :</label>
                                         <div class="controls">
-                                            <input value="<?php echo($room); ?>" type="number" id="room" class="span11" name="room" placeholder="Nhập số phòng">
+                                            <input value="0" type="number" id="room" class="span11" name="room" placeholder="Nhập số phòng">
                                         </div>
                                     </div>
                                     <div class="control-group">
@@ -257,13 +237,13 @@ $contact_mail = '';
                                     <div class="control-group">
                                         <label class="control-label">Thông tin liên hệ :</label>
                                         <div class="controls">
-                                            <input value="<?php echo($contact_name); ?>" type="text" id="contact_name" class="span11" name="contact_name" placeholder="Họ và tên">
+                                            <input value="" type="text" id="contact_name" class="span11" name="contact_name" placeholder="Họ và tên">
                                         </div>
                                         <div class="controls">
-                                            <input value="<?php echo($contact_phone); ?>" type="tel" id="contact_phone" class="span11" name="contact_phone" placeholder="Số điện thoại">
+                                            <input value="" type="tel" id="contact_phone" class="span11" name="contact_phone" placeholder="Số điện thoại">
                                         </div>
                                         <div class="controls">
-                                            <input value="<?php echo($contact_mail); ?>" type="text" id="contact_mail" class="span11" name="contact_mail" placeholder="E-mail">
+                                            <input value="" type="text" id="contact_mail" class="span11" name="contact_mail" placeholder="E-mail">
                                         </div>
                                     </div>
 
@@ -280,7 +260,7 @@ $contact_mail = '';
                             <div class="widget-content">
                                 <div class="control-group">
                                     <div class="span12">
-                                        <textarea id="detail" name="detail" class="textarea_editor span12 required" rows="20" placeholder="Nhập mô tả chi tiết ..."><?php echo($detail); ?></textarea>
+                                        <textarea id="detail" name="detail" class="textarea_editor span12 required" rows="20" placeholder="Nhập mô tả chi tiết ..."></textarea>
                                         <span id="detail_msg" class="help-block" style="display: none">Bạn cần nhập nội dung chi tiết</span>
                                     </div>
                                 </div>
@@ -319,9 +299,10 @@ $contact_mail = '';
         <script src="http://192.168.1.220:8080/RealEstate/admin/js/news.form.validation.js"></script>
         <script>
             function setLocation() {
-                
-            };
-            
+
+            }
+            ;
+
             $(document).ready(function () {
                 var maxLength = 500;
                 $('.textarea_editor').wysihtml5();
@@ -333,13 +314,14 @@ $contact_mail = '';
                 });
 
                 $('#imageClear').on('click', function () {
-                    $('#news-preview-img-container').css({"backgroundImage": "url('<?php
-        if (isset($illustrationURL)) {
-            echo $illustrationURL;
-        } else {
-            echo 'http://192.168.1.220:8080/RealEstate/admin/img/illustration-no-image.png';
-        }
-        ?>'"});
+                    $('#news-preview-img-container').css({"backgroundImage": "url('\n\
+<?php
+if (isset($illustrationURL)) {
+    echo $illustrationURL;
+} else {
+    echo 'http://192.168.1.220:8080/RealEstate/admin/img/illustration-no-image.png';
+}
+?>'"});
                     $('#profile_picture').val('');
                     $('.filename').html('No file selected');
                 });

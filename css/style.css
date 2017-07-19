@@ -216,6 +216,7 @@ a.logo b{color:#09c}
 .single_post_content{background-color:#fff; display:inline; float:left; margin-top:40px; padding:40px 20px; width:100%}
 .single_post_content img{margin-bottom:10px; max-width:100%; -webkit-transition:all 0.5s; -o-transition:all 0.5s; transition:all 0.5s}
 .single_post_content img:hover{opacity:0.75}
+.single_post_content img{display:block; margin-left:auto; margin-right:auto; text-align:center}
 .post_footer, .post_contact{float:left; display:inline; width:100%; margin-top:10px}
 .post_pager li{display:block; float:left; text-align:center; width:50%}
 .post_pager li:hover{color:#fff}

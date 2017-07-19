@@ -188,14 +188,14 @@ $('#profile_picture').change(function () {
         noPreview();
 
         $('#img-message').html('<div class="alert alert-error img-upload" role="alert">- Định dạng ảnh không được hỗ trợ.<br/>- Định dạng cho phép: JPG, JPEG, PNG.</div>');
-
+        $(this).val(''); 
         return false;
     }
 
     if (file.size > maxsize) {
         noPreview();
         $('#img-message').html('<div class=\"alert alert-error img-upload\" role=\"alert\">- Kích thước ảnh của bạn: ' + (file.size / 1024).toFixed(2) + ' KB<br/>Kích thước tối đa: ' + (maxsize / 1024 / 1024).toFixed(2) + ' MB</div>');
-
+        $(this).val(''); 
         return false;
     }
 

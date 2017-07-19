@@ -10,7 +10,7 @@ $tinmoi = TinMoi($con);
 <a href="tel:+841643720393">
     <div class="make-a-call">
         <img src="http://192.168.1.220:8080/RealEstate/images/hotline.png" alt=""/>
-        <p class="phone_number">0164 3720 393</p>
+        <p class="phone_number">0938.45.89.45</p>
     </div>
 </a>
 <header id="header">
@@ -33,7 +33,7 @@ $tinmoi = TinMoi($con);
                 </div>
             </div>
         </nav>
-        <div class="header_search">
+<!--        <div class="header_search">
             <button id="searchIcon"><i class="fa fa-search"></i></button>
             <div id="shide">
                 <div id="search-hide">
@@ -43,10 +43,10 @@ $tinmoi = TinMoi($con);
                     <button class="remove"><span><i class="fa fa-times"></i></span></button>
                 </div>
             </div>
-        </div>
+        </div>-->
     </div>
     <div class="header_bottom">
-        <div class="logo_area"><a class="logo" href="#"><b>T</b>HE GOLDEN NQT<span>Không đâu bằng nhà mình</span></a></div>
+        <div class="logo_area"><a class="logo" href=""><b>B</b>ất động sản Sài Gòn<span> </span></a></div>
         <div class="top_addarea"><a href="#"><img src="http://192.168.1.220:8080/RealEstate/images/addbanner.jpg" alt=""></a></div>
     </div>
 </header>

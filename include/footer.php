@@ -3,7 +3,7 @@
         <div class="col-lg-6 col-md-6 col-sm-12">
             <div class="single_footer_top wow fadeInLeft">
                 <h2>CÔNG TY CỔ PHẦN THƯƠNG MẠI DỊCH VỤ BẤT ĐỘNG SẢN BẦU TRỜI</h2>
-                <img class="col-lg-4 col-md-4 col-sm-4" src="http://192.168.1.220:8080/RealEstate/images/logo.png" style="float: left;">
+                <img class="col-lg-4 col-md-4 col-sm-4 logo-img" src="http://192.168.1.220:8080/RealEstate/images/logo.png" style="float: left;">
                 <p class="col-lg-8 col-md-8 col-sm-8" style="color: #fff; line-height: 40px; font-size: 14px; display: inline-block;"> 
                     Địa chỉ: 22 Lâm Văn Bền, P.Tân Kiểng, Q.7, TP.HCM<br/>
                     Điện thoại : 0938.45.89.45<br/>

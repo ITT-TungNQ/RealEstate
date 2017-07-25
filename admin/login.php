@@ -1,4 +1,5 @@
 <?php
+ob_start();
 try {
     if (!file_exists((__DIR__) . '/util/AccessDatabase.php')) {
         throw new Exception ();

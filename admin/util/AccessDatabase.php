@@ -9,7 +9,12 @@ function getConnection() {
     $conn = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
     mysqli_set_charset($conn, 'UTF8');
     if (!$conn) {
-        header("location: http://192.168.1.220:8080/RealEstate/admin/unexpected-error");
+        if (isset($_SESSION['login_user']['FirstName'])) {
+            header("location: http://batdongsansaigons.com/admin/unexpected-error");
+        } else {
+            header("location: http://batdongsansaigons.com/unexpected-error");
+        }
+        
         exit();
     }
     return $conn;

@@ -1,5 +1,36 @@
 <?php
 
+require_once (__DIR__) . '/phpmailer/PHPMailerAutoload.php';
+
+define('MAIL_HOST', 'mail.batdongsansaigons.com');
+define('MAIL_USERNAME', 'contact@batdongsansaigons.com');
+define('MAIL_PASSWORD', 'itt@12345');
+define('MAIL_CONTACT', 'contact@batdongsansaigons.com');
+
+function createSimpleMail() {
+    $mail = new PHPMailer();
+    $mail->SetLanguage("vi", 'phpmailer/language/phpmailer.lang-vi.php');
+    $mail->IsSMTP();
+    $mail->Host = MAIL_HOST;
+    
+    $mail->SMTPAuth = true;
+    $mail->SMTPOptions = array(
+        'ssl' => array(
+            'verify_peer' => false,
+            'verify_peer_name' => false,
+            'allow_self_signed' => true
+        )
+    );
+    $mail->Username = MAIL_USERNAME;
+    $mail->Password = MAIL_PASSWORD;
+    $mail->From = MAIL_CONTACT;
+    $mail->WordWrap = 50;
+    $mail->IsHTML(true);
+    $mail->CharSet = "UTF-8";
+    
+    return $mail;
+}
+
 function sendNewPwd($to, $new_pwd) {
     $subject = 'Khôi phục mật khẩu từ hệ thống';
     $message = '<html>
@@ -11,16 +42,18 @@ function sendNewPwd($to, $new_pwd) {
             $new_pwd
             . '</body>
                 </html>';
-    $headers = 'From: tokon994@gmail.com' . "\r\n" .
-            'Reply-To: tokon994@gmail.com' . "\r\n" .
-            'X-Mailer: PHP/' . phpversion();
-    $headers .= "MIME-Version: 1.0\r\n";
-    $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
-    mail($to, $subject, $message, $headers);
+   
+    $mail = createSimpleMail();
+    $mail->AddAddress($to, $to);
+    $mail->Subject = $subject; 
+    $mail->Body = $message;
+    $mail->AltBody = $message;  
+ 
+    $mail->send();
 }
 
-function sendContact($name, $email, $content) {
-    $subject = 'Liên hệ từ khách hành';
+function sendContact($name, $phone, $email, $content) {
+    $subject = 'Liên hệ từ khách hàng';
     $message = '<html>
                     <head>
                         <meta charset="UTF-8" />
@@ -29,17 +62,21 @@ function sendContact($name, $email, $content) {
                     <body> 
                         Họ tên khách hàng: ' . $name
             . '         <br/>
+                        Số điện thoại: ' . $phone 
+            . '         <br/>
                         E-mail: ' . $email 
             . '         <br/>
                         Nội dung: ' . $content
             .'        </body>
                 </html>';
-    $headers = 'From: tokon994@gmail.com' . "\r\n" .
-            'Reply-To: tokon994@gmail.com' . "\r\n" .
-            'X-Mailer: PHP/' . phpversion();
-    $headers .= "MIME-Version: 1.0\r\n";
-    $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
-    mail('tokon994@gmail.com', $subject, $message, $headers);
+                
+    $mail = createSimpleMail();
+    $mail->AddAddress(MAIL_CONTACT, 'Liên hệ khách hàng');
+    $mail->Subject = $subject; 
+    $mail->Body = $message;
+    $mail->AltBody = $message;  
+ 
+    $mail->send();
 }
 
 ?>

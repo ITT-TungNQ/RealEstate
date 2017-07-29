@@ -24,6 +24,9 @@ jQuery.fn.liScroll = function (settings) {
         $strip.find("li").each(function (i) {
             stripWidth += jQuery(this, i).outerWidth(true); // thanks to Michael Haszprunar and Fabien Volpi
         });
+        if (stripWidth < 1200) {
+            stripWidth = 1200;
+        }
         var $mask = $strip.wrap("<div class='mask'></div>");
         var $tickercontainer = $strip.parent().wrap("<div class='tickercontainer'></div>");
         var containerWidth = $strip.parent().parent().width();	//a.k.a. 'mask' width 	

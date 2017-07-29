@@ -1,4 +1,10 @@
-
+<style type="text/css">
+    @media(max-width:767px ){
+        #left-banner {
+            display: none;
+        }
+    }
+</style>
 <?php
 
 function toStringMoney($value) {
@@ -104,7 +110,7 @@ if (isset($_GET["id"])) {
 
                                 case 13:
                                     $idType = "NewsTypeID=13";
-                                    $link = " http://192.168.1.220:8080/RealEstate/the-loai/loai-khac.html";
+                                    $link = " http://192.168.1.220:8080/RealEstate/the-loai/loai-khac";
                                     $loai = "Loại khác ";
                                     break;
 
@@ -173,6 +179,7 @@ if (isset($_GET["id"])) {
                                         <div class="relate_post_image" style="background-image: url('<?php echo($a['IllustrationURL']); ?>');">
 
                                         </div>
+                                    </a>
                                         <!--<img src="<?php echo($a['IllustrationURL']); ?>" alt=""></a>-->
                                         <a href="http://192.168.1.220:8080/RealEstate/chi-tiet/<?php echo(makeURL($a['Title'])); ?>-<?php echo($a['NewsID']); ?>" class="recent_title">
                                             <?php echo($a['Title']); ?>

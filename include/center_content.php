@@ -87,7 +87,7 @@
                         foreach ($duanmoi as $a) {
                             ?>
                             <li>
-                                <div class="catgimg_container"> <a class="catg1_img" href="#">
+                                <div class="catgimg_container"> <a class="catg1_img" href="http://192.168.1.220:8080/RealEstate/chi-tiet/<?php echo(makeURL($a['Title'])); ?>-<?php echo($a['NewsID']); ?>">
                                         <img src="<?php echo($a['IllustrationURL']); ?>" alt=""></a>
                                 </div>
                                 <a class="catg_title" href="http://192.168.1.220:8080/RealEstate/chi-tiet/<?php echo(makeURL($a['Title'])); ?>-<?php echo($a['NewsID']); ?>"><?php echo($a['Title']); ?></a>

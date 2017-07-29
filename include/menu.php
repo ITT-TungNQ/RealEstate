@@ -47,8 +47,8 @@ $tinmoi = TinMoi($con);
         </div>-->
     </div>
     <div class="header_bottom">
-        <div class="logo_area"><a class="logo" href=""><b>B</b>ất động sản Sài Gòn<span> </span></a></div>
-        <div class="top_addarea"><a href="#"><img src="http://192.168.1.220:8080/RealEstate/images/addbanner.jpg" alt=""></a></div>
+        <div class="logo_area"><a class="logo" href="http://192.168.1.220:8080/RealEstate"><img src="http://192.168.1.220:8080/RealEstate/images/header-logo.png" alt=""></a></div>
+        <div class="top_addarea"><a href=""><img src="http://192.168.1.220:8080/RealEstate/images/addbanner.jpg" alt=""></a></div>
     </div>
 </header>
 <div class="latest_newsarea"> <span>Tin mới nhất</span>

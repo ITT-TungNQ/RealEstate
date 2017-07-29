@@ -33,9 +33,9 @@ h2{line-height:23px}
 .box_wrapper{background-color:#fff; box-shadow:0 0 9px #ddd; display:inline; float:left; width:100%}
 #header{float:left; display:inline; width:100%}
 .header_top{display:inline; float:left; width:100%; position:relative}
-.navbar{border-radius:0; float:left; margin-bottom:0; min-height:40px; width:80%; border:none}
+.navbar{border-radius:0; float:left; margin-bottom:0; min-height:40px; width:100%; border:none}
 .header_search{float:right; display:inline}
-.navbar-nav > li > a{padding-bottom:10px; padding-top:10px; -webkit-transition:all 0.5s; -o-transition:all 0.5s; transition:all 0.5s}
+.navbar-nav > li > a{font-size: 20px; padding-bottom:10px; padding-top:10px; -webkit-transition:all 0.5s; -o-transition:all 0.5s; transition:all 0.5s}
 .navbar-collapse{padding-left:0}
 .container-fluid{padding-left:0}
 #searchIcon{border:0 none; cursor:pointer; display:block; font-size:1.2em; height:40px; width:50px; -webkit-transition:all 0.5s; -o-transition:all 0.5s; transition:all 0.5s}
@@ -43,15 +43,22 @@ h2{line-height:23px}
 #search-hide input{background-color:rgba(255,255,255,1); border:0 none; font-family:"Open Sans"; font-size:16px; font-style:normal; font-weight:400; height:40px; padding:0 15px; width:95%; float:left}
 button.remove{background-color:transparent; border:0 none; color:#555; cursor:pointer; font-size:1.5em; float:right; padding-top:5px}
 .header_bottom{display:inline; float:left; padding:30px 15px; width:100%}
-.logo_area{width:30%; float:left; display:inline}
+.logo_area{width:45%; float:left; display:inline-block}
 .logo{font-size:35px; color:#252525}
 .logo:hover, .logo:focus{text-decoration:none; outline:none}
 a.logo b{color:#09c}
 .logo > span{font-size:16px; display:block}
-.top_addarea{float:right; width:728px; display:inline}
+.logo img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 550px;
+}
+.top_addarea{float:right; width:600px; display:inline}
 .top_addarea a{width:100%}
 .top_addarea a > img{width:100%}
-.scrollToTop{bottom:6%; display:none; font-size:32px; font-weight:bold; height:50px; position:fixed; right:5.4%; text-align:center; text-decoration:none; width:50px; z-index:9999; -webkit-transition:all 0.5s; -moz-transition:all 0.5s; -ms-transition:all 0.5s; -o-transition:all 0.5s; transition:all 0.5s}
+.scrollToTop{opacity: 0.7; bottom:6%; display:none; font-size:32px; font-weight:bold; height:50px; position:fixed; right:5.4%; text-align:center; text-decoration:none; width:50px; z-index:9999; -webkit-transition:all 0.5s; -moz-transition:all 0.5s; -ms-transition:all 0.5s; -o-transition:all 0.5s; transition:all 0.5s}
 .scrollToTop:hover, .scrollToTop:focus{text-decoration:none; outline:none}
 .make-a-call{
     display: none;
@@ -172,7 +179,7 @@ a.logo b{color:#09c}
 .subscribe_mail i{height:10px; position:absolute; right:17px; top:13px; width:10px; z-index:10}
 .submit_btn{border:medium none; border-radius:2px; font-size:13px; font-style:normal; font-weight:bold; height:40px; line-height:40px; min-width:80px; width:100%; -webkit-transition:all 0.5s; -o-transition:all 0.5s; transition:all 0.5s}
 .footer_labels li a{display:block; background-color:#222; color:#eee; font-size:12px; text-align: justify; padding:5px 10px; margin-bottom:10px; -webkit-transition:all 0.5s; -o-transition:all 0.5s; transition:all 0.5s}
-.footer_labels li a:hover, .footer_labels li a:focus{text-decoration:none}
+.footer_labels li a:hover, .footer_labels li a:focus{text-decoration:none; cursor: pointer}
 .contact_form label{color:#fff; font-size:13px; margin-bottom:5px}
 .contact_form input{background-color:#222; border-radius:0; color:#eee; border:none; margin-bottom:15px}
 .contact_form textarea{background-color:#222; border-radius:0; color:#eee; border:none; height:100px}
@@ -290,9 +297,48 @@ a.logo b{color:#09c}
     width: 100%;
     height: auto;
 }
+.logo-img {
+    width: 215px;
+    display: inline-block;
+    float: left;
+}
+.footer-contact-table {
+    display: inline-table; 
+    height: 215px; 
+    overflow: hidden;
+}
+.footer-contact {
+    color: #fff; 
+    line-height: 40px; 
+    font-size: 14px; 
+    display: table-cell;
+    vertical-align: middle;
+}
 /*==========start responsive style============*/
-@media(max-width:1199px ){.scrollToTop{right: 13px} .logo_area{width:32%}.top_addarea{width:66%}.catg_nav li{width:47.94%}.catg_nav3 li{width:100%}.relatedpost_nav li{margin-right:9px}.custom-tabs > li > a{font-size:11px; padding:8px 2px}}
-@media(max-width:991px ){.slider_tittle{bottom:10px; color:#fff; font-size:18px; line-height:1.5em; margin:0 15px}.logo_area{width:100%}.top_addarea{display:none}.middle_bar{width:100%}.catg_nav li{width:47.64%}.catg_nav3 li{width:100%}.catg5_nav li{width:49%; padding-right:6px}.catg3_snav .media-left > img{height:auto}.ppost_nav li{width:50%; float:left}.catg_nav2 .catgimg_container{height:250px}.relatedpost_nav li{margin-right:7px}.custom-tabs > li > a{font-size:13px; padding:8px 5px}}
+@media(max-width:1160px ){
+    .logo-img {
+        width: 180px;
+    }
+    .footer-contact-table {
+        height: 180px;
+    }
+}
+@media(max-width:1095px ){
+    .logo-img {
+        width: 130px;
+    }
+    .footer-contact-table {
+        height: 130px;
+        line-height: 30px;
+    }
+}
+@media(max-width:505px ){
+    .logo-img {
+        width: 100%;
+    }
+}
+@media(max-width:1199px ){.scrollToTop{right: 13px} .logo_area{width:45%; display: block}.top_addarea{width:50%}.catg_nav li{width:47.94%}.catg_nav3 li{width:100%}.relatedpost_nav li{margin-right:9px}.custom-tabs > li > a{font-size:11px; padding:8px 2px}}
+@media(max-width:991px ){.navbar-nav > li > a {font-size: 18px;} .slider_tittle{bottom:10px; color:#fff; font-size:18px; line-height:1.5em; margin:0 15px}.logo_area{width:100%}.top_addarea{display:none}.middle_bar{width:100%}.catg_nav li{width:47.64%}.catg_nav3 li{width:100%}.catg5_nav li{width:49%; padding-right:6px}.catg3_snav .media-left > img{height:auto}.ppost_nav li{width:50%; float:left}.catg_nav2 .catgimg_container{height:250px}.relatedpost_nav li{margin-right:7px}.custom-tabs > li > a{font-size:13px; padding:8px 5px}}
 @media(max-width:767px ){.make-a-call .phone_number{display: none} #hotline{display: none} #hotline_lite{display: block} .scrollToTop{width: 48px; height: 48px; bottom: 70px; border-radius: 50px; right: 20px} .footer_bottom_right{text-align:center; width:100%} .navbar-collapse{padding-left:15px}.container-fluid{padding-left:15px}#searchIcon{height:50px; float:right}#search-hide input{height:108px; width:89%}.header_search{width:100%}.navbar{width:100%}.navbar-toggle{margin:8px auto; padding:13px}.navbar-header{text-align:center}button.remove{padding-top:40px; padding-right:6px}.left_bar{width:100%}}
 @media(max-width:480px ){.logo-img{width: 100%} .make-a-call .phone_number{display: none} #hotline{display: none} #hotline_lite{display: block} .make-a-call{bottom: 15px;} .scrollToTop{width: 48px; height: 48px; bottom: 70px; border-radius: 50px} .logo{font-size: 30px} .logo_area{text-align:center}.logo img{width:100%}.catg_nav li{width:100%}.category_three{width:100%}.category_four{width:100%}.catg5_nav li{padding-right:0; width:100%}.ppost_nav li{width:100%}.footer_bottom_left{text-align:center; width:100%}.footer_bottom_right{text-align:center; width:100%}.read_more{z-index:99}.singlearcive_article p{display:none}.relatedpost_nav li{margin-right:0; width:100%}.recentpost_nav li a > img{height:150px}.carousel-caption{bottom:5px; padding-bottom:0; padding-top:10px; z-index:999;}.latest_newsarea span{font-size:14px; padding:5px 15px}}
 @media(max-width:320px ){.logo-img{width: 100%} .make-a-call .phone_number{display: none} #hotline{display: none} #hotline_lite{display: block} .make-a-call{bottom: 15px;} .scrollToTop{width: 48px; height: 48px; bottom: 70px; border-radius: 50px} .logo{font-size: 28px} .carousel-indicators{display:none}.carousel-caption > h1{font-size:10px}.read_more{font-size:10px; padding:5px 6px; right:5px; top:5px}.singlearcive_article{bottom:0}.singlearcive_article h2{line-height:15px}.singlearcive_article p{display:none}.post_title{border-left:5px solid #09c; font-size:1.5em}.single_post_area .author_name, .post_date{width:100%; float:left; margin-bottom:10px}.social_area ul li > a{font-size:20px; margin:0 2px}.carousel-caption{bottom:5px; padding-bottom:0; padding-top:10px}.carousel-caption > h1 a{font-size:14px}.custom-tabs > li > a{font-size:11px}.singlearcive_article > h2 a{font-size:11px}.author_name{margin-bottom:2px; float:left}}

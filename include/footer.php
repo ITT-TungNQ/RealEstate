@@ -2,13 +2,15 @@
     <div class="footer_top">
         <div class="col-lg-6 col-md-6 col-sm-12">
             <div class="single_footer_top wow fadeInLeft">
-                <h2>CÔNG TY CỔ PHẦN THƯƠNG MẠI DỊCH VỤ BẤT ĐỘNG SẢN BẦU TRỜI</h2>
-                <img class="col-lg-4 col-md-4 col-sm-4 logo-img" src="http://192.168.1.220:8080/RealEstate/images/logo.png" style="float: left;">
-                <p class="col-lg-8 col-md-8 col-sm-8" style="color: #fff; line-height: 40px; font-size: 14px; display: inline-block;"> 
-                    Địa chỉ: 22 Lâm Văn Bền, P.Tân Kiểng, Q.7, TP.HCM<br/>
-                    Điện thoại : 0938.45.89.45<br/>
-                    Email: maihongphuong.mhp@gmail.com
-                </p>
+                <h2 style=" margin-bottom: 0px;">CÔNG TY CỔ PHẦN THƯƠNG MẠI DỊCH VỤ BẤT ĐỘNG SẢN SKYLAND</h2>
+                <img class="logo-img" src="http://192.168.1.220:8080/RealEstate/images/logo.png">
+                <div class="footer-contact-table">
+                    <div class="footer-contact">
+                        Địa chỉ: 22 Lâm Văn Bền, P.Tân Kiểng, Q.7, TP.HCM<br/>
+                        Điện thoại : 0938.45.89.45<br/>
+                        Email: maihongphuong.mhp@gmail.com
+                    </div>
+                </div>
             </div>
         </div>
         <div class="col-lg-3 col-md-3 col-sm-6">
@@ -38,7 +40,7 @@
         </div>
         <div id="lien-he" class="col-lg-3 col-md-3 col-sm-6">
             <div class="single_footer_top wow fadeInRight">
-                <h2>Liên hệ</h2>
+                <h2>LIÊN HỆ</h2>
                 <form action="http://192.168.1.220:8080/RealEstate/controller/SendContact.php" method="post" class="contact_form">
                     <label>Tên: *</label>
                     <input class="form-control" name="contact_name" type="text" required="">
@@ -90,14 +92,14 @@
 </footer>
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/597b4d8c0d1bb37f1f7a64b3/default';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
+    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+    (function () {
+        var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = 'https://embed.tawk.to/597b4d8c0d1bb37f1f7a64b3/default';
+        s1.charset = 'UTF-8';
+        s1.setAttribute('crossorigin', '*');
+        s0.parentNode.insertBefore(s1, s0);
     })();
 </script>
 <!--End of Tawk.to Script-->

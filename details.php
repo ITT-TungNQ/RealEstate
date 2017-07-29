@@ -144,7 +144,7 @@ if (isset($_GET["id"])) {
                     </div>
                     <div class="single_post_content">
                         <p><?php echo($a['Details']) ?></p>
-                        <blockquote style="font-size: 15px">
+<!--                        <blockquote style="font-size: 15px">
                             <p>Thông Tin Khác:</p>
                             <p style="padding-left: 50px;">Hướng nhà:<?php echo ($DIRECTION[$a['Direction']]); ?> </p>
                             <p style="padding-left: 50px;">Số Phòng:
@@ -154,10 +154,10 @@ if (isset($_GET["id"])) {
                                 } else {
                                     echo ($a['Rooms']);
                                 }
-                                ?> </p>
-                            <p style="padding-left: 50px;">Loại Tin Rao: <?php echo ($loaiTin[$a['IsHire']]); ?></p>
-                        </blockquote>
-
+                                ?> 
+                                </p>
+                            <p style="padding-left: 50px;">Loại Tin Rao: <?php echo ($loaiTin[($a['IsHire'])?0:1]); ?></p>
+                        </blockquote>-->
                     </div>
                     <div class="related_post">
                         <h2 class="wow fadeInLeftBig"> Có thể bạn quan tâm 

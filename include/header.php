@@ -2,6 +2,7 @@
 <meta charset="UTF-8">
 <meta name="description" content="Trang thông tin bất động sản">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Trang thông tin mua bán bất động sản Sài Gòn. Cung cấp thông tin nhanh và chính xác nhất." />
 <link rel="icon" href="http://192.168.1.220:8080/RealEstate/images/tab-icon.png">
 <link rel="stylesheet" type="text/css" href="http://192.168.1.220:8080/RealEstate/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="http://192.168.1.220:8080/RealEstate/css/font-awesome.min.css">

@@ -10,9 +10,9 @@ function getConnection() {
     mysqli_set_charset($conn, 'UTF8');
     if (!$conn) {
         if (isset($_SESSION['login_user']['FirstName'])) {
-            header("location: http://batdongsansaigons.com/admin/unexpected-error");
+            header("location: http://192.168.1.220:8080/RealEstate/admin/unexpected-error");
         } else {
-            header("location: http://batdongsansaigons.com/unexpected-error");
+            header("location: http://192.168.1.220:8080/RealEstate/unexpected-error");
         }
         
         exit();

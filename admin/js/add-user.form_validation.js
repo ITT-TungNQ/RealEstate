@@ -177,7 +177,7 @@ function selectImage(e) {
 }
 
 $('#profile_picture').change(function () {
-    var maxsize = 5 * 1024 * 1024; // 5 MB
+    var maxsize = 1024 * 1024; // 1MB
     var file = this.files[0];
     if (file === undefined) {
         noPreview();

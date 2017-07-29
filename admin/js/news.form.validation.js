@@ -303,7 +303,7 @@ function selectImage(e) {
 
 $('#illustrationURL').change(function () {
     var _URL = window.URL || window.webkitURL;
-    var maxsize = 5 * 1024 * 1024; // 5 MB
+    var maxsize = 1024 * 1024; // 1 MB
 
     var file = this.files[0];
     if (file === undefined) {
@@ -339,7 +339,7 @@ $('#illustrationURL').change(function () {
     };
     img.src = _URL.createObjectURL(file);
 
-    $('#img-message').html('Kích thước tối đa 5MB');
+    $('#img-message').html('Kích thước tối đa 1MB');
     var reader = new FileReader();
     reader.onload = selectImage;
     reader.readAsDataURL(this.files[0]);

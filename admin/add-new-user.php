@@ -192,7 +192,7 @@ if (isset($insert_err)) {
                                             <div id="preview-img-container" class="preview-img-container">
                                                 <!--<img id="preview-img" class="preview-img" src="http://192.168.1.220:8080/RealEstate/admin/img/noimage.png">-->
                                             </div>
-                                            <span class="help-block" id="img-message">Kích thước tối đa 5MB</span>
+                                            <span class="help-block" id="img-message">Kích thước tối đa 1MB</span>
                                             <input id="profile_picture" name="profile_picture" type="file" />
                                         </div>
                                     </div>

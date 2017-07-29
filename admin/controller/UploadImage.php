@@ -8,7 +8,7 @@ if (!isset($_FILES['local-image'])) {
 }
 
 if (isset($_FILES["local-image"]["type"]) && $_FILES["local-image"]["name"] != "") {
-    $max_size = 5 * 1024 * 1024; // 5MB
+    $max_size = 1024 * 1024; // 1MB
     $destination_directory = (__DIR__) . "/../img/post/";
     $validextensions = array("jpeg", "jpg", "png");
 

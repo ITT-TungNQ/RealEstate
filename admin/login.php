@@ -149,11 +149,12 @@ $selectedBg = "$bg[$i]";
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <base href="http://192.168.1.220:8080/RealEstate/admin/" />
+        <link rel="icon" href="http://192.168.1.220:8080/RealEstate/images/tab-icon.png">
         <link rel="stylesheet" href="css/bootstrap.min.css" />
         <link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
         <link rel="stylesheet" href="css/matrix-login.css" />
         <link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
-        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
         <style type="text/css">
             body{
                 background: url('http://192.168.1.220:8080/RealEstate/admin/img/<?php echo $selectedBg; ?>');
@@ -174,7 +175,7 @@ $selectedBg = "$bg[$i]";
         <div class="outer">
             <div class="middle">
                 <div id="loginbox">
-                    <form class="form-vertical" id="login_form" name="login_form" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+                    <form class="form-vertical" id="login_form" name="login_form" method="post" action="http://192.168.1.220:8080/RealEstate/admin/dang-nhap">
                         <div class="control-group normal_text">
                             <h3><img src="http://192.168.1.220:8080/RealEstate/admin/img/logo.png" alt="Logo Admin" /></h3>
                         </div>
@@ -212,7 +213,7 @@ $selectedBg = "$bg[$i]";
                     </form>
 
                     <!-- FORM RECOVER PWD -->
-                    <form class="form-vertical" id="recover_form" name="recover_form" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>">
+                    <form class="form-vertical" id="recover_form" name="recover_form" method="post" action="http://192.168.1.220:8080/RealEstate/admin/dang-nhap">
                         <p class="normal_text">Điền tài khoản và e-mail để khôi phục mật khẩu.</p>
                         <div class="main_msg">
                             <span ><?php echo $recover_msg; ?></span>

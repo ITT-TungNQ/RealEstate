@@ -38,7 +38,7 @@ function NhaDatNoiBat($con) {
 }
 
 function TheLoai($con, $idType) {
-    $sql = "select *from news where $idType AND state = 1";
+    $sql = "select *from news where ($idType) AND state = 1";
     $kq = $con->query($sql);
     return $kq;
 }
@@ -56,7 +56,7 @@ function NhaDatNoiBat_PhanTrang($con, $from, $sotin1trang) {
 }
 
 function TheLoai_PhanTrang($con, $idType, $from, $sotin1trang) {
-    $sql = "select *from news where $idType AND state = 1 order by LastUpdated desc limit $from,$sotin1trang";
+    $sql = "select *from news where ($idType) AND state = 1 order by LastUpdated desc limit $from,$sotin1trang";
     $kq = $con->query($sql);
     return $kq;
 }

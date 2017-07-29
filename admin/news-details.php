@@ -177,7 +177,7 @@ if (isset($_GET['newsID'])) {
                                         <div class="controls">
                                             <div class="news-preview-img-container" id="news-preview-img-container" <?php if ($news->getIllustrationURL() != '') echo "style=\"background-image: url('" . $news->getIllustrationURL() . "')\""; ?> >
                                             </div>
-                                            <span class="help-block" id="img-message">Kích thước tối đa 5MB</span>
+                                            <span class="help-block" id="img-message">Kích thước tối đa 1MB</span>
                                             <input id="illustrationURL" class="span11" name="illustrationURL" type="file" />
                                             <a id="imageClear" class="tip" data-original-title="Xóa ảnh"><i class="icon-remove"></i></a>
                                         </div>

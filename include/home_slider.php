@@ -9,7 +9,7 @@
                 <div class="slider_image" style="background-image: url('<?php echo($a['IllustrationURL']); ?>');">
                     
                 </div>
-                <!--<img src="http://192.168.1.220:8080/BDS/images/395x396_image_01.jpg" alt="<?php echo($a['Title']); ?>" >-->
+                <!--<img src="http://192.168.1.220:8080/RealEstate/BDS/images/395x396_image_01.jpg" alt="<?php echo($a['Title']); ?>" >-->
                 <div class="sing_commentbox slider_comntbox">
                     <p><i class="fa fa-calendar"></i><?php echo date('d/m/Y',strtotime($a['LastUpdated'])); ?></p>
                     <p><i class="fa fa-eye"></i><?php echo($a['ViewNumber']); ?></p>

@@ -11,7 +11,9 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 @font-face{font-family:"Open Sans"; font-style:normal; font-weight:400; src:local("Open Sans"),local("OpenSans"),url("../fonts/OpenSans-400.woff") format("woff")}
 @font-face{font-family:"Varela"; font-style:normal; font-weight:400; src:local("Varela"),url("../fonts/Varela-400.woff") format("woff")}
-
+#bubble-image {
+    display: none;
+}
 body{word-wrap: break-word; background-image:url("images/pattern-bg.png"); background-repeat:repeat; color:#444; overflow-x:hidden !important}
 ul{padding:0; margin:0; list-style:none}
 a{text-decoration:none}

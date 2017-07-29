@@ -92,7 +92,7 @@
                   "<div class='control-group'>\n\
                         <div class='controls' style='margin: 0px;'>\n\
                             <div class='news-local-preview-img-container' id='news-local-preview-img-container' ></div>\n\
-                            <span class='help-block' id='img-message'>Kích thước tối đa 5MB</span>\n\
+                            <span class='help-block' id='img-message'>Kích thước tối đa 1MB</span>\n\
                             <input class='bootstrap-wysihtml5-insert-local-image-url  m-wrap large' type='file' />\n\
                         </div>\n\
                     </div>" +
@@ -382,11 +382,11 @@
             };
             
             inputFile.change(function () {
-                var maxsize = 5 * 1024 * 1024; // 5 MB
+                var maxsize = 1024 * 1024; // 1 MB
                 var file = this.files[0];
                 if (file === undefined) {
                     noPreview();
-                    imageMessage.html('Kích thước tối đa 5MB');
+                    imageMessage.html('Kích thước tối đa 1MB');
                     return false;
                 }
                 var match = ["image/jpeg", "image/png", "image/jpg"];
@@ -405,7 +405,7 @@
                     return false;
                 }
 
-                imageMessage.html('Kích thước tối đa 5MB');
+                imageMessage.html('Kích thước tối đa 1MB');
                 var reader = new FileReader();
                 reader.onload = selectImage;
                 reader.readAsDataURL(this.files[0]);

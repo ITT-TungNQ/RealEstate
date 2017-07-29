@@ -7,6 +7,9 @@
     -webkit-appearance:none;
     user-select: none;
 }
+label.span8 {
+    word-wrap: break-word;
+}
 html,
 body {
     height: 100%

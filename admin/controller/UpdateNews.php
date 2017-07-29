@@ -139,7 +139,7 @@ if (isset($_POST['update-news'])) {
     /* ========== UPLOAD IMAGE TO SERVER ========== */
     try {
         if (isset($_FILES["illustrationURL"]["type"]) && $_FILES["illustrationURL"]["name"] != "") {
-            $max_size = 5 * 1024 * 1024; // 5MB
+            $max_size = 1024 * 1024; // 1MB
             $destination_directory = (__DIR__) . "/../img/post/";
             $validextensions = array("jpeg", "jpg", "png");
 

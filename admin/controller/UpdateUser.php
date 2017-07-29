@@ -102,7 +102,7 @@ if (isset($inputChangeInfo)) {
     $postLName = filter_input(INPUT_POST, 'last_name');
 
     if (isset($_FILES["profile_picture"]["type"]) && $_FILES["profile_picture"]["name"] != "") {
-        $max_size = 5 * 1024 * 1024; // 5MB
+        $max_size = 1024 * 1024; // 1MB
         $destination_directory = "../img/user/";
         $validextensions = array("jpeg", "jpg", "png");
 

@@ -171,7 +171,7 @@ if (!isset($change_pwd_msg)) {
                                             <div class="preview-img-container" id="preview-img-container" style="background-image: url('<?php echo $user_img ?>')">
                                                 <!--<img id="preview-img" class="preview-img" src="<?php echo $user_img ?>">-->
                                             </div>
-                                            <span class="help-block" id="img-message">Kích thước tối đa 5MB</span>
+                                            <span class="help-block" id="img-message">Kích thước tối đa 1MB</span>
                                             <input id="profile_picture" name="profile_picture" type="file" />
                                             <a id="imageClear" class="tip" data-original-title="Xóa ảnh"><i class="icon-remove"></i></a>
                                         </div>

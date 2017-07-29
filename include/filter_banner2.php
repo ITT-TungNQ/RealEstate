@@ -216,10 +216,10 @@ $tinNoiBat = TinNoiBat($con);
                 </div>
             </div> <!--tin noi bat-->
 
-            <div class="single_leftbar wow fadeInDown">
-                <h2><span>Quảng cáo</span></h2>
-                <div class="singleleft_inner"> <a href="#"><img alt="" src="http://192.168.1.220:8080/RealEstate/images/lienhe.gif"></a></div>
-            </div>
+            <!--<div class="single_leftbar wow fadeInDown">-->
+            <!--    <h2><span>Quảng cáo</span></h2>-->
+            <!--    <div class="singleleft_inner"> <a href="#"><img alt="" src="http://192.168.1.220:8080/RealEstate/images/lienhe.gif"></a></div>-->
+            <!--</div>-->
 
 
 
@@ -241,11 +241,9 @@ $tinNoiBat = TinNoiBat($con);
                 <h2><span>Trang liên kết</span></h2>
                 <div class="singleleft_inner">
                     <ul class="link_nav">
-                        <li><a href="#">Liên hệ</a></li>
+                        <li><a href="#lien-he">Liên hệ</a></li>
                         <li><a target="_blank" href="https://www.facebook.com/chymchyck.bong">Facebook: Ngọc Như Ý </a></li>
-                        <li><a href="#">https://lien_ket.com.vn</a></li>
-                        <li><a href="#">https://lien_ket.com.vn</a></li>
-                        <li><a href="#">https://lien_ket.com.vn</a></li>
+                        
                     </ul>
                 </div>
             </div>

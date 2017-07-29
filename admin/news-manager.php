@@ -354,7 +354,7 @@ if (isset($cookieModal)) {
                                                     </a>
                                                 </div>';
 
-                                        if (in_array(Constants::CHANGE_NEWS_STATE, $_SESSION['user_role'])) {
+                                        if (in_array(Constants::CHANGE_NEWS_STATE, $_SESSION['user_role']) && $news->getState() != 2) {
                                             echo '
                                                 <div style="float: left;">
                                                     <a href="#toTrashAlert' . $news->getNewsId() . '" data-toggle="modal" title="Loại bỏ" class="btn btn-danger tip-top">

@@ -42,6 +42,8 @@
                 <form action="http://192.168.1.220:8080/RealEstate/controller/SendContact.php" method="post" class="contact_form">
                     <label>Tên: *</label>
                     <input class="form-control" name="contact_name" type="text" required="">
+                    <label>Số điện thoại: *</label>
+                    <input class="form-control" type="text" name="contact_phone" required="" pattern="^(01[2689]|09|\+841[2689]|02)[0-9]{8}$" title="Nhập vào đúng định dạng số điện thoại">
                     <label>Email: *</label>
                     <input class="form-control" type="email" name="contact_email" required="">
                     <label>Nội dung: *</label>
@@ -88,14 +90,14 @@
 </footer>
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
-    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-    (function () {
-        var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-        s1.async = true;
-        s1.src = 'https://embed.tawk.to/5969d1936edc1c10b03461be/default';
-        s1.charset = 'UTF-8';
-        s1.setAttribute('crossorigin', '*');
-        s0.parentNode.insertBefore(s1, s0);
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/597b4d8c0d1bb37f1f7a64b3/default';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
     })();
 </script>
 <!--End of Tawk.to Script-->
